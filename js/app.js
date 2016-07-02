@@ -3,27 +3,27 @@ $(document).foundation()
 context = new AudioContext()
 
 // declare globals
-var saw,
+var note,
     volume = context.createGain()
 
 // initialize volume
 volume.gain.value = 0.1
 
-function init() {
-    saw = context.createOscillator()
-    saw.type = 'sawtooth'
-    saw.frequency.value = 440           // set the frequency to 440 HZ
-
-    saw.connect(volume)
+function initNote(freq) {
+    note = context.createOscillator()
+    note.type = 'sawtooth'
+    note.frequency.value = freq
+    note.connect(volume)
     volume.connect(context.destination)
 }
 
 function startSaw() {
-    saw.start(0)          
+    initNote(440)
+    note.start(0)          
 }
 
 function stopSaw() {
-    saw.stop()
+    note.stop()
 }
 
 // Gain input event changes level from 0 to 1 
@@ -39,4 +39,3 @@ $(document).keydown(function(e) {
     }
 });
 
-init()
