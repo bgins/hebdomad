@@ -4,6 +4,7 @@ context = new AudioContext()
 
 // declare globals
 var noteOne, noteTwo,
+    voices = [],
     volume = context.createGain()
 
 // initialize volume
@@ -42,10 +43,16 @@ $('#gain').on('input',function(e){
     volume.gain.value = gain
 });
 
-// keydown starts notes:
-// a = 66, s = 83, d = 68, f = 70
-// j = 74, k = 75, l = 76, ; = 59
+// keydown starts notes, keyup stops note
+// voices keeps track of which keys are currently held
+// keycodes: a = 66, s = 83, d = 68, f = 70
+//           j = 74, k = 75, l = 76, ; = 59
 $(document).keydown(function(e) {
+    // check if key is currently pressed
+    if (voices[e.which]) {
+        return
+    }
+
     switch (e.which) {
         case 65:
             startNoteOne()
@@ -66,5 +73,29 @@ $(document).keydown(function(e) {
         case 59:
             break
     }
+    voices[e.which] = true
 });
 
+$(document).keyup(function(e) {
+    switch (e.which) {
+        case 65:
+            stopNoteOne()
+            break
+        case 83:
+            stopNoteTwo()
+            break
+        case 68:
+            break
+        case 70:
+            break
+        case 74:
+            break
+        case 75:
+            break
+        case 76:
+            break
+        case 59:
+            break
+    }
+    voices[e.which] = false
+});
