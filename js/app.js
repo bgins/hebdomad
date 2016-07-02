@@ -43,6 +43,24 @@ $('#gain').on('input',function(e){
     volume.gain.value = gain
 });
 
+// ---------- click events ------------
+$('#noteOne').mousedown(function() {
+    startNoteOne();
+});
+
+$('#noteOne').mouseup(function() {
+    stopNoteOne();
+});
+
+$('#noteTwo').mousedown(function() {
+    startNoteTwo();
+});
+
+$('#noteTwo').mouseup(function() {
+    stopNoteTwo();
+});
+
+// ---------- keypress events ------------
 // keydown starts notes, keyup stops note
 // voices keeps track of which keys are currently held
 // keycodes: a = 66, s = 83, d = 68, f = 70
