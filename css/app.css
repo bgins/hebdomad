@@ -1,0 +1,13 @@
+li {
+  display: inline-block;
+  padding: 0.5em 0.87em 0 0.87em;
+}
+
+input[type="text"] {
+  width: 3.7em;
+  font-size: 0.9em;
+}
+
+.fixed-width {
+  width: 2.6em;
+}

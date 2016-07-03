@@ -23,21 +23,46 @@
           <p>Some instructions...</p>
 
           <div class="row">
-            <div class="large-8 large-centered columns">
+            <div class="large-8 medium-8 large-centered columns">
               <div class="callout">
-                <div class="row">
-                  <div class="large-2 medium-2 columns">
-                    <p><b>One</b><br />
-                    <a href="#" class="simple button" id="voice-one">a</a>
-                    <input type="text" id="noteOneHz" placeholder="Hz" />
+                <ul class="small-block-grid-3">
+                  <li> 
+                    <p>
+                    <a href="#" class="simple large fixed-width button" id="voice-one">a</a>
+                    <input type="text" id="voice-one-pitch" placeholder="Hz" />
                     </p>
-                  </div>
-                  <div class="large-2 medium-2 columns">
-                    <p><b>Two</b><br />
-                    <a href="#" class="simple button" id="voice-two">s</a>
-                    </p>
-                  </div>
-                </div>
+                  </li>
+                  <li>
+                    <a href="#" class="simple large fixed-width button" id="voice-two">s</a>
+                    <input type="text" id="voice-two-pitch" placeholder="Hz" />
+                  </li>
+
+                  <li>
+                    <a href="#" class="simple large fixed-width button" id="voice-three">d</a>
+                    <input type="text" id="voice-three-pitch" placeholder="Hz" />
+                  </li>
+                  <li>
+                    <a href="#" class="simple large fixed-width button" id="voice-four">f</a>
+                    <input type="text" id="voice-four-pitch" placeholder="Hz" />
+                  </li>
+                  <li>
+                    <a href="#" class="simple large fixed-width button" id="voice-five">j</a>
+                    <input type="text" id="voice-five-pitch" placeholder="Hz" />
+                  </li>
+                  <li>
+                    <a href="#" class="simple large fixed-width button" id="voice-six">k</a>
+                    <input type="text" id="voice-six-pitch" placeholder="Hz" />
+                  </li>
+                  <li>
+                    <a href="#" class="simple large fixed-width button" id="voice-seven">l</a>
+                    <input type="text" id="voice-seven-pitch" placeholder="Hz" />
+                  </li>
+                  <li>
+                    <a href="#" class="simple large fixed-width button" id="voice-eight">;</a>
+                    <input type="text" id="voice-eight-pitch" placeholder="Hz" />
+                  </li>
+
+                </ul>
               </div>
             </div>
           </div>
@@ -45,7 +70,7 @@
           <div class="row">
             <div class="large-2 medium-2 columns">
               <label>Gain</label>
-              <input type="text" id="gain" placeholder="between 0 and 1" />
+              <input type="text" id="gain" placeholder="0 to 1" />
             </div>
           </div>
 
