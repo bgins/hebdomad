@@ -3,38 +3,38 @@ $(document).foundation()
 context = new AudioContext()
 
 // declare globals
-var noteOne, noteTwo,
+var voiceOne, voiceTwo,
     voices = [],
     volume = context.createGain()
 
 // initialize volume
 volume.gain.value = 0.1
 
-function initNote(note, freq) {
-    note.type = 'sawtooth'
-    note.frequency.value = freq
-    note.connect(volume)
+function initVoice(voice, freq) {
+    voice.type = 'sawtooth'
+    voice.frequency.value = freq
+    voice.connect(volume)
     volume.connect(context.destination)
 }
 
-function startNoteOne() {
-    noteOne = context.createOscillator()
-    initNote(noteOne,440)
-    noteOne.start(0)          
+function startVoiceOne() {
+    voiceOne = context.createOscillator()
+    initVoice(voiceOne,440)
+    voiceOne.start(0)          
 }
 
-function stopNoteOne() {
-    noteOne.stop()
+function stopVoiceOne() {
+    voiceOne.stop()
 }
 
-function startNoteTwo() {
-    noteTwo = context.createOscillator()
-    initNote(noteTwo,880)
-    noteTwo.start(0)          
+function startVoiceTwo() {
+    voiceTwo = context.createOscillator()
+    initVoice(voiceTwo,880)
+    voiceTwo.start(0)          
 }
 
-function stopNoteTwo() {
-    noteTwo.stop()
+function stopVoiceTwo() {
+    voiceTwo.stop()
 }
 
 // Gain input event changes level from 0 to 1 
@@ -44,20 +44,20 @@ $('#gain').on('input',function(e){
 });
 
 // ---------- click events ------------
-$('#noteOne').mousedown(function() {
-    startNoteOne();
+$('#voice-one').mousedown(function() {
+    startVoiceOne();
 });
 
-$('#noteOne').mouseup(function() {
-    stopNoteOne();
+$('#voice-one').mouseup(function() {
+    stopVoiceOne();
 });
 
-$('#noteTwo').mousedown(function() {
-    startNoteTwo();
+$('#voice-two').mousedown(function() {
+    startVoiceTwo();
 });
 
-$('#noteTwo').mouseup(function() {
-    stopNoteTwo();
+$('#voice-two').mouseup(function() {
+    stopVoiceTwo();
 });
 
 // ---------- keypress events ------------
@@ -73,10 +73,10 @@ $(document).keydown(function(e) {
 
     switch (e.which) {
         case 65:
-            startNoteOne()
+            startVoiceOne()
             break
         case 83:
-            startNoteTwo()
+            startVoiceTwo()
             break
         case 68:
             break
@@ -97,10 +97,10 @@ $(document).keydown(function(e) {
 $(document).keyup(function(e) {
     switch (e.which) {
         case 65:
-            stopNoteOne()
+            stopVoiceOne()
             break
         case 83:
-            stopNoteTwo()
+            stopVoiceTwo()
             break
         case 68:
             break
