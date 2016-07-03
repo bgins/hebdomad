@@ -13,12 +13,12 @@ volume.gain.value = 0.1
 // initialize pitch values
 $(document).ready(function(){
     $('#voice-one-pitch').attr("value","440")
-    $('#voice-two-pitch').attr("value","493.88")
-    $('#voice-three-pitch').attr("value","523.33")
-    $('#voice-four-pitch').attr("value","587.33")
-    $('#voice-five-pitch').attr("value","659.26")
-    $('#voice-six-pitch').attr("value","698.46")
-    $('#voice-seven-pitch').attr("value","783.99")
+    $('#voice-two-pitch').attr("value","473.85")
+    $('#voice-three-pitch').attr("value","513.33")
+    $('#voice-four-pitch').attr("value","560")
+    $('#voice-five-pitch').attr("value","616")
+    $('#voice-six-pitch').attr("value","684.44")
+    $('#voice-seven-pitch').attr("value","770")
     $('#voice-eight-pitch').attr("value","880")
 });
 
