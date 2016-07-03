@@ -24,7 +24,7 @@ $(document).ready(function(){
 
 // Gain input event changes level from 0 to 1 
 $('#gain').on('input',function(e){
-    gain = $("#gain").val()
+    gain = $("#gain").val() / 10
     volume.gain.value = gain
 });
 
