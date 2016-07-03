@@ -262,3 +262,8 @@ $(document).keyup(function(e) {
     }
     voices[e.which] = false
 });
+
+// blur event that fires on any input:text enter
+$("#btnHidden").on('click', function() {
+    $("input:text").blur()
+})
