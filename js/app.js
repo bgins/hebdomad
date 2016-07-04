@@ -11,7 +11,17 @@ var voiceOne, voiceTwo,
 volume.gain.value = 0.1
 
 // initialize pitch values
-$(document).ready(function(){
+$(document).ready(function() {
+    initTuning()
+})
+
+/*
+$(document).unload(function() {
+    $("input[type=text]").val('')
+})
+*/
+
+function initTuning() {
     $('#voice-one-pitch').attr("value","440")
     $('#voice-two-pitch').attr("value","473.85")
     $('#voice-three-pitch').attr("value","513.33")
@@ -20,13 +30,15 @@ $(document).ready(function(){
     $('#voice-six-pitch').attr("value","684.44")
     $('#voice-seven-pitch').attr("value","770")
     $('#voice-eight-pitch').attr("value","880")
-});
+}
+
+
 
 // Gain input event changes level from 0 to 1 
-$('#gain').on('input',function(e){
+$('#gain').on('input',function(){
     gain = $("#gain").val() / 10
     volume.gain.value = gain
-});
+})
 
 // initialize a new note
 function initVoice(voice, freq) {
