@@ -196,8 +196,9 @@ $('#voice-eight').mouseup(function() {
 // ---------- keypress events ------------
 // keydown starts notes, keyup stops note
 // voices keeps track of which keys are currently held
-// keycodes: a = 66, s = 83, d = 68, f = 70
-//           j = 74, k = 75, l = 76, ; = 59
+// keycodes: a = 66, s = 83, d = 68, f = 70,
+//           j = 74, k = 75, l = 76, 
+//           ; = 59 (firefox) and 186 (chrome)
 $(document).keydown(function(e) {
     // check if key is currently pressed
     if (voices[e.which]) {
@@ -227,6 +228,7 @@ $(document).keydown(function(e) {
             startVoiceSeven();
             break
         case 59:
+        case 186:
             startVoiceEight();
             break
     }
@@ -257,6 +259,7 @@ $(document).keyup(function(e) {
             stopVoiceSeven();
             break
         case 59:
+        case 186:
             stopVoiceEight();
             break
     }
