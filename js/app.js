@@ -3,23 +3,15 @@ $(document).foundation()
 context = new AudioContext()
 
 // declare globals
-var voiceOne, voiceTwo,
-    voices = [],
+var voices = []
+    heldKeys = [],
     volume = context.createGain()
 
-// initialize volume
-volume.gain.value = 0.1
 
 // initialize pitch values
 $(document).ready(function() {
     initTuning()
 })
-
-/*
-$(document).unload(function() {
-    $("input[type=text]").val('')
-})
-*/
 
 function initTuning() {
     $('#voice-one-pitch').attr("value","440")
@@ -30,9 +22,12 @@ function initTuning() {
     $('#voice-six-pitch').attr("value","684.44")
     $('#voice-seven-pitch').attr("value","770")
     $('#voice-eight-pitch').attr("value","880")
+    $('#gain').attr("value","1")
 }
 
 
+// initialize gain
+volume.gain.value = 0.1
 
 // Gain input event changes level from 0 to 1 
 $('#gain').on('input',function(){
@@ -40,244 +35,175 @@ $('#gain').on('input',function(){
     volume.gain.value = gain
 })
 
-// initialize a new note
-function initVoice(voice, freq) {
-    voice.type = 'triangle'
+
+// ---------- start and stop voices------------
+function startVoice(n,freq) {
+    voices[n] = context.createOscillator()
+    voices[n].type = 'triangle'
     console.log(freq)
-    voice.frequency.value = freq
-    voice.connect(volume)
+    voices[n].frequency.value = freq
+    voices[n].connect(volume)
     volume.connect(context.destination)
+    voices[n].start(0)          
+}
+
+function stopVoice(n) {
+    voices[n].stop()
 }
 
 
-// start and stop voices
-function startVoiceOne() {
-    var freq = $('#voice-one-pitch').val()
-    voiceOne = context.createOscillator()
-    initVoice(voiceOne,freq)
-    voiceOne.start(0)          
-}
-
-function stopVoiceOne() {
-    voiceOne.stop()
-}
-
-function startVoiceTwo() {
-    var freq = $('#voice-two-pitch').val()
-    voiceTwo = context.createOscillator()
-    initVoice(voiceTwo,freq)
-    voiceTwo.start(0)          
-}
-
-function stopVoiceTwo() {
-    voiceTwo.stop()
-}
-
-function startVoiceThree() {
-    var freq = $('#voice-three-pitch').val()
-    voiceThree = context.createOscillator()
-    initVoice(voiceThree,freq)
-    voiceThree.start(0)          
-}
-
-function stopVoiceThree() {
-    voiceThree.stop()
-}
-
-
-function startVoiceFour() {
-    var freq = $('#voice-four-pitch').val()
-    voiceFour = context.createOscillator()
-    initVoice(voiceFour,freq)
-    voiceFour.start(0)          
-}
-
-function stopVoiceFour() {
-    voiceFour.stop()
-}
-
-function startVoiceFive() {
-    var freq = $('#voice-five-pitch').val()
-    voiceFive = context.createOscillator()
-    initVoice(voiceFive,freq)
-    voiceFive.start(0)          
-}
-
-function stopVoiceFive() {
-    voiceFive.stop()
-}
-
-function startVoiceSix() {
-    var freq = $('#voice-six-pitch').val()
-    voiceSix = context.createOscillator()
-    initVoice(voiceSix,freq)
-    voiceSix.start(0)          
-}
-
-function stopVoiceSix() {
-    voiceSix.stop()
-}
-
-function startVoiceSeven() {
-    var freq = $('#voice-seven-pitch').val()
-    voiceSeven = context.createOscillator()
-    initVoice(voiceSeven,freq)
-    voiceSeven.start(0)          
-}
-
-function stopVoiceSeven() {
-    voiceSeven.stop()
-}
-
-function startVoiceEight() {
-    var freq = $('#voice-eight-pitch').val()
-    voiceEight = context.createOscillator()
-    initVoice(voiceEight,freq)
-    voiceEight.start(0)          
-}
-
-function stopVoiceEight() {
-    voiceEight.stop()
-}
-
-
-// ---------- click events ------------
-$('#voice-one').mousedown(function() {
-    startVoiceOne();
-});
-
-$('#voice-one').mouseup(function() {
-    stopVoiceOne();
-});
-
-$('#voice-two').mousedown(function() {
-    startVoiceTwo();
-});
-
-$('#voice-two').mouseup(function() {
-    stopVoiceTwo();
-});
-
-$('#voice-three').mousedown(function() {
-    startVoiceThree();
-});
-
-$('#voice-three').mouseup(function() {
-    stopVoiceThree();
-});
-
-$('#voice-four').mousedown(function() {
-    startVoiceFour();
-});
-
-$('#voice-four').mouseup(function() {
-    stopVoiceFour();
-});
-
-$('#voice-five').mousedown(function() {
-    startVoiceFive();
-});
-
-$('#voice-five').mouseup(function() {
-    stopVoiceFive();
-});
-
-$('#voice-six').mousedown(function() {
-    startVoiceSix();
-});
-
-$('#voice-six').mouseup(function() {
-    stopVoiceSix();
-});
-
-$('#voice-seven').mousedown(function() {
-    startVoiceSeven();
-});
-
-$('#voice-seven').mouseup(function() {
-    stopVoiceSeven();
-});
-
-$('#voice-eight').mousedown(function() {
-    startVoiceEight();
-});
-
-$('#voice-eight').mouseup(function() {
-    stopVoiceEight();
-});
 // ---------- keypress events ------------
 // keydown starts notes, keyup stops note
-// voices keeps track of which keys are currently held
+// heldKeys keeps track of which keys are currently held
 // keycodes: a = 66, s = 83, d = 68, f = 70,
 //           j = 74, k = 75, l = 76, 
 //           ; = 59 (firefox) and 186 (chrome)
 $(document).keydown(function(e) {
     // check if key is currently pressed
-    if (voices[e.which]) {
+    if (heldKeys[e.which]) {
         return
     }
 
     switch (e.which) {
         case 65:
-            startVoiceOne()
+            var freq = $('#voice-one-pitch').val()
+            startVoice(1,freq)
             break
         case 83:
-            startVoiceTwo()
+            var freq = $('#voice-two-pitch').val()
+            startVoice(2,freq)
             break
         case 68:
-            startVoiceThree()
+            var freq = $('#voice-three-pitch').val()
+            startVoice(3,freq)
             break
         case 70:
-            startVoiceFour();
+            var freq = $('#voice-four-pitch').val()
+            startVoice(4,freq)
             break
         case 74:
-            startVoiceFive();
+            var freq = $('#voice-five-pitch').val()
+            startVoice(5,freq)
             break
         case 75:
-            startVoiceSix();
+            var freq = $('#voice-six-pitch').val()
+            startVoice(6,freq)
             break
         case 76:
-            startVoiceSeven();
+            var freq = $('#voice-seven-pitch').val()
+            startVoice(7,freq)
             break
         case 59:
         case 186:
-            startVoiceEight();
+            var freq = $('#voice-eight-pitch').val()
+            startVoice(8,freq)
             break
     }
-    voices[e.which] = true
+    heldKeys[e.which] = true
 });
 
 $(document).keyup(function(e) {
     switch (e.which) {
         case 65:
-            stopVoiceOne()
+            stopVoice(1)
             break
         case 83:
-            stopVoiceTwo()
+            stopVoice(2)
             break
         case 68:
-            stopVoiceThree()
+            stopVoice(3)
             break
         case 70:
-            stopVoiceFour()
+            stopVoice(4)
             break
         case 74:
-            stopVoiceFive();
+            stopVoice(5);
             break
         case 75:
-            stopVoiceSix();
+            stopVoice(6);
             break
         case 76:
-            stopVoiceSeven();
+            stopVoice(7);
             break
         case 59:
         case 186:
-            stopVoiceEight();
+            stopVoice(8);
             break
     }
-    voices[e.which] = false
+    heldKeys[e.which] = false
 });
 
+
+// ---------- click events ------------
+// note starts on mousedown, then holds til mouseup
+$('.key').mousedown(function() {
+    switch(this.id) {
+        case "voice-one":
+            var freq = $('#voice-one-pitch').val()
+            startVoice(1,freq)
+            break
+        case "voice-two":
+            var freq = $('#voice-two-pitch').val()
+            startVoice(2,freq)
+            break
+        case "voice-three":
+            var freq = $('#voice-three-pitch').val()
+            startVoice(3,freq)
+            break
+        case "voice-four":
+            var freq = $('#voice-four-pitch').val()
+            startVoice(4,freq)
+            break
+        case "voice-five":
+            var freq = $('#voice-five-pitch').val()
+            startVoice(5,freq)
+            break
+        case "voice-six":
+            var freq = $('#voice-six-pitch').val()
+            startVoice(6,freq)
+            break
+        case "voice-seven":
+            var freq = $('#voice-seven-pitch').val()
+            startVoice(7,freq)
+            break
+        case "voice-eight":
+            var freq = $('#voice-eight-pitch').val()
+            startVoice(8,freq)
+            break
+    }
+})
+
+$('.key').mouseup(function() {
+    switch(this.id) {
+        case "voice-one":
+            stopVoice(1)
+            break
+        case "voice-two":
+            stopVoice(2)
+            break
+        case "voice-three":
+            stopVoice(3)
+            break
+        case "voice-four":
+            stopVoice(4)
+            break
+        case "voice-five":
+            stopVoice(5)
+            break
+        case "voice-six":
+            stopVoice(6)
+            break
+        case "voice-seven":
+            stopVoice(7)
+            break
+        case "voice-eight":
+            stopVoice(8)
+            break
+    }
+})
+
+
+// ---------- utilities events ------------
 // blur event that fires on any input:text enter
 $("#btnHidden").on('click', function() {
     $("input:text").blur()
