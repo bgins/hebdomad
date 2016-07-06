@@ -5,7 +5,7 @@ context = new AudioContext()
 // declare globals
 var voices = []
     heldKeys = [],
-    volume = context.createGain()
+    amp = context.createGain()
 
 
 $(document).ready(function() {
@@ -26,7 +26,7 @@ function initTuning() {
 }
 
 // initialize gain
-volume.gain.value = 0.1
+amp.gain.value = 0.1
 
 // ---------- start and stop voices------------
 function startVoice(n,freq) {
@@ -34,8 +34,8 @@ function startVoice(n,freq) {
     voices[n].type = 'triangle'
     console.log(freq)
     voices[n].frequency.value = freq
-    voices[n].connect(volume)
-    volume.connect(context.destination)
+    voices[n].connect(amp)
+    amp.connect(context.destination)
     voices[n].start(0)          
 }
 
