@@ -11,11 +11,3 @@ input[type="text"] {
 .fixed-width {
   width: 3.9em;
 }
-
-#gain-box {
-  margin-left: 3em;
-}
-
-span {
-  padding-left: 2em;
-}
