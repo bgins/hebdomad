@@ -2,12 +2,14 @@ $(document).foundation()
 
 context = new AudioContext()
 
-var envelopeModulator = ADSR(context)
-
 // declare globals
 var voices = []
     heldKeys = [],
-    mixAmp = context.createGain()
+    mixAmp = context.createGain(),
+    ampEnvAttack = 1,
+    ampEnvDelay = 0,
+    ampEnvSustain = 1,
+    ampEnvRelease = 0.8
 
 
 $(document).ready(function() {
@@ -30,15 +32,6 @@ function initTuning() {
 // initialize gain
 mixAmp.gain.value = 0.1
 
-envelopeModulator.connect(amp.gain)
-
-envelopeModulator.attack = 0.5 // seconds
-envelopeModulator.decay = 0.4 // seconds
-envelopeModulator.sustain = 0.6 // multiply gain.gain.value
-envelopeModulator.release = 0.4 // seconds
-
-envelopeModulator.value.value = 2 // value is an AudioParam
-
 
 // ---------- start and stop voices------------
 function startVoice(n,freq) {
@@ -55,6 +48,7 @@ function stopVoice(n) {
 function Voice(mixAmp) {
     this.osc = context.createOscillator()
     this.oscAmp = context.createGain()
+    this.ampEnv = ADSR(context)
 
     this.play = function(frequency) {
         this.osc.type = 'triangle'
@@ -62,14 +56,26 @@ function Voice(mixAmp) {
         console.log(frequency)
 
         this.oscAmp.gain = 0.1
+
+        console.log(ampEnvAttack)
+        this.ampEnv.attack = ampEnvAttack
+        this.ampEnv.delay = ampEnvDelay
+        this.ampEnv.sustain = ampEnvSustain
+        this.ampEnv.release = ampEnvRelease
+        this.ampEnv.value.value = 2     // ???
     
+        // routing
         this.osc.connect(this.oscAmp)
         this.oscAmp.connect(mixAmp)
+        this.ampEnv.connect(this.oscAmp.gain)
         mixAmp.connect(context.destination)
-        this.osc.start(0)          
+
+        this.ampEnv.start(context.currentTime)
+        this.osc.start(context.CurrentTime)          
     }
 
     this.stop = function() {
-        this.osc.stop()
+        var stopAt = this.ampEnv.stop(context.currentTime + 0.2)
+        this.osc.stop(stopAt)
     }
 }
