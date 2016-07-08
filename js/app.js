@@ -6,8 +6,8 @@ context = new AudioContext()
 var voices = []
     heldKeys = [],
     mixAmp = context.createGain(),
-    ampEnvAttack = 0.05,
-    ampEnvDelay = 0.2,
+    ampEnvAttack = 0.1,
+    ampEnvDelay = 0.1,
     ampEnvSustain = 0.9,
     ampEnvRelease = 0.1
 
@@ -35,6 +35,12 @@ mixAmp.gain.value = 0.1
 
 // ---------- start and stop voices------------
 function startVoice(n,freq) {
+    // check for retrigger
+    if (voices[n]) {
+        voices[n].osc.stop()
+    }
+
+    // instantiate and start voice 
     voices[n] = new Voice(mixAmp)
     voices[n].play(freq)
 }
@@ -55,7 +61,7 @@ function Voice(mixAmp) {
         this.osc.frequency.value = frequency
         console.log(frequency)
 
-        this.oscAmp.gain = 0.1
+        this.oscAmp.gain = 1
 
         console.log(ampEnvAttack)
         this.ampEnv.attack = ampEnvAttack
