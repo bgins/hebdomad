@@ -6,10 +6,10 @@ context = new AudioContext()
 var voices = []
     heldKeys = [],
     mixAmp = context.createGain(),
-    ampEnvAttack = 1,
-    ampEnvDelay = 0,
-    ampEnvSustain = 1,
-    ampEnvRelease = 0.8
+    ampEnvAttack = 0.05,
+    ampEnvDelay = 0.2,
+    ampEnvSustain = 0.9,
+    ampEnvRelease = 0.1
 
 
 $(document).ready(function() {
@@ -75,7 +75,7 @@ function Voice(mixAmp) {
     }
 
     this.stop = function() {
-        var stopAt = this.ampEnv.stop(context.currentTime + 0.2)
+        var stopAt = this.ampEnv.stop(context.currentTime + ampEnvRelease)
         this.osc.stop(stopAt)
     }
 }
