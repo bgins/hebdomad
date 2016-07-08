@@ -2,6 +2,8 @@ $(document).foundation()
 
 context = new AudioContext()
 
+var envelopeModulator = ADSR(context)
+
 // declare globals
 var voices = []
     heldKeys = [],
@@ -28,15 +30,29 @@ function initTuning() {
 // initialize gain
 amp.gain.value = 0.1
 
+envelopeModulator.connect(amp.gain)
+
+envelopeModulator.attack = 0.5 // seconds
+envelopeModulator.decay = 0.4 // seconds
+envelopeModulator.sustain = 0.6 // multiply gain.gain.value
+envelopeModulator.release = 0.4 // seconds
+
+envelopeModulator.value.value = 2 // value is an AudioParam
+
+
 // ---------- start and stop voices------------
 function startVoice(n,freq) {
     voices[n] = context.createOscillator()
     voices[n].type = 'triangle'
     console.log(freq)
     voices[n].frequency.value = freq
+
     voices[n].connect(amp)
     amp.connect(context.destination)
+
+    envelopeModulator.start(context.currentTime)
     voices[n].start(0)          
+    envelopeModulator.stop(context.currentTime + 1)
 }
 
 function stopVoice(n) {
