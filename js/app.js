@@ -30,15 +30,30 @@ amp.gain.value = 0.1
 
 // ---------- start and stop voices------------
 function startVoice(n,freq) {
-    voices[n] = context.createOscillator()
-    voices[n].type = 'triangle'
-    console.log(freq)
-    voices[n].frequency.value = freq
-    voices[n].connect(amp)
-    amp.connect(context.destination)
-    voices[n].start(0)          
+    voices[n] = new Voice(amp)
+    voices[n].play(freq)
 }
 
 function stopVoice(n) {
     voices[n].stop()
+}
+
+
+// ---------- Voice class ----------------
+function Voice(amp) {
+    this.osc = context.createOscillator()
+
+    this.play = function(frequency) {
+        this.osc.type = 'triangle'
+        this.osc.frequency.value = frequency
+        console.log(frequency)
+    
+        this.osc.connect(amp)
+        amp.connect(context.destination)
+        this.osc.start(0)          
+    }
+
+    this.stop = function() {
+        this.osc.stop()
+    }
 }
