@@ -7,7 +7,7 @@ var envelopeModulator = ADSR(context)
 // declare globals
 var voices = []
     heldKeys = [],
-    amp = context.createGain()
+    mixAmp = context.createGain()
 
 
 $(document).ready(function() {
@@ -28,7 +28,7 @@ function initTuning() {
 }
 
 // initialize gain
-amp.gain.value = 0.1
+mixAmp.gain.value = 0.1
 
 envelopeModulator.connect(amp.gain)
 
@@ -42,7 +42,7 @@ envelopeModulator.value.value = 2 // value is an AudioParam
 
 // ---------- start and stop voices------------
 function startVoice(n,freq) {
-    voices[n] = new Voice(amp)
+    voices[n] = new Voice(mixAmp)
     voices[n].play(freq)
 }
 
@@ -52,16 +52,20 @@ function stopVoice(n) {
 
 
 // ---------- Voice class ----------------
-function Voice(amp) {
+function Voice(mixAmp) {
     this.osc = context.createOscillator()
+    this.oscAmp = context.createGain()
 
     this.play = function(frequency) {
         this.osc.type = 'triangle'
         this.osc.frequency.value = frequency
         console.log(frequency)
+
+        this.oscAmp.gain = 0.1
     
-        this.osc.connect(amp)
-        amp.connect(context.destination)
+        this.osc.connect(this.oscAmp)
+        this.oscAmp.connect(mixAmp)
+        mixAmp.connect(context.destination)
         this.osc.start(0)          
     }
 
