@@ -2,7 +2,7 @@
 
 // Gain input event changes level from 0 to 1 
 $('#gain').on('input',function(){
-    mixAmp.gain.value = $("#gain").val() / 100
+    mixAmp.gain.value = $("#gain").val() / 50 
 })
 
 $('#attack').on('input',function(){

@@ -29,7 +29,9 @@ function initTuning() {
 }
 
 function initControls() {
-    // $('#gain').attr("value","1")
+    $('#gain').attr("value","5")
+    $('#attack').attr("value","100")
+    $('#release').attr("value","100")
     mixAmp.gain.value = 0.1
 }
 
@@ -69,7 +71,6 @@ function Voice(mixAmp) {
         this.ampEnv.sustain = ampEnvSustain
         this.ampEnv.release = ampEnvRelease
         this.ampEnv.endValue = 0.0
-        console.log(this.ampEnv.sustain)
     
         // routing
         this.osc.connect(this.oscAmp)
