@@ -2,8 +2,23 @@
 
 // Gain input event changes level from 0 to 1 
 $('#gain').on('input',function(){
-    gain = $("#gain").val() / 10
-    amp.gain.value = gain
+    mixAmp.gain.value = $("#gain").val() / 100
+})
+
+$('#attack').on('input',function(){
+    ampEnvAttack = $("#attack").val() / 1000
+})
+
+$('#delay').on('input',function(){
+    ampEnvDelay = $("#delay").val() / 1000
+})
+
+$('#sustain').on('input',function(){
+    ampEnvSustain = $("#sustain").val() / 100
+})
+
+$('#release').on('input',function(){
+    ampEnvRelease = $("#release").val() / 1000
 })
 
 
