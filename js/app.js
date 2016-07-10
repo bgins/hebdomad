@@ -1,90 +1,180 @@
-$(document).foundation()
+// Event handlers
 
-context = new AudioContext()
-
-// declare globals
-var voices = []
-    heldKeys = [],
-    mixAmp = context.createGain(),
-    ampEnvAttack = 0.1,
-    ampEnvDelay = 0.0,
-    ampEnvSustain = 1.0,
-    ampEnvRelease = 0.1
-
-// ---------- init instrument ----------------
-$(document).ready(function() {
-    initTuning()
-    initControls()
+// Gain input event changes level from 0 to 1 
+$('#gain').on('input',function(){
+    mixAmp.gain.value = $("#gain").val() / 50 
 })
 
-function initTuning() {
-    $('#voice-one-pitch').attr("value","440")
-    $('#voice-two-pitch').attr("value","493.88")
-    $('#voice-three-pitch').attr("value","523.33")
-    $('#voice-four-pitch').attr("value","587.33")
-    $('#voice-five-pitch').attr("value","659.26")
-    $('#voice-six-pitch').attr("value","698.46")
-    $('#voice-seven-pitch').attr("value","783.99")
-    $('#voice-eight-pitch').attr("value","880")
-}
+$('#attack').on('input',function(){
+    ampEnvAttack = $("#attack").val() / 1000
+})
 
-function initControls() {
-    $('#gain').attr("value","5")
-    $('#attack').attr("value","100")
-    $('#release').attr("value","100")
-    mixAmp.gain.value = 0.1
-}
+$('#delay').on('input',function(){
+    ampEnvDelay = $("#delay").val() / 1000
+})
+
+$('#sustain').on('input',function(){
+    ampEnvSustain = $("#sustain").val() / 100
+})
+
+$('#release').on('input',function(){
+    ampEnvRelease = $("#release").val() / 1000
+})
 
 
-// ---------- start and stop voices------------
-function startVoice(n,freq) {
-    // check for retrigger
-    if (voices[n]) {
-        voices[n].osc.stop()
+// ---------- keypress events ------------
+// keydown starts notes, keyup stops note
+// heldKeys keeps track of which keys are currently held
+// keycodes: a = 66, s = 83, d = 68, f = 70,
+//           j = 74, k = 75, l = 76, 
+//           ; = 59 (firefox) and 186 (chrome)
+$(document).keydown(function(e) {
+    // check if key is currently pressed
+    if (heldKeys[e.which]) {
+        return
     }
 
-    // instantiate and start voice 
-    voices[n] = new Voice(mixAmp)
-    voices[n].play(freq)
-}
-
-function stopVoice(n) {
-    voices[n].stop()
-}
-
-
-// ---------- Voice class ----------------
-function Voice(mixAmp) {
-    this.osc = context.createOscillator()
-    this.oscAmp = context.createGain()
-    this.ampEnv = ADSR(context)
-
-    this.play = function(frequency) {
-        this.osc.type = 'triangle'
-        this.osc.frequency.value = frequency
-        console.log(frequency)
-
-        this.oscAmp.gain = 0
-
-        this.ampEnv.attack = ampEnvAttack
-        this.ampEnv.delay = ampEnvDelay
-        this.ampEnv.sustain = ampEnvSustain
-        this.ampEnv.release = ampEnvRelease
-        this.ampEnv.endValue = 0.0
-    
-        // routing
-        this.osc.connect(this.oscAmp)
-        this.oscAmp.connect(mixAmp)
-        this.ampEnv.connect(this.oscAmp.gain)
-        mixAmp.connect(context.destination)
-
-        this.ampEnv.start(context.currentTime)
-        this.osc.start(context.CurrentTime)          
+    switch (e.which) {
+        case 65:
+            var freq = $('#voice-one-pitch').val()
+            startVoice(1,freq)
+            break
+        case 83:
+            var freq = $('#voice-two-pitch').val()
+            startVoice(2,freq)
+            break
+        case 68:
+            var freq = $('#voice-three-pitch').val()
+            startVoice(3,freq)
+            break
+        case 70:
+            var freq = $('#voice-four-pitch').val()
+            startVoice(4,freq)
+            break
+        case 74:
+            var freq = $('#voice-five-pitch').val()
+            startVoice(5,freq)
+            break
+        case 75:
+            var freq = $('#voice-six-pitch').val()
+            startVoice(6,freq)
+            break
+        case 76:
+            var freq = $('#voice-seven-pitch').val()
+            startVoice(7,freq)
+            break
+        case 59:
+        case 186:
+            var freq = $('#voice-eight-pitch').val()
+            startVoice(8,freq)
+            break
     }
+    heldKeys[e.which] = true
+});
 
-    this.stop = function() {
-        var stopAt = this.ampEnv.stop(context.currentTime + ampEnvRelease)
-        // this.osc.stop(stopAt)
-        this.oscAmp.gain.setTargetAtTime(0.0, context.currentTime + ampEnvRelease, ampEnvRelease*0.5)
+$(document).keyup(function(e) {
+    switch (e.which) {
+        case 65:
+            stopVoice(1)
+            break
+        case 83:
+            stopVoice(2)
+            break
+        case 68:
+            stopVoice(3)
+            break
+        case 70:
+            stopVoice(4)
+            break
+        case 74:
+            stopVoice(5);
+            break
+        case 75:
+            stopVoice(6);
+            break
+        case 76:
+            stopVoice(7);
+            break
+        case 59:
+        case 186:
+            stopVoice(8);
+            break
     }
-}
+    heldKeys[e.which] = false
+});
+
+
+// ---------- click events ------------
+// note starts on mousedown, then holds til mouseup
+$('.key').mousedown(function() {
+    switch(this.id) {
+        case "voice-one":
+            var freq = $('#voice-one-pitch').val()
+            startVoice(1,freq)
+            break
+        case "voice-two":
+            var freq = $('#voice-two-pitch').val()
+            startVoice(2,freq)
+            break
+        case "voice-three":
+            var freq = $('#voice-three-pitch').val()
+            startVoice(3,freq)
+            break
+        case "voice-four":
+            var freq = $('#voice-four-pitch').val()
+            startVoice(4,freq)
+            break
+        case "voice-five":
+            var freq = $('#voice-five-pitch').val()
+            startVoice(5,freq)
+            break
+        case "voice-six":
+            var freq = $('#voice-six-pitch').val()
+            startVoice(6,freq)
+            break
+        case "voice-seven":
+            var freq = $('#voice-seven-pitch').val()
+            startVoice(7,freq)
+            break
+        case "voice-eight":
+            var freq = $('#voice-eight-pitch').val()
+            startVoice(8,freq)
+            break
+    }
+})
+
+$('.key').mouseup(function() {
+    switch(this.id) {
+        case "voice-one":
+            stopVoice(1)
+            break
+        case "voice-two":
+            stopVoice(2)
+            break
+        case "voice-three":
+            stopVoice(3)
+            break
+        case "voice-four":
+            stopVoice(4)
+            break
+        case "voice-five":
+            stopVoice(5)
+            break
+        case "voice-six":
+            stopVoice(6)
+            break
+        case "voice-seven":
+            stopVoice(7)
+            break
+        case "voice-eight":
+            stopVoice(8)
+            break
+    }
+})
+
+
+// ---------- utilities ------------
+// blur event that fires on any input:text enter
+$("#btnHidden").on('click', function() {
+    $("input:text").blur()
+})
