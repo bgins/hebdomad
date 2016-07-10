@@ -1,10 +1,9 @@
-$(document).foundation()
+var ADSR = require('adsr')
 
 context = new AudioContext()
 
 // declare globals
-var voices = []
-    heldKeys = [],
+var voices = [],
     mixAmp = context.createGain(),
     ampEnvAttack = 0.1,
     ampEnvDelay = 0.0,
@@ -88,3 +87,33 @@ function Voice(mixAmp) {
         this.oscAmp.gain.setTargetAtTime(0.0, context.currentTime + ampEnvRelease, ampEnvRelease*0.5)
     }
 }
+
+// ---------- Controls --------------
+function setMixGain(gain) {
+    mixAmp.gain.value = gain
+}
+
+function setAttack(attack) {
+    ampEnvAttack = attack
+}
+
+function setDelay(delay) {
+    ampEnvDelay = delay
+}
+
+function setSustain(sustain) {
+    ampEnvSustain = sustain
+}
+
+function setRelease(release) {
+    ampEnvRelease = release
+}
+
+// ---------- Exports --------------
+exports.startVoice = startVoice
+exports.stopVoice = stopVoice
+exports.setMixGain = setMixGain
+exports.setAttack = setAttack
+exports.setDelay = setDelay
+exports.setSustain = setSustain
+exports.setRelease = setRelease

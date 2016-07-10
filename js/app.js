@@ -1,24 +1,26 @@
-// Event handlers
+var audio = require('./audio.js')
+
+$(document).foundation()
 
 // Gain input event changes level from 0 to 1 
 $('#gain').on('input',function(){
-    mixAmp.gain.value = $("#gain").val() / 50 
+    audio.setMixGain($("#gain").val() / 50)
 })
 
 $('#attack').on('input',function(){
-    ampEnvAttack = $("#attack").val() / 1000
+    audio.setAttack($("#attack").val() / 1000)
 })
 
 $('#delay').on('input',function(){
-    ampEnvDelay = $("#delay").val() / 1000
+    audio.setDelay($("#delay").val() / 1000)
 })
 
 $('#sustain').on('input',function(){
-    ampEnvSustain = $("#sustain").val() / 100
+    audio.setSutain($("#sustain").val() / 100)
 })
 
 $('#release').on('input',function(){
-    ampEnvRelease = $("#release").val() / 1000
+    audio.setRelease($("#release").val() / 1000)
 })
 
 
@@ -28,6 +30,9 @@ $('#release').on('input',function(){
 // keycodes: a = 66, s = 83, d = 68, f = 70,
 //           j = 74, k = 75, l = 76, 
 //           ; = 59 (firefox) and 186 (chrome)
+
+var heldKeys = []
+
 $(document).keydown(function(e) {
     // check if key is currently pressed
     if (heldKeys[e.which]) {
@@ -37,36 +42,36 @@ $(document).keydown(function(e) {
     switch (e.which) {
         case 65:
             var freq = $('#voice-one-pitch').val()
-            startVoice(1,freq)
+            audio.startVoice(1,freq)
             break
         case 83:
             var freq = $('#voice-two-pitch').val()
-            startVoice(2,freq)
+            audio.startVoice(2,freq)
             break
         case 68:
             var freq = $('#voice-three-pitch').val()
-            startVoice(3,freq)
+            audio.startVoice(3,freq)
             break
         case 70:
             var freq = $('#voice-four-pitch').val()
-            startVoice(4,freq)
+            audio.startVoice(4,freq)
             break
         case 74:
             var freq = $('#voice-five-pitch').val()
-            startVoice(5,freq)
+            audio.startVoice(5,freq)
             break
         case 75:
             var freq = $('#voice-six-pitch').val()
-            startVoice(6,freq)
+            audio.startVoice(6,freq)
             break
         case 76:
             var freq = $('#voice-seven-pitch').val()
-            startVoice(7,freq)
+            audio.startVoice(7,freq)
             break
         case 59:
         case 186:
             var freq = $('#voice-eight-pitch').val()
-            startVoice(8,freq)
+            audio.startVoice(8,freq)
             break
     }
     heldKeys[e.which] = true
@@ -75,29 +80,29 @@ $(document).keydown(function(e) {
 $(document).keyup(function(e) {
     switch (e.which) {
         case 65:
-            stopVoice(1)
+            audio.stopVoice(1)
             break
         case 83:
-            stopVoice(2)
+            audio.stopVoice(2)
             break
         case 68:
-            stopVoice(3)
+            audio.stopVoice(3)
             break
         case 70:
-            stopVoice(4)
+            audio.stopVoice(4)
             break
         case 74:
-            stopVoice(5);
+            audio.stopVoice(5);
             break
         case 75:
-            stopVoice(6);
+            audio.stopVoice(6);
             break
         case 76:
-            stopVoice(7);
+            audio.stopVoice(7);
             break
         case 59:
         case 186:
-            stopVoice(8);
+            audio.stopVoice(8);
             break
     }
     heldKeys[e.which] = false
@@ -110,35 +115,35 @@ $('.key').mousedown(function() {
     switch(this.id) {
         case "voice-one":
             var freq = $('#voice-one-pitch').val()
-            startVoice(1,freq)
+            audio.startVoice(1,freq)
             break
         case "voice-two":
             var freq = $('#voice-two-pitch').val()
-            startVoice(2,freq)
+            audio.startVoice(2,freq)
             break
         case "voice-three":
             var freq = $('#voice-three-pitch').val()
-            startVoice(3,freq)
+            audio.startVoice(3,freq)
             break
         case "voice-four":
             var freq = $('#voice-four-pitch').val()
-            startVoice(4,freq)
+            audio.startVoice(4,freq)
             break
         case "voice-five":
             var freq = $('#voice-five-pitch').val()
-            startVoice(5,freq)
+            audio.startVoice(5,freq)
             break
         case "voice-six":
             var freq = $('#voice-six-pitch').val()
-            startVoice(6,freq)
+            audio.startVoice(6,freq)
             break
         case "voice-seven":
             var freq = $('#voice-seven-pitch').val()
-            startVoice(7,freq)
+            audio.startVoice(7,freq)
             break
         case "voice-eight":
             var freq = $('#voice-eight-pitch').val()
-            startVoice(8,freq)
+            audio.startVoice(8,freq)
             break
     }
 })
@@ -146,28 +151,28 @@ $('.key').mousedown(function() {
 $('.key').mouseup(function() {
     switch(this.id) {
         case "voice-one":
-            stopVoice(1)
+            audio.stopVoice(1)
             break
         case "voice-two":
-            stopVoice(2)
+            audio.stopVoice(2)
             break
         case "voice-three":
-            stopVoice(3)
+            audio.stopVoice(3)
             break
         case "voice-four":
-            stopVoice(4)
+            audio.stopVoice(4)
             break
         case "voice-five":
-            stopVoice(5)
+            audio.stopVoice(5)
             break
         case "voice-six":
-            stopVoice(6)
+            audio.stopVoice(6)
             break
         case "voice-seven":
-            stopVoice(7)
+            audio.stopVoice(7)
             break
         case "voice-eight":
-            stopVoice(8)
+            audio.stopVoice(8)
             break
     }
 })
