@@ -18,12 +18,12 @@ $(document).ready(function() {
 
 function initTuning() {
     $('#voice-one-pitch').attr("value","440")
-    $('#voice-two-pitch').attr("value","493.88")
-    $('#voice-three-pitch').attr("value","523.33")
-    $('#voice-four-pitch').attr("value","587.33")
-    $('#voice-five-pitch').attr("value","659.26")
-    $('#voice-six-pitch').attr("value","698.46")
-    $('#voice-seven-pitch').attr("value","783.99")
+    $('#voice-two-pitch').attr("value","495")
+    $('#voice-three-pitch').attr("value","528")
+    $('#voice-four-pitch').attr("value","594")
+    $('#voice-five-pitch').attr("value","660")
+    $('#voice-six-pitch').attr("value","742.5")
+    $('#voice-seven-pitch').attr("value","792")
     $('#voice-eight-pitch').attr("value","880")
 }
 
