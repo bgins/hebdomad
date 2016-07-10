@@ -1,0 +1,28 @@
+{
+  "name": "octogamut",
+  "version": "0.1.0",
+  "description": "A xenharmonic webaudio instrument",
+  "main": "index.html",
+  "dependencies": {
+    "adsr": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thuselem/octogamut.git"
+  },
+  "keywords": [
+    "xenharmonic",
+    "webaudio",
+    "microtonal"
+  ],
+  "author": "thuselem",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thuselem/octogamut/issues"
+  },
+  "homepage": "https://github.com/thuselem/octogamut#readme"
+}
