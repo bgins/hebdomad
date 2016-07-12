@@ -11,12 +11,12 @@ $('#attack').on('input',function(){
     audio.setAttack($("#attack").val() / 1000)
 })
 
-$('#delay').on('input',function(){
-    audio.setDelay($("#delay").val() / 1000)
+$('#decay').on('input',function(){
+    audio.setDecay($("#decay").val() / 1000)
 })
 
 $('#sustain').on('input',function(){
-    audio.setSutain($("#sustain").val() / 100)
+    audio.setSustain($("#sustain").val() / 100)
 })
 
 $('#release').on('input',function(){
@@ -92,17 +92,17 @@ $(document).keyup(function(e) {
             audio.stopVoice(4)
             break
         case 74:
-            audio.stopVoice(5);
+            audio.stopVoice(5)
             break
         case 75:
-            audio.stopVoice(6);
+            audio.stopVoice(6)
             break
         case 76:
-            audio.stopVoice(7);
+            audio.stopVoice(7)
             break
         case 59:
         case 186:
-            audio.stopVoice(8);
+            audio.stopVoice(8)
             break
     }
     heldKeys[e.which] = false

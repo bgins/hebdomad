@@ -5,10 +5,10 @@ context = new AudioContext()
 // declare globals
 var voices = [],
     mixAmp = context.createGain(),
-    ampEnvAttack = 0.1,
-    ampEnvDelay = 0.0,
-    ampEnvSustain = 1.0,
-    ampEnvRelease = 0.1
+    ampEnvAttack = 0.3,
+    ampEnvDecay = 0.2,
+    ampEnvSustain = 0.1,
+    ampEnvRelease = 2 
 
 // ---------- init instrument ----------------
 $(document).ready(function() {
@@ -28,9 +28,11 @@ function initTuning() {
 }
 
 function initControls() {
+    /*
     $('#gain').attr("value","5")
     $('#attack').attr("value","100")
     $('#release').attr("value","100")
+    */
     mixAmp.gain.value = 0.1
 }
 
@@ -57,34 +59,52 @@ function Voice(mixAmp) {
     this.osc = context.createOscillator()
     this.oscAmp = context.createGain()
     this.ampEnv = ADSR(context)
+    
+    this.oscAmp.gain.value = 0.0
+
+    this.ampEnv.attack = ampEnvAttack
+    this.ampEnv.decay = ampEnvDecay
+    this.ampEnv.sustain = ampEnvSustain
+    this.ampEnv.release = ampEnvRelease
+    
+    // routing
+    this.osc.connect(this.oscAmp)
+    this.oscAmp.connect(mixAmp)
+    this.ampEnv.connect(this.oscAmp.gain)
+    mixAmp.connect(context.destination)
 
     this.play = function(frequency) {
         this.osc.type = 'triangle'
         this.osc.frequency.value = frequency
         console.log(frequency)
 
-        this.oscAmp.gain = 0
+        
+        /*
+        this.oscAmp.gain.value = 0.0
 
         this.ampEnv.attack = ampEnvAttack
-        this.ampEnv.delay = ampEnvDelay
+        this.ampEnv.decay = ampEnvDecay
         this.ampEnv.sustain = ampEnvSustain
         this.ampEnv.release = ampEnvRelease
-        this.ampEnv.endValue = 0.0
     
         // routing
         this.osc.connect(this.oscAmp)
         this.oscAmp.connect(mixAmp)
         this.ampEnv.connect(this.oscAmp.gain)
         mixAmp.connect(context.destination)
+        */
 
         this.ampEnv.start(context.currentTime)
         this.osc.start(context.CurrentTime)          
+        console.log(this.oscAmp.gain.value)
     }
 
     this.stop = function() {
-        var stopAt = this.ampEnv.stop(context.currentTime + ampEnvRelease)
+        console.log(this.ampEnv.release)
+        stopAt = this.ampEnv.stop(context.currentTime)
+        this.osc.stop(stopAt)
+        // var stopAt = this.ampEnv.stop(context.currentTime + ampEnvRelease)
         // this.osc.stop(stopAt)
-        this.oscAmp.gain.setTargetAtTime(0.0, context.currentTime + ampEnvRelease, ampEnvRelease*0.5)
     }
 }
 
@@ -97,8 +117,8 @@ function setAttack(attack) {
     ampEnvAttack = attack
 }
 
-function setDelay(delay) {
-    ampEnvDelay = delay
+function setDecay(decay) {
+    ampEnvDecay = decay
 }
 
 function setSustain(sustain) {
@@ -114,6 +134,6 @@ exports.startVoice = startVoice
 exports.stopVoice = stopVoice
 exports.setMixGain = setMixGain
 exports.setAttack = setAttack
-exports.setDelay = setDelay
+exports.setDecay = setDecay
 exports.setSustain = setSustain
 exports.setRelease = setRelease
