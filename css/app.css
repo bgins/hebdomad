@@ -1,21 +1,63 @@
-li {
+
+.key {
+  width: 3.9rem;
+}
+
+.slider.vertical {
+  height: 10.4rem;
+}
+
+.tuning-input {
+  width: 3.9rem;
+}
+
+.control-label {
   display: inline-block;
-  padding: 0.5em 0.78em 0 0.78em;
+  padding: 0 0 0.5rem 0;
+  font-size: 0.8rem;
+  # font-weight: bold;
 }
 
-input[type="text"] {
-  width: 5.5em;
-  font-size: 0.9em;
+.control-input {
+ width: 3rem;
 }
 
-.fixed-width {
-  width: 3.9em;
+.section-label {
+  display: inline-block;
+  padding: 0 0 0.8rem 0;
+  font-size: 1.2rem;
+  font-variant: small-caps;
 }
 
-#gain-box {
-  margin-left: 5em;
+h1 {
+  padding: 0.5rem 0 0.5rem 0;
+  font-size: 4.2rem;
+  font-family: 'Mate SC', serif;
+  color: #f7f7f7;
 }
 
-span {
-  margin-left: 2em;
+body {
+  background-color: #081016;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.simple {
+  background-color: #243640;
+}
+
+.simple:hover,
+.simple:focus {
+  background-color: #059a91;
+}
+
+#controls-label, 
+#tunings-label,
+#about-label {
+  color: #000;
+}
+
+.callout,
+.tabs,
+.tabs-content {
+  background-color: #f7f7f7;
 }
