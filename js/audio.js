@@ -6,9 +6,9 @@ context = new AudioContext()
 var voices = [],
     mixAmp = context.createGain(),
     ampEnvAttack = 0.3,
-    ampEnvDecay = 0.2,
-    ampEnvSustain = 0.1,
-    ampEnvRelease = 1 
+    ampEnvDecay = 0,
+    ampEnvSustain = 1,
+    ampEnvRelease = 0.4 
 
 // ---------- init instrument ----------------
 $(document).ready(function() {
@@ -28,11 +28,6 @@ function initTuning() {
 }
 
 function initControls() {
-    /*
-    $('#gain').attr("value","5")
-    $('#attack').attr("value","100")
-    $('#release').attr("value","100")
-    */
     mixAmp.gain.value = 0.1
 }
 
@@ -41,6 +36,8 @@ function initControls() {
 function startVoice(n,freq) {
     // check for retrigger
     if (voices[n]) {
+        // delete voices[n]
+        // voices[n].ampEnv.stop(context.currentTime, true)
         voices[n].osc.stop()
     }
 
@@ -51,7 +48,7 @@ function startVoice(n,freq) {
 
 function stopVoice(n) {
     voices[n].stop()
-    delete voices[n]
+    // delete voices[n]
 }
 
 
@@ -61,7 +58,6 @@ function Voice(mixAmp) {
     this.oscAmp = context.createGain()
     this.ampEnv = ADSR(context)
     
-    /*
     this.oscAmp.gain.value = 0.0
 
     this.ampEnv.attack = ampEnvAttack
@@ -74,7 +70,6 @@ function Voice(mixAmp) {
     this.oscAmp.connect(mixAmp)
     this.ampEnv.connect(this.oscAmp.gain)
     mixAmp.connect(context.destination)
-    */
 
     this.play = function(frequency) {
         this.osc.type = 'triangle'
@@ -82,6 +77,7 @@ function Voice(mixAmp) {
         console.log(frequency)
 
         
+        /*
         this.oscAmp.gain.value = 0.0
 
         this.ampEnv.attack = ampEnvAttack
@@ -99,6 +95,7 @@ function Voice(mixAmp) {
         // tests
         this.ampEnv.decay = 0.5
         this.ampEnv.sustain = 1
+        */
 
         this.ampEnv.start(context.currentTime)
         this.osc.start(context.CurrentTime)          
