@@ -8,7 +8,7 @@ var voices = [],
     ampEnvAttack = 0.3,
     ampEnvDecay = 0.2,
     ampEnvSustain = 0.1,
-    ampEnvRelease = 2 
+    ampEnvRelease = 1 
 
 // ---------- init instrument ----------------
 $(document).ready(function() {
@@ -51,6 +51,7 @@ function startVoice(n,freq) {
 
 function stopVoice(n) {
     voices[n].stop()
+    delete voices[n]
 }
 
 
@@ -60,6 +61,7 @@ function Voice(mixAmp) {
     this.oscAmp = context.createGain()
     this.ampEnv = ADSR(context)
     
+    /*
     this.oscAmp.gain.value = 0.0
 
     this.ampEnv.attack = ampEnvAttack
@@ -72,6 +74,7 @@ function Voice(mixAmp) {
     this.oscAmp.connect(mixAmp)
     this.ampEnv.connect(this.oscAmp.gain)
     mixAmp.connect(context.destination)
+    */
 
     this.play = function(frequency) {
         this.osc.type = 'triangle'
@@ -79,7 +82,6 @@ function Voice(mixAmp) {
         console.log(frequency)
 
         
-        /*
         this.oscAmp.gain.value = 0.0
 
         this.ampEnv.attack = ampEnvAttack
@@ -92,16 +94,26 @@ function Voice(mixAmp) {
         this.oscAmp.connect(mixAmp)
         this.ampEnv.connect(this.oscAmp.gain)
         mixAmp.connect(context.destination)
-        */
+
+
+        // tests
+        this.ampEnv.decay = 0.5
+        this.ampEnv.sustain = 1
 
         this.ampEnv.start(context.currentTime)
         this.osc.start(context.CurrentTime)          
         console.log(this.oscAmp.gain.value)
+
+
+        // test for extra note
+        // var stopAt = this.ampEnv.stop(context.currentTime + ampEnvAttack + ampEnvDecay)
+        // this.osc.stop(stopAt)
+
     }
 
     this.stop = function() {
         console.log(this.ampEnv.release)
-        stopAt = this.ampEnv.stop(context.currentTime)
+        var stopAt = this.ampEnv.stop(context.currentTime)
         this.osc.stop(stopAt)
         // var stopAt = this.ampEnv.stop(context.currentTime + ampEnvRelease)
         // this.osc.stop(stopAt)
