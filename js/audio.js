@@ -5,10 +5,10 @@ context = new AudioContext()
 // declare globals
 var voices = [],
     mixAmp = context.createGain(),
-    ampEnvAttack = 0.3,
-    ampEnvDecay = 0.1,
-    ampEnvSustain = 0.1,
-    ampEnvRelease = 0.4 
+    ampEnvAttack = 0.1,
+    ampEnvDecay = 0.0,
+    ampEnvSustain = 1.0,
+    ampEnvRelease = 0.5 
 
 // ---------- init instrument ----------------
 $(document).ready(function() {
