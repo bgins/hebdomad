@@ -10,6 +10,22 @@ $('#controls').on('input moved.zf.slider', function() {
     audio.setRelease($("#release").val() / 1000)
 })
 
+$('#sine').on('click', function() {
+    audio.setWaveform(this.id)
+})
+
+$('#triangle').on('click', function() {
+    audio.setWaveform(this.id)
+})
+
+$('#square').on('click', function() {
+    audio.setWaveform(this.id)
+})
+
+$('#sawtooth').on('click', function() {
+    audio.setWaveform(this.id)
+})
+
 /*
 // Gain input event changes level from 0 to 1 
 $('#gain').on('input',function(){

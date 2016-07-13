@@ -5,6 +5,7 @@ context = new AudioContext()
 // declare globals
 var voices = [],
     mixAmp = context.createGain(),
+    waveform = 'triangle',
     ampEnvAttack = 0.1,
     ampEnvDecay = 0.0,
     ampEnvSustain = 1.0,
@@ -71,7 +72,8 @@ function Voice(mixAmp) {
     mixAmp.connect(context.destination)
 
     this.play = function(frequency) {
-        this.osc.type = 'triangle'
+        // this.osc.type = 'triangle'
+        this.osc.type = waveform 
         this.osc.frequency.value = frequency
         console.log(frequency)
 
@@ -105,6 +107,10 @@ function Voice(mixAmp) {
 }
 
 // ---------- Controls --------------
+function setWaveform(wv) {
+    waveform = wv
+}
+
 function setMixGain(gain) {
     mixAmp.gain.value = gain
 }
@@ -128,6 +134,7 @@ function setRelease(release) {
 // ---------- Exports --------------
 exports.startVoice = startVoice
 exports.stopVoice = stopVoice
+exports.setWaveform = setWaveform
 exports.setMixGain = setMixGain
 exports.setAttack = setAttack
 exports.setDecay = setDecay
