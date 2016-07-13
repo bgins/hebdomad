@@ -2,6 +2,15 @@ var audio = require('./audio.js')
 
 $(document).foundation()
 
+$('#controls').on('input moved.zf.slider', function() {
+    audio.setMixGain($("#gain").val() / 50)
+    audio.setAttack($("#attack").val() / 1000)
+    audio.setDecay($("#decay").val() / 1000)
+    audio.setSustain($("#sustain").val() / 100)
+    audio.setRelease($("#release").val() / 1000)
+})
+
+/*
 // Gain input event changes level from 0 to 1 
 $('#gain').on('input',function(){
     audio.setMixGain($("#gain").val() / 50)
@@ -22,6 +31,7 @@ $('#sustain').on('input',function(){
 $('#release').on('input',function(){
     audio.setRelease($("#release").val() / 1000)
 })
+*/
 
 
 // ---------- keypress events ------------
