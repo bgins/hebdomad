@@ -6,8 +6,8 @@ context = new AudioContext()
 var voices = [],
     mixAmp = context.createGain(),
     ampEnvAttack = 0.3,
-    ampEnvDecay = 0,
-    ampEnvSustain = 1,
+    ampEnvDecay = 0.1,
+    ampEnvSustain = 0.1,
     ampEnvRelease = 0.4 
 
 // ---------- init instrument ----------------
@@ -36,9 +36,8 @@ function initControls() {
 function startVoice(n,freq) {
     // check for retrigger
     if (voices[n]) {
-        // delete voices[n]
-        // voices[n].ampEnv.stop(context.currentTime, true)
         voices[n].osc.stop()
+        // delete voices[n]
     }
 
     // instantiate and start voice 
@@ -90,30 +89,18 @@ function Voice(mixAmp) {
         this.oscAmp.connect(mixAmp)
         this.ampEnv.connect(this.oscAmp.gain)
         mixAmp.connect(context.destination)
-
-
-        // tests
-        this.ampEnv.decay = 0.5
-        this.ampEnv.sustain = 1
         */
+
 
         this.ampEnv.start(context.currentTime)
         this.osc.start(context.CurrentTime)          
         console.log(this.oscAmp.gain.value)
-
-
-        // test for extra note
-        // var stopAt = this.ampEnv.stop(context.currentTime + ampEnvAttack + ampEnvDecay)
-        // this.osc.stop(stopAt)
-
     }
 
     this.stop = function() {
-        console.log(this.ampEnv.release)
+        // console.log(this.ampEnv.release)
         var stopAt = this.ampEnv.stop(context.currentTime)
         this.osc.stop(stopAt)
-        // var stopAt = this.ampEnv.stop(context.currentTime + ampEnvRelease)
-        // this.osc.stop(stopAt)
     }
 }
 
