@@ -5,7 +5,7 @@ context = new AudioContext()
 // declare globals
 var voices = [],
     mixAmp = context.createGain(),
-    waveform = 'triangle',
+    waveform = 'sine',
     ampEnvAttack = 0.1,
     ampEnvDecay = 0.0,
     ampEnvSustain = 1.0,
