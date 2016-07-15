@@ -4,7 +4,8 @@
   "description": "A xenharmonic webaudio instrument",
   "main": "index.html",
   "dependencies": {
-    "adsr": "^1.0.1"
+    "adsr": "^1.0.1",
+    "envelope-generator": "^3.0.0"
   },
   "devDependencies": {},
   "scripts": {

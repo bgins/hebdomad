@@ -7,8 +7,8 @@ var voices = [],
     mixAmp = context.createGain(),
     waveform = 'sine',
     ampEnvAttack = 0.1,
-    ampEnvDecay = 0.1,
-    ampEnvSustain = 1.0,
+    ampEnvDecay = 0.025,
+    ampEnvSustain = 0.9,
     ampEnvRelease = 0.5 
 
 // ---------- init instrument ----------------
