@@ -1,4 +1,4 @@
-var ADSR = require('adsr')
+var Envelope = require('envelope-generator')
 
 context = new AudioContext()
 
@@ -7,7 +7,7 @@ var voices = [],
     mixAmp = context.createGain(),
     waveform = 'sine',
     ampEnvAttack = 0.1,
-    ampEnvDecay = 0.0,
+    ampEnvDecay = 0.1,
     ampEnvSustain = 1.0,
     ampEnvRelease = 0.5 
 
@@ -38,9 +38,9 @@ function startVoice(n,freq) {
     // check for retrigger
     if (voices[n]) {
         voices[n].osc.stop()
-        // delete voices[n]
     }
 
+    console.log(ampEnvDecay)
     // instantiate and start voice 
     voices[n] = new Voice(mixAmp)
     voices[n].play(freq)
@@ -48,22 +48,25 @@ function startVoice(n,freq) {
 
 function stopVoice(n) {
     voices[n].stop()
-    // delete voices[n]
 }
 
 
 // ---------- Voice class ----------------
 function Voice(mixAmp) {
+    console.log(ampEnvDecay)
     this.osc = context.createOscillator()
     this.oscAmp = context.createGain()
-    this.ampEnv = ADSR(context)
     
     this.oscAmp.gain.value = 0.0
 
-    this.ampEnv.attack = ampEnvAttack
-    this.ampEnv.decay = ampEnvDecay
-    this.ampEnv.sustain = ampEnvSustain
-    this.ampEnv.release = ampEnvRelease
+    // envelope settings
+    let settings = {
+        attackTime: ampEnvAttack,
+        decayTime: ampEnvDecay,
+        sustainLevel: ampEnvSustain,
+        releaseTime: ampEnvRelease
+    }
+    this.ampEnv = new Envelope(context, settings)
     
     // routing
     this.osc.connect(this.oscAmp)
@@ -72,7 +75,6 @@ function Voice(mixAmp) {
     mixAmp.connect(context.destination)
 
     this.play = function(frequency) {
-        // this.osc.type = 'triangle'
         this.osc.type = waveform 
         this.osc.frequency.value = frequency
         console.log(frequency)
@@ -100,9 +102,10 @@ function Voice(mixAmp) {
     }
 
     this.stop = function() {
-        // console.log(this.ampEnv.release)
-        var stopAt = this.ampEnv.stop(context.currentTime)
+        this.ampEnv.release(context.currentTime)
+        var stopAt = this.ampEnv.getReleaseCompleteTime()
         this.osc.stop(stopAt)
+        this.ampEnv.stop(stopAt)
     }
 }
 
