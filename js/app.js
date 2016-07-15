@@ -67,35 +67,43 @@ $(document).keydown(function(e) {
 
     switch (e.which) {
         case 65:
+            $('#voice-one').css('background-color','#059a91')
             var freq = $('#voice-one-pitch').val()
             audio.startVoice(1,freq)
             break
         case 83:
+            $('#voice-two').css('background-color','#059a91')
             var freq = $('#voice-two-pitch').val()
             audio.startVoice(2,freq)
             break
         case 68:
+            $('#voice-three').css('background-color','#059a91')
             var freq = $('#voice-three-pitch').val()
             audio.startVoice(3,freq)
             break
         case 70:
+            $('#voice-four').css('background-color','#059a91')
             var freq = $('#voice-four-pitch').val()
             audio.startVoice(4,freq)
             break
         case 74:
+            $('#voice-five').css('background-color','#059a91')
             var freq = $('#voice-five-pitch').val()
             audio.startVoice(5,freq)
             break
         case 75:
+            $('#voice-six').css('background-color','#059a91')
             var freq = $('#voice-six-pitch').val()
             audio.startVoice(6,freq)
             break
         case 76:
+            $('#voice-seven').css('background-color','#059a91')
             var freq = $('#voice-seven-pitch').val()
             audio.startVoice(7,freq)
             break
         case 59:
         case 186:
+            $('#voice-eight').css('background-color','#059a91')
             var freq = $('#voice-eight-pitch').val()
             audio.startVoice(8,freq)
             break
@@ -106,28 +114,36 @@ $(document).keydown(function(e) {
 $(document).keyup(function(e) {
     switch (e.which) {
         case 65:
+            $('#voice-one').css('background-color','#243640')
             audio.stopVoice(1)
             break
         case 83:
+            $('#voice-two').css('background-color','#243640')
             audio.stopVoice(2)
             break
         case 68:
+            $('#voice-three').css('background-color','#243640')
             audio.stopVoice(3)
             break
         case 70:
+            $('#voice-four').css('background-color','#243640')
             audio.stopVoice(4)
             break
         case 74:
+            $('#voice-five').css('background-color','#243640')
             audio.stopVoice(5)
             break
         case 75:
+            $('#voice-six').css('background-color','#243640')
             audio.stopVoice(6)
             break
         case 76:
+            $('#voice-seven').css('background-color','#243640')
             audio.stopVoice(7)
             break
         case 59:
         case 186:
+            $('#voice-eight').css('background-color','#243640')
             audio.stopVoice(8)
             break
     }
