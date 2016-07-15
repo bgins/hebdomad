@@ -40,7 +40,6 @@ function startVoice(n,freq) {
         voices[n].osc.stop()
     }
 
-    console.log(ampEnvDecay)
     // instantiate and start voice 
     voices[n] = new Voice(mixAmp)
     voices[n].play(freq)
@@ -53,7 +52,6 @@ function stopVoice(n) {
 
 // ---------- Voice class ----------------
 function Voice(mixAmp) {
-    console.log(ampEnvDecay)
     this.osc = context.createOscillator()
     this.oscAmp = context.createGain()
     
@@ -98,7 +96,6 @@ function Voice(mixAmp) {
 
         this.ampEnv.start(context.currentTime)
         this.osc.start(context.CurrentTime)          
-        console.log(this.oscAmp.gain.value)
     }
 
     this.stop = function() {
