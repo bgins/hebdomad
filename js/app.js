@@ -64,7 +64,7 @@ $(document).keydown(function(e) {
     if (heldKeys[e.which]) {
         return
     }
-
+    
     switch (e.which) {
         case 65:
             $('#voice-one').css('background-color','#059a91')
@@ -154,6 +154,7 @@ $(document).keyup(function(e) {
 // ---------- click events ------------
 // note starts on mousedown, then holds til mouseup
 $('.key').mousedown(function() {
+    $(this).css('background-color','#059a91')
     switch(this.id) {
         case "voice-one":
             var freq = $('#voice-one-pitch').val()
@@ -191,6 +192,7 @@ $('.key').mousedown(function() {
 })
 
 $('.key').mouseup(function() {
+    $(this).css('background-color','#243640')
     switch(this.id) {
         case "voice-one":
             audio.stopVoice(1)
