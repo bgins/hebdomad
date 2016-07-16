@@ -5,9 +5,6 @@
   border-radius: 0.2rem
 }
 
-.slider {
- 
-}
 .slider.vertical {
   height: 10.4rem;
 }
@@ -69,4 +66,41 @@ body {
 .tabs,
 .tabs-content {
   background-color: #f7f7f7;
+}
+
+/* tuning menu */
+a.tuning-category {
+  color: #000;
+  font-variant: small-caps;
+  font-size: 1.2rem;
+}
+
+a.tuning-name {
+  font-size: 1.15rem;
+  color: #000;
+}
+
+p.tuning-description {
+  color: #444;
+}
+
+
+.is-accordion-submenu-parent a,
+.is-accordion-submenu-item {
+  /* color: #000; */
+}
+
+.is-accordion-submenu-parent > a::after {
+  border-color: #000 transparent;
+  /* content: "↡"; */
+}
+
+a.arrow-inset-fix::after {
+  margin-right: 1rem;
+}
+
+/* about panel */
+p.about-label {
+  font-size: 1.6rem;
+  font-variant: small-caps;
 }
