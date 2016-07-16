@@ -221,6 +221,45 @@ $('.key').mouseup(function() {
     }
 })
 
+// ---------- retune events ------------
+$('.tuning-selection').on('click', function() {
+    switch(this.id) {
+        case "6-5-3-2-dorian":
+            console.log("dorian")
+            retune([440,495,528,594,660,742.5,792,880])
+            break;
+        case "5-4-3-2-lydian":
+            console.log("lydian")
+            retune([440,495,550,618.75,660,742.5,825,880])
+            break;
+        case "11-9-3-2-arabic":
+            console.log("arabic")
+            retune([440,495,537.78,605,660,742.5,805.67,880])
+            break;
+        case "12-edo-minor":
+            console.log("12-edo-minor")
+            retune([440,493.88,523.33,587.33,659.26,698.46,783.99,880])
+            break;
+        case "7-edo":
+            console.log("7-edo")
+            break;
+        default:
+            break;
+    }
+})
+
+function retune(freqArray) {
+    $('#voice-one-pitch').attr('value',freqArray[0])
+    $('#voice-two-pitch').attr('value',freqArray[1])
+    $('#voice-three-pitch').attr('value',freqArray[2])
+    $('#voice-four-pitch').attr('value',freqArray[3])
+    $('#voice-five-pitch').attr('value',freqArray[4])
+    $('#voice-six-pitch').attr('value',freqArray[5])
+    $('#voice-seven-pitch').attr('value',freqArray[6])
+    $('#voice-eight-pitch').attr('value',freqArray[7])
+}
+
+
 
 // ---------- utilities ------------
 // blur event that fires on any input:text enter
