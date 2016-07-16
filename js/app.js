@@ -236,12 +236,21 @@ $('.tuning-selection').on('click', function() {
             console.log("arabic")
             retune([440,495,537.78,605,660,742.5,805.67,880])
             break;
+        case "12-edo-major":
+            console.log("12-edo-major")
+            retune([440,493.88,554.37,587.33,659.25,740,830.61,880])
+            break;
         case "12-edo-minor":
             console.log("12-edo-minor")
-            retune([440,493.88,523.33,587.33,659.26,698.46,783.99,880])
+            retune([440,493.88,523.25,587.33,659.25,698.46,784,880])
+            break;
+        case "12-edo-harmonic-minor":
+            console.log("12-edo-harmonic-minor")
+            retune([440,493.88,523.25,587.33,659.25,698.46,830.61,880])
             break;
         case "7-edo":
             console.log("7-edo")
+            retune([440,485.8,536.37,592.2,653.84,721.9,797.04,880])
             break;
         default:
             break;
