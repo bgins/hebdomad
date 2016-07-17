@@ -225,31 +225,27 @@ $('.key').mouseup(function() {
 $('.tuning-selection').on('click', function() {
     switch(this.id) {
         case "6-5-3-2-dorian":
-            console.log("dorian")
             retune([440,495,528,594,660,742.5,792,880])
             break;
         case "5-4-3-2-lydian":
-            console.log("lydian")
             retune([440,495,550,618.75,660,742.5,825,880])
             break;
         case "11-9-3-2-arabic":
-            console.log("arabic")
             retune([440,495,537.78,605,660,742.5,805.67,880])
             break;
+        case "13-11-3-2-dorian":
+            retune([440,495,558.46,628.27,660,744.62,837.69,880])
+            break;
         case "12-edo-major":
-            console.log("12-edo-major")
             retune([440,493.88,554.37,587.33,659.25,740,830.61,880])
             break;
         case "12-edo-minor":
-            console.log("12-edo-minor")
             retune([440,493.88,523.25,587.33,659.25,698.46,784,880])
             break;
         case "12-edo-harmonic-minor":
-            console.log("12-edo-harmonic-minor")
             retune([440,493.88,523.25,587.33,659.25,698.46,830.61,880])
             break;
         case "7-edo":
-            console.log("7-edo")
             retune([440,485.8,536.37,592.2,653.84,721.9,797.04,880])
             break;
         default:
