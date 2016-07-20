@@ -4,20 +4,19 @@ $(document).foundation()
 
 
 // ---------- init instrument ----------------
-$(document).ready(function() {
-    init()
-})
+var notes
 
-function init() {
-    $('#voice-one-pitch').attr("value","440")
-    $('#voice-two-pitch').attr("value","495")
-    $('#voice-three-pitch').attr("value","528")
-    $('#voice-four-pitch').attr("value","594")
-    $('#voice-five-pitch').attr("value","660")
-    $('#voice-six-pitch').attr("value","742.5")
-    $('#voice-seven-pitch').attr("value","792")
-    $('#voice-eight-pitch').attr("value","880")
-}
+$(document).ready(function() {
+    notes = [0,203.91,386.31,590.22,701.96,905.87,1088.27,1200]
+    $('#voice-one-pitch').attr("value","0")
+    $('#voice-two-pitch').attr("value","203")
+    $('#voice-three-pitch').attr("value","386")
+    $('#voice-four-pitch').attr("value","590")
+    $('#voice-five-pitch').attr("value","701")
+    $('#voice-six-pitch').attr("value","905")
+    $('#voice-seven-pitch').attr("value","1088")
+    $('#voice-eight-pitch').attr("value","1200")
+})
 
 
 // ---------- controls panel events ----------------
@@ -70,7 +69,7 @@ $('#release').on('input',function(){
 
 
 // ---------- keypress events ------------
-// keydown starts notes, keyup stops note
+// keydown starts a note, keyup stops a note
 // heldKeys keeps track of which keys are currently held
 // keycodes: a = 66, s = 83, d = 68, f = 70,
 //           j = 74, k = 75, l = 76, 
@@ -87,43 +86,43 @@ $(document).keydown(function(e) {
     switch (e.which) {
         case 65:
             $('#voice-one').css('background-color','#059a91')
-            var freq = $('#voice-one-pitch').val()
+            var freq = notes[0]
             audio.startVoice(1,freq)
             break
         case 83:
             $('#voice-two').css('background-color','#059a91')
-            var freq = $('#voice-two-pitch').val()
+            var freq = notes[1]
             audio.startVoice(2,freq)
             break
         case 68:
             $('#voice-three').css('background-color','#059a91')
-            var freq = $('#voice-three-pitch').val()
+            var freq = notes[2]
             audio.startVoice(3,freq)
             break
         case 70:
             $('#voice-four').css('background-color','#059a91')
-            var freq = $('#voice-four-pitch').val()
+            var freq = notes[3]
             audio.startVoice(4,freq)
             break
         case 74:
             $('#voice-five').css('background-color','#059a91')
-            var freq = $('#voice-five-pitch').val()
+            var freq = notes[4]
             audio.startVoice(5,freq)
             break
         case 75:
             $('#voice-six').css('background-color','#059a91')
-            var freq = $('#voice-six-pitch').val()
+            var freq = notes[5]
             audio.startVoice(6,freq)
             break
         case 76:
             $('#voice-seven').css('background-color','#059a91')
-            var freq = $('#voice-seven-pitch').val()
+            var freq = notes[6]
             audio.startVoice(7,freq)
             break
         case 59:
         case 186:
             $('#voice-eight').css('background-color','#059a91')
-            var freq = $('#voice-eight-pitch').val()
+            var freq = notes[7]
             audio.startVoice(8,freq)
             break
     }
@@ -176,35 +175,35 @@ $('.key').mousedown(function() {
     $(this).css('background-color','#059a91')
     switch(this.id) {
         case "voice-one":
-            var freq = $('#voice-one-pitch').val()
+            var freq = notes[0]
             audio.startVoice(1,freq)
             break
         case "voice-two":
-            var freq = $('#voice-two-pitch').val()
+            var freq = notes[1]
             audio.startVoice(2,freq)
             break
         case "voice-three":
-            var freq = $('#voice-three-pitch').val()
+            var freq = notes[2]
             audio.startVoice(3,freq)
             break
         case "voice-four":
-            var freq = $('#voice-four-pitch').val()
+            var freq = notes[3]
             audio.startVoice(4,freq)
             break
         case "voice-five":
-            var freq = $('#voice-five-pitch').val()
+            var freq = notes[4]
             audio.startVoice(5,freq)
             break
         case "voice-six":
-            var freq = $('#voice-six-pitch').val()
+            var freq = notes[5]
             audio.startVoice(6,freq)
             break
         case "voice-seven":
-            var freq = $('#voice-seven-pitch').val()
+            var freq = notes[6]
             audio.startVoice(7,freq)
             break
         case "voice-eight":
-            var freq = $('#voice-eight-pitch').val()
+            var freq = notes[7]
             audio.startVoice(8,freq)
             break
     }
@@ -280,20 +279,35 @@ $('.tuning-selection').on('click', function() {
 })
 
 function retune(centsArray) {
-    $('#voice-one-pitch').attr('value',centsArray[0])
-    $('#voice-two-pitch').attr('value',centsArray[1])
-    $('#voice-three-pitch').attr('value',centsArray[2])
-    $('#voice-four-pitch').attr('value',centsArray[3])
-    $('#voice-five-pitch').attr('value',centsArray[4])
-    $('#voice-six-pitch').attr('value',centsArray[5])
-    $('#voice-seven-pitch').attr('value',centsArray[6])
-    $('#voice-eight-pitch').attr('value',centsArray[7])
+    //  retune
+    for (i = 0; i < 8; i++) {
+        notes[i] = centsArray[i]
+    }
+
+    // *** these won't update when a value has been manually added ***
+    // update UI
+    $('#voice-one-pitch').attr('value',Math.round(centsArray[0]))
+    $('#voice-two-pitch').attr('value',Math.round(centsArray[1]))
+    $('#voice-three-pitch').attr('value',Math.round(centsArray[2]))
+    $('#voice-four-pitch').attr('value',Math.round(centsArray[3]))
+    $('#voice-five-pitch').attr('value',Math.round(centsArray[4]))
+    $('#voice-six-pitch').attr('value',Math.round(centsArray[5]))
+    $('#voice-seven-pitch').attr('value',Math.round(centsArray[6]))
+    $('#voice-eight-pitch').attr('value',Math.round(centsArray[7]))
 }
 
 
-
-// ---------- utilities ------------
-// blur event that fires on any input:text enter
+// retune notes on custom tuning entry 
 $("#btnHidden").on('click', function() {
+    notes[0] = $('#voice-one-pitch').val()
+    notes[1] = $('#voice-two-pitch').val()
+    notes[2] = $('#voice-three-pitch').val()
+    notes[3] = $('#voice-four-pitch').val()
+    notes[4] = $('#voice-five-pitch').val()
+    notes[5] = $('#voice-six-pitch').val()
+    notes[6] = $('#voice-seven-pitch').val()
+    notes[7] = $('#voice-eight-pitch').val()
+
+    // blur event that fires on any input:text enter
     $("input:text").blur()
 })

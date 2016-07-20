@@ -80,8 +80,13 @@ a.tuning-selection {
   color: #000;
 }
 
-p.tuning-description {
+.tuning-description {
+  width: 40rem;
   color: #444;
+}
+
+tr {
+    background-color: #f7f7f7;
 }
 
 
