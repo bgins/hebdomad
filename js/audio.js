@@ -6,6 +6,7 @@ context = new AudioContext()
 var voices = [],
     mixAmp = context.createGain(),
     waveform = 'sine',
+    baseFreq = 440,
     ampEnvAttack = 0.1,
     ampEnvDecay = 0.025,
     ampEnvSustain = 0.9,
@@ -72,10 +73,12 @@ function Voice(mixAmp) {
     this.ampEnv.connect(this.oscAmp.gain)
     mixAmp.connect(context.destination)
 
-    this.play = function(frequency) {
+    // this.play = function(frequency) {
+    this.play = function(cents) {
         this.osc.type = waveform 
-        this.osc.frequency.value = frequency
-        console.log(frequency)
+        // this.osc.frequency.value = frequency
+        this.osc.frequency.value = baseFreq * Math.pow(2,(cents/1200))
+        console.log(this.osc.frequency.value)
 
         
         /*
