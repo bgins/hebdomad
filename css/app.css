@@ -80,9 +80,19 @@ a.tuning-selection {
   color: #000;
 }
 
-.tuning-description {
+table.tuning-description {
   width: 50rem;
+  /* table-layout: fixed; */
   color: #444;
+}
+
+table tbody th {
+  width: 12%;
+  padding: 0.25rem;
+}
+
+table tbody td {
+  padding: 0.25rem;
 }
 
 tr,
@@ -90,9 +100,7 @@ table tbody tr:nth-child(2n) {
     background-color: #f7f7f7;
 }
 
-table tbody td {
-  padding: 0.25em;
-}
+
 
 .is-accordion-submenu-parent a,
 .is-accordion-submenu-item {
