@@ -86,44 +86,44 @@ $(document).keydown(function(e) {
     switch (e.which) {
         case 65:
             $('#voice-one').css('background-color','#059a91')
-            var freq = notes[0]
-            audio.startVoice(1,freq)
+            var cents = notes[0]
+            audio.startVoice(1,cents)
             break
         case 83:
             $('#voice-two').css('background-color','#059a91')
-            var freq = notes[1]
-            audio.startVoice(2,freq)
+            var cents = notes[1]
+            audio.startVoice(2,cents)
             break
         case 68:
             $('#voice-three').css('background-color','#059a91')
-            var freq = notes[2]
-            audio.startVoice(3,freq)
+            var cents = notes[2]
+            audio.startVoice(3,cents)
             break
         case 70:
             $('#voice-four').css('background-color','#059a91')
-            var freq = notes[3]
-            audio.startVoice(4,freq)
+            var cents = notes[3]
+            audio.startVoice(4,cents)
             break
         case 74:
             $('#voice-five').css('background-color','#059a91')
-            var freq = notes[4]
-            audio.startVoice(5,freq)
+            var cents = notes[4]
+            audio.startVoice(5,cents)
             break
         case 75:
             $('#voice-six').css('background-color','#059a91')
-            var freq = notes[5]
-            audio.startVoice(6,freq)
+            var cents = notes[5]
+            audio.startVoice(6,cents)
             break
         case 76:
             $('#voice-seven').css('background-color','#059a91')
-            var freq = notes[6]
-            audio.startVoice(7,freq)
+            var cents = notes[6]
+            audio.startVoice(7,cents)
             break
         case 59:
         case 186:
             $('#voice-eight').css('background-color','#059a91')
-            var freq = notes[7]
-            audio.startVoice(8,freq)
+            var cents = notes[7]
+            audio.startVoice(8,cents)
             break
     }
     heldKeys[e.which] = true
@@ -175,36 +175,36 @@ $('.key').mousedown(function() {
     $(this).css('background-color','#059a91')
     switch(this.id) {
         case "voice-one":
-            var freq = notes[0]
-            audio.startVoice(1,freq)
+            var cents = notes[0]
+            audio.startVoice(1,cents)
             break
         case "voice-two":
-            var freq = notes[1]
-            audio.startVoice(2,freq)
+            var cents = notes[1]
+            audio.startVoice(2,cents)
             break
         case "voice-three":
-            var freq = notes[2]
-            audio.startVoice(3,freq)
+            var cents = notes[2]
+            audio.startVoice(3,cents)
             break
         case "voice-four":
-            var freq = notes[3]
-            audio.startVoice(4,freq)
+            var cents = notes[3]
+            audio.startVoice(4,cents)
             break
         case "voice-five":
-            var freq = notes[4]
-            audio.startVoice(5,freq)
+            var cents = notes[4]
+            audio.startVoice(5,cents)
             break
         case "voice-six":
-            var freq = notes[5]
-            audio.startVoice(6,freq)
+            var cents = notes[5]
+            audio.startVoice(6,cents)
             break
         case "voice-seven":
-            var freq = notes[6]
-            audio.startVoice(7,freq)
+            var cents = notes[6]
+            audio.startVoice(7,cents)
             break
         case "voice-eight":
-            var freq = notes[7]
-            audio.startVoice(8,freq)
+            var cents = notes[7]
+            audio.startVoice(8,cents)
             break
     }
 })

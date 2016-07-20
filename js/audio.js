@@ -15,7 +15,7 @@ var voices = [],
 
 
 // ---------- start and stop voices------------
-function startVoice(n,freq) {
+function startVoice(n,cents) {
     // check for retrigger
     if (voices[n]) {
         voices[n].osc.stop()
@@ -23,7 +23,7 @@ function startVoice(n,freq) {
 
     // instantiate and start voice 
     voices[n] = new Voice(mixAmp)
-    voices[n].play(freq)
+    voices[n].play(cents)
 }
 
 function stopVoice(n) {

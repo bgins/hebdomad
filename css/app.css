@@ -81,14 +81,18 @@ a.tuning-selection {
 }
 
 .tuning-description {
-  width: 40rem;
+  width: 50rem;
   color: #444;
 }
 
-tr {
+tr,
+table tbody tr:nth-child(2n) {
     background-color: #f7f7f7;
 }
 
+table tbody td {
+  padding: 0.25em;
+}
 
 .is-accordion-submenu-parent a,
 .is-accordion-submenu-item {
