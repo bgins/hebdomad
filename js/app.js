@@ -2,6 +2,25 @@ var audio = require('./audio.js')
 
 $(document).foundation()
 
+
+// ---------- init instrument ----------------
+$(document).ready(function() {
+    init()
+})
+
+function init() {
+    $('#voice-one-pitch').attr("value","440")
+    $('#voice-two-pitch').attr("value","495")
+    $('#voice-three-pitch').attr("value","528")
+    $('#voice-four-pitch').attr("value","594")
+    $('#voice-five-pitch').attr("value","660")
+    $('#voice-six-pitch').attr("value","742.5")
+    $('#voice-seven-pitch').attr("value","792")
+    $('#voice-eight-pitch').attr("value","880")
+}
+
+
+// ---------- controls panel events ----------------
 $('#controls').on('input moved.zf.slider', function() {
     audio.setMixGain($("#gain").val() / 50)
     audio.setAttack($("#attack").val() / 1000)
@@ -225,7 +244,8 @@ $('.key').mouseup(function() {
 $('.tuning-selection').on('click', function() {
     switch(this.id) {
         case "5-4-3-2-lydian":
-            retune([440,495,550,618.75,660,742.5,825,880])
+            // retune([440,495,550,618.75,660,742.5,825,880])
+            retune([0,203.91,386.31,590.22,701.96,905.87,1088.27,1200])
             break;
         case "6-5-3-2-dorian":
             retune([440,495,528,594,660,742.5,792,880])
@@ -259,15 +279,15 @@ $('.tuning-selection').on('click', function() {
     }
 })
 
-function retune(freqArray) {
-    $('#voice-one-pitch').attr('value',freqArray[0])
-    $('#voice-two-pitch').attr('value',freqArray[1])
-    $('#voice-three-pitch').attr('value',freqArray[2])
-    $('#voice-four-pitch').attr('value',freqArray[3])
-    $('#voice-five-pitch').attr('value',freqArray[4])
-    $('#voice-six-pitch').attr('value',freqArray[5])
-    $('#voice-seven-pitch').attr('value',freqArray[6])
-    $('#voice-eight-pitch').attr('value',freqArray[7])
+function retune(centsArray) {
+    $('#voice-one-pitch').attr('value',centsArray[0])
+    $('#voice-two-pitch').attr('value',centsArray[1])
+    $('#voice-three-pitch').attr('value',centsArray[2])
+    $('#voice-four-pitch').attr('value',centsArray[3])
+    $('#voice-five-pitch').attr('value',centsArray[4])
+    $('#voice-six-pitch').attr('value',centsArray[5])
+    $('#voice-seven-pitch').attr('value',centsArray[6])
+    $('#voice-eight-pitch').attr('value',centsArray[7])
 }
 
 

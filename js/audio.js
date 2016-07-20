@@ -5,13 +5,16 @@ context = new AudioContext()
 // declare globals
 var voices = [],
     mixAmp = context.createGain(),
+    gain = 0.1,
     waveform = 'sine',
-    baseFreq = 440,
+    baseFreq = 261.6255,
     ampEnvAttack = 0.1,
     ampEnvDecay = 0.025,
     ampEnvSustain = 0.9,
     ampEnvRelease = 0.5 
 
+// mixAmp.gain.value = 0.1,
+/*
 // ---------- init instrument ----------------
 $(document).ready(function() {
     initTuning()
@@ -32,6 +35,7 @@ function initTuning() {
 function initControls() {
     mixAmp.gain.value = 0.1
 }
+*/
 
 
 // ---------- start and stop voices------------
