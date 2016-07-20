@@ -8,14 +8,14 @@ var notes
 
 $(document).ready(function() {
     notes = [0,203.91,386.31,590.22,701.96,905.87,1088.27,1200]
-    $('#voice-one-pitch').attr("value","0")
-    $('#voice-two-pitch').attr("value","203")
-    $('#voice-three-pitch').attr("value","386")
-    $('#voice-four-pitch').attr("value","590")
-    $('#voice-five-pitch').attr("value","701")
-    $('#voice-six-pitch').attr("value","905")
-    $('#voice-seven-pitch').attr("value","1088")
-    $('#voice-eight-pitch').attr("value","1200")
+    $('#voice-zero-cents-input').attr("value","0")
+    $('#voice-one-cents-input').attr("value","203")
+    $('#voice-two-cents-input').attr("value","386")
+    $('#voice-three-cents-input').attr("value","590")
+    $('#voice-four-cents-input').attr("value","701")
+    $('#voice-five-cents-input').attr("value","905")
+    $('#voice-six-cents-input').attr("value","1088")
+    $('#voice-seven-cents-input').attr("value","1200")
 })
 
 
@@ -85,45 +85,45 @@ $(document).keydown(function(e) {
     
     switch (e.which) {
         case 65:
-            $('#voice-one').css('background-color','#059a91')
+            $('#voice-zero-button').css('background-color','#059a91')
             var cents = notes[0]
-            audio.startVoice(1,cents)
+            audio.startVoice(0,cents)
             break
         case 83:
-            $('#voice-two').css('background-color','#059a91')
+            $('#voice-one-button').css('background-color','#059a91')
             var cents = notes[1]
-            audio.startVoice(2,cents)
+            audio.startVoice(1,cents)
             break
         case 68:
-            $('#voice-three').css('background-color','#059a91')
+            $('#voice-two-button').css('background-color','#059a91')
             var cents = notes[2]
-            audio.startVoice(3,cents)
+            audio.startVoice(2,cents)
             break
         case 70:
-            $('#voice-four').css('background-color','#059a91')
+            $('#voice-three-button').css('background-color','#059a91')
             var cents = notes[3]
-            audio.startVoice(4,cents)
+            audio.startVoice(3,cents)
             break
         case 74:
-            $('#voice-five').css('background-color','#059a91')
+            $('#voice-four-button').css('background-color','#059a91')
             var cents = notes[4]
-            audio.startVoice(5,cents)
+            audio.startVoice(4,cents)
             break
         case 75:
-            $('#voice-six').css('background-color','#059a91')
+            $('#voice-five-button').css('background-color','#059a91')
             var cents = notes[5]
-            audio.startVoice(6,cents)
+            audio.startVoice(5,cents)
             break
         case 76:
-            $('#voice-seven').css('background-color','#059a91')
+            $('#voice-six-button').css('background-color','#059a91')
             var cents = notes[6]
-            audio.startVoice(7,cents)
+            audio.startVoice(6,cents)
             break
         case 59:
         case 186:
-            $('#voice-eight').css('background-color','#059a91')
+            $('#voice-seven-button').css('background-color','#059a91')
             var cents = notes[7]
-            audio.startVoice(8,cents)
+            audio.startVoice(7,cents)
             break
     }
     heldKeys[e.which] = true
@@ -132,37 +132,37 @@ $(document).keydown(function(e) {
 $(document).keyup(function(e) {
     switch (e.which) {
         case 65:
-            $('#voice-one').css('background-color','#243640')
-            audio.stopVoice(1)
+            $('#voice-zero-button').css('background-color','#243640')
+            audio.stopVoice(0)
             break
         case 83:
-            $('#voice-two').css('background-color','#243640')
-            audio.stopVoice(2)
+            $('#voice-one-button').css('background-color','#243640')
+            audio.stopVoice(1)
             break
         case 68:
-            $('#voice-three').css('background-color','#243640')
-            audio.stopVoice(3)
+            $('#voice-two-button').css('background-color','#243640')
+            audio.stopVoice(2)
             break
         case 70:
-            $('#voice-four').css('background-color','#243640')
-            audio.stopVoice(4)
+            $('#voice-three-button').css('background-color','#243640')
+            audio.stopVoice(3)
             break
         case 74:
-            $('#voice-five').css('background-color','#243640')
-            audio.stopVoice(5)
+            $('#voice-four-button').css('background-color','#243640')
+            audio.stopVoice(4)
             break
         case 75:
-            $('#voice-six').css('background-color','#243640')
-            audio.stopVoice(6)
+            $('#voice-five-button').css('background-color','#243640')
+            audio.stopVoice(5)
             break
         case 76:
-            $('#voice-seven').css('background-color','#243640')
-            audio.stopVoice(7)
+            $('#voice-six-button').css('background-color','#243640')
+            audio.stopVoice(6)
             break
         case 59:
         case 186:
-            $('#voice-eight').css('background-color','#243640')
-            audio.stopVoice(8)
+            $('#voice-seven-button').css('background-color','#243640')
+            audio.stopVoice(7)
             break
     }
     heldKeys[e.which] = false
@@ -174,37 +174,37 @@ $(document).keyup(function(e) {
 $('.key').mousedown(function() {
     $(this).css('background-color','#059a91')
     switch(this.id) {
-        case "voice-one":
+        case "voice-zero-button":
             var cents = notes[0]
+            audio.startVoice(0,cents)
+            break
+        case "voice-one-button":
+            var cents = notes[1]
             audio.startVoice(1,cents)
             break
-        case "voice-two":
-            var cents = notes[1]
+        case "voice-two-button":
+            var cents = notes[2]
             audio.startVoice(2,cents)
             break
-        case "voice-three":
-            var cents = notes[2]
+        case "voice-three-button":
+            var cents = notes[3]
             audio.startVoice(3,cents)
             break
-        case "voice-four":
-            var cents = notes[3]
+        case "voice-four-button":
+            var cents = notes[4]
             audio.startVoice(4,cents)
             break
-        case "voice-five":
-            var cents = notes[4]
+        case "voice-five-button":
+            var cents = notes[5]
             audio.startVoice(5,cents)
             break
-        case "voice-six":
-            var cents = notes[5]
+        case "voice-six-button":
+            var cents = notes[6]
             audio.startVoice(6,cents)
             break
-        case "voice-seven":
-            var cents = notes[6]
-            audio.startVoice(7,cents)
-            break
-        case "voice-eight":
+        case "voice-seven-button":
             var cents = notes[7]
-            audio.startVoice(8,cents)
+            audio.startVoice(7,cents)
             break
     }
 })
@@ -212,32 +212,33 @@ $('.key').mousedown(function() {
 $('.key').mouseup(function() {
     $(this).css('background-color','#243640')
     switch(this.id) {
-        case "voice-one":
+        case "voice-zero-button":
+            audio.stopVoice(0)
+            break
+        case "voice-one-button":
             audio.stopVoice(1)
             break
-        case "voice-two":
+        case "voice-two-button":
             audio.stopVoice(2)
             break
-        case "voice-three":
+        case "voice-three-button":
             audio.stopVoice(3)
             break
-        case "voice-four":
+        case "voice-four-button":
             audio.stopVoice(4)
             break
-        case "voice-five":
+        case "voice-five-button":
             audio.stopVoice(5)
             break
-        case "voice-six":
+        case "voice-six-button":
             audio.stopVoice(6)
             break
-        case "voice-seven":
+        case "voice-seven-button":
             audio.stopVoice(7)
-            break
-        case "voice-eight":
-            audio.stopVoice(8)
             break
     }
 })
+
 
 // ---------- retune events ------------
 $('.tuning-selection').on('click', function() {
@@ -285,27 +286,27 @@ function retune(centsArray) {
 
     // *** these won't update when a value has been manually added ***
     // update UI
-    $('#voice-one-pitch').attr('value',Math.round(centsArray[0]))
-    $('#voice-two-pitch').attr('value',Math.round(centsArray[1]))
-    $('#voice-three-pitch').attr('value',Math.round(centsArray[2]))
-    $('#voice-four-pitch').attr('value',Math.round(centsArray[3]))
-    $('#voice-five-pitch').attr('value',Math.round(centsArray[4]))
-    $('#voice-six-pitch').attr('value',Math.round(centsArray[5]))
-    $('#voice-seven-pitch').attr('value',Math.round(centsArray[6]))
-    $('#voice-eight-pitch').attr('value',Math.round(centsArray[7]))
+    $('#voice-zero-cents-input').attr('value',Math.round(centsArray[0]))
+    $('#voice-one-cents-input').attr('value',Math.round(centsArray[1]))
+    $('#voice-two-cents-input').attr('value',Math.round(centsArray[2]))
+    $('#voice-three-cents-input').attr('value',Math.round(centsArray[3]))
+    $('#voice-four-cents-input').attr('value',Math.round(centsArray[4]))
+    $('#voice-five-cents-input').attr('value',Math.round(centsArray[5]))
+    $('#voice-six-cents-input').attr('value',Math.round(centsArray[6]))
+    $('#voice-seven-cents-input').attr('value',Math.round(centsArray[7]))
 }
 
 
 // retune notes on custom tuning entry 
 $("#btnHidden").on('click', function() {
-    notes[0] = $('#voice-one-pitch').val()
-    notes[1] = $('#voice-two-pitch').val()
-    notes[2] = $('#voice-three-pitch').val()
-    notes[3] = $('#voice-four-pitch').val()
-    notes[4] = $('#voice-five-pitch').val()
-    notes[5] = $('#voice-six-pitch').val()
-    notes[6] = $('#voice-seven-pitch').val()
-    notes[7] = $('#voice-eight-pitch').val()
+    notes[0] = $('#voice-zero-cents-input').val()
+    notes[1] = $('#voice-one-cents-input').val()
+    notes[2] = $('#voice-two-cents-input').val()
+    notes[3] = $('#voice-three-cents-input').val()
+    notes[4] = $('#voice-four-cents-input').val()
+    notes[5] = $('#voice-five-cents-input').val()
+    notes[6] = $('#voice-six-cents-input').val()
+    notes[7] = $('#voice-seven-cents-input').val()
 
     // blur event that fires on any input:text enter
     $("input:text").blur()
