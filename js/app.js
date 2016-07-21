@@ -10,15 +10,7 @@ var notes,
 
 $(document).ready(function() {
     notes = [0,203.91,386.31,590.22,701.96,905.87,1088.27,1200]
-    $('#voice-zero-cents-input').attr('value','0')
-    $('#voice-one-cents-input').attr('value','203')
-    $('#voice-two-cents-input').attr('value','386')
-    $('#voice-three-cents-input').attr('value','590')
-    $('#voice-four-cents-input').attr('value','701')
-    $('#voice-five-cents-input').attr('value','905')
-    $('#voice-six-cents-input').attr('value','1088')
-    $('#voice-seven-cents-input').attr('value','1200')
-
+    $('#base-freq-input').attr('value',261.62)
     $('#keyboard-mode-button').css('background-color','#026d63')
 })
 
@@ -350,18 +342,6 @@ function retune(centsArray) {
     if (keymode == 2) {
         setKeyboard(keymode)
     }
-
-    // *** these won't update when a value has been manually added ***
-    // !! probably won't need them !!
-    // update UI
-    $('#voice-zero-cents-input').attr('value',Math.round(centsArray[0]))
-    $('#voice-one-cents-input').attr('value',Math.round(centsArray[1]))
-    $('#voice-two-cents-input').attr('value',Math.round(centsArray[2]))
-    $('#voice-three-cents-input').attr('value',Math.round(centsArray[3]))
-    $('#voice-four-cents-input').attr('value',Math.round(centsArray[4]))
-    $('#voice-five-cents-input').attr('value',Math.round(centsArray[5]))
-    $('#voice-six-cents-input').attr('value',Math.round(centsArray[6]))
-    $('#voice-seven-cents-input').attr('value',Math.round(centsArray[7]))
 }
 
 
@@ -375,6 +355,11 @@ $("#btnHidden").on('click', function() {
     notes[5] = $('#voice-five-cents-input').val()
     notes[6] = $('#voice-six-cents-input').val()
     notes[7] = $('#voice-seven-cents-input').val()
+
+    // update keys if currently showing cents
+    if (keymode == 2) {
+        setKeyboard(keymode)
+    }
 })
 
 
