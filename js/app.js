@@ -4,68 +4,23 @@ $(document).foundation()
 
 
 // ---------- init instrument ----------------
-var notes
+var notes,
+    heldKeys = [],
+    keymode = 0
 
 $(document).ready(function() {
     notes = [0,203.91,386.31,590.22,701.96,905.87,1088.27,1200]
-    $('#voice-zero-cents-input').attr("value","0")
-    $('#voice-one-cents-input').attr("value","203")
-    $('#voice-two-cents-input').attr("value","386")
-    $('#voice-three-cents-input').attr("value","590")
-    $('#voice-four-cents-input').attr("value","701")
-    $('#voice-five-cents-input').attr("value","905")
-    $('#voice-six-cents-input').attr("value","1088")
-    $('#voice-seven-cents-input').attr("value","1200")
-})
+    $('#voice-zero-cents-input').attr('value','0')
+    $('#voice-one-cents-input').attr('value','203')
+    $('#voice-two-cents-input').attr('value','386')
+    $('#voice-three-cents-input').attr('value','590')
+    $('#voice-four-cents-input').attr('value','701')
+    $('#voice-five-cents-input').attr('value','905')
+    $('#voice-six-cents-input').attr('value','1088')
+    $('#voice-seven-cents-input').attr('value','1200')
 
-
-// ---------- controls panel events ----------------
-$('#controls').on('input moved.zf.slider', function() {
-    audio.setMixGain($("#gain").val() / 50)
-    audio.setAttack($("#attack").val() / 1000)
-    audio.setDecay($("#decay").val() / 1000)
-    audio.setSustain($("#sustain").val() / 100)
-    audio.setRelease($("#release").val() / 1000)
+    $('#keyboard-mode-button').css('background-color','#026d63')
 })
-
-$('#sine').on('click', function() {
-    audio.setWaveform(this.id)
-})
-
-$('#triangle').on('click', function() {
-    audio.setWaveform(this.id)
-})
-
-$('#square').on('click', function() {
-    audio.setWaveform(this.id)
-})
-
-$('#sawtooth').on('click', function() {
-    audio.setWaveform(this.id)
-})
-
-/*
-// Gain input event changes level from 0 to 1 
-$('#gain').on('input',function(){
-    audio.setMixGain($("#gain").val() / 50)
-})
-
-$('#attack').on('input',function(){
-    audio.setAttack($("#attack").val() / 1000)
-})
-
-$('#decay').on('input',function(){
-    audio.setDecay($("#decay").val() / 1000)
-})
-
-$('#sustain').on('input',function(){
-    audio.setSustain($("#sustain").val() / 100)
-})
-
-$('#release').on('input',function(){
-    audio.setRelease($("#release").val() / 1000)
-})
-*/
 
 
 // ---------- keypress events ------------
@@ -74,9 +29,6 @@ $('#release').on('input',function(){
 // keycodes: a = 66, s = 83, d = 68, f = 70,
 //           j = 74, k = 75, l = 76, 
 //           ; = 59 (firefox) and 186 (chrome)
-
-var heldKeys = []
-
 $(document).keydown(function(e) {
     // check if key is currently pressed
     if (heldKeys[e.which]) {
@@ -240,6 +192,116 @@ $('.key').mouseup(function() {
 })
 
 
+// ---------- controls panel events ----------------
+$('#controls').on('input moved.zf.slider', function() {
+    audio.setMixGain($("#gain").val() / 50)
+    audio.setAttack($("#attack").val() / 1000)
+    audio.setDecay($("#decay").val() / 1000)
+    audio.setSustain($("#sustain").val() / 100)
+    audio.setRelease($("#release").val() / 1000)
+})
+
+$('#sine').on('click', function() {
+    audio.setWaveform(this.id)
+})
+
+$('#triangle').on('click', function() {
+    audio.setWaveform(this.id)
+})
+
+$('#square').on('click', function() {
+    audio.setWaveform(this.id)
+})
+
+$('#sawtooth').on('click', function() {
+    audio.setWaveform(this.id)
+})
+
+$('.keymode-button').on('click', function() {
+    switch(this.id) {
+        case 'keyboard-mode-button':
+            keymode = 0
+            setKeyboard(keymode); 
+            $(this).css('background-color','#026d63')
+            $('#degree-mode-button').css('background-color','#243640')
+            $('#cents-mode-button').css('background-color','#243640')
+            break;
+        case 'degree-mode-button':
+            keymode = 1
+            setKeyboard(keymode); 
+            $(this).css('background-color','#026d63')
+            $('#keyboard-mode-button').css('background-color','#243640')
+            $('#cents-mode-button').css('background-color','#243640')
+            break;
+        case 'cents-mode-button':
+            keymode = 2
+            setKeyboard(keymode); 
+            $(this).css('background-color','#026d63')
+            $('#degree-mode-button').css('background-color','#243640')
+            $('#keyboard-mode-button').css('background-color','#243640')
+            break;
+        }
+})
+
+function setKeyboard(keymode) {
+    switch(keymode) {
+        case 0:
+            $('#voice-zero-button').text('a')     
+            $('#voice-one-button').text('s')     
+            $('#voice-two-button').text('d')     
+            $('#voice-three-button').text('f')     
+            $('#voice-four-button').text('j')     
+            $('#voice-five-button').text('k')     
+            $('#voice-six-button').text('l')     
+            $('#voice-seven-button').text(';')     
+            break;
+        case 1:
+            $('#voice-zero-button').text('0')     
+            $('#voice-one-button').text('1')     
+            $('#voice-two-button').text('2')     
+            $('#voice-three-button').text('3')     
+            $('#voice-four-button').text('4')     
+            $('#voice-five-button').text('5')     
+            $('#voice-six-button').text('6')     
+            $('#voice-seven-button').text('7')     
+            break;
+        case 2:
+            $('#voice-zero-button').text(Math.round(notes[0]))     
+            $('#voice-one-button').text(Math.round(notes[1]))     
+            $('#voice-two-button').text(Math.round(notes[2]))     
+            $('#voice-three-button').text(Math.round(notes[3]))     
+            $('#voice-four-button').text(Math.round(notes[4]))     
+            $('#voice-five-button').text(Math.round(notes[5]))   
+            $('#voice-six-button').text(Math.round(notes[6]))     
+            $('#voice-seven-button').text(Math.round(notes[7]))     
+            break;
+    }
+}
+
+/*
+// Gain input event changes level from 0 to 1 
+$('#gain').on('input',function(){
+    audio.setMixGain($("#gain").val() / 50)
+})
+
+$('#attack').on('input',function(){
+    audio.setAttack($("#attack").val() / 1000)
+})
+
+$('#decay').on('input',function(){
+    audio.setDecay($("#decay").val() / 1000)
+})
+
+$('#sustain').on('input',function(){
+    audio.setSustain($("#sustain").val() / 100)
+})
+
+$('#release').on('input',function(){
+    audio.setRelease($("#release").val() / 1000)
+})
+*/
+
+
 // ---------- retune panel events ------------
 $('.tuning-selection').on('click', function() {
     switch(this.id) {
@@ -284,7 +346,13 @@ function retune(centsArray) {
         notes[i] = centsArray[i]
     }
 
+    // update keys if currently showing cents
+    if (keymode == 2) {
+        setKeyboard(keymode)
+    }
+
     // *** these won't update when a value has been manually added ***
+    // !! probably won't need them !!
     // update UI
     $('#voice-zero-cents-input').attr('value',Math.round(centsArray[0]))
     $('#voice-one-cents-input').attr('value',Math.round(centsArray[1]))
@@ -307,12 +375,16 @@ $("#btnHidden").on('click', function() {
     notes[5] = $('#voice-five-cents-input').val()
     notes[6] = $('#voice-six-cents-input').val()
     notes[7] = $('#voice-seven-cents-input').val()
-
-    // blur event that fires on any input:text enter
-    $("input:text").blur()
 })
 
 
 $("#base-freq-input").on('input', function() {
     audio.setBaseFreq($(this).val())
+})
+
+
+// ---------- utilities ------------
+// blur event that fires on any input:text enter
+$("#btnHidden").on('click', function() {
+    $("input:text").blur()
 })
