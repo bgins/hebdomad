@@ -1,40 +1,4 @@
-
-.key {
-  width: 4.1rem;
-  height: 3.6rem;
-  border-radius: 0.2rem
-}
-
-.slider.vertical {
-  height: 10.4rem;
-}
-
-.tuning-input {
-  text-align: center;
-  padding: 0.4rem;
-  width: 4.1rem;
-}
-
-.control-label {
-  text-align: center;
-  display: inline-block;
-  padding: 0 0 0.5rem 0;
-  font-size: 0.8rem;
-}
-
-.control-input {
- text-align: center;
- padding: 0.4rem;
- width: 3.2rem;
-}
-
-.section-label {
-  display: inline-block;
-  padding: 0 0 0.8rem 0;
-  font-size: 1.2rem;
-  font-variant: small-caps;
-}
-
+/* general styles */
 h1 {
   padding: 0.5rem 0 0.5rem 0;
   font-size: 4.2rem;
@@ -68,6 +32,53 @@ body {
 .tabs-content {
   background-color: #f7f7f7;
 }
+
+
+/* keyboard */
+.key {
+  width: 4.1rem;
+  height: 3.6rem;
+  border-radius: 0.2rem
+}
+
+.tuning-input {
+  text-align: center;
+  padding: 0.4rem;
+  width: 4.1rem;
+}
+
+
+/* control panel */
+.slider.vertical {
+  height: 10.4rem;
+}
+
+.control-label {
+  text-align: center;
+  display: inline-block;
+  padding: 0 0 0.5rem 0;
+  font-size: 0.8rem;
+}
+
+.control-input {
+ text-align: center;
+ padding: 0.4rem;
+ width: 3.2rem;
+}
+
+.section-label {
+  display: inline-block;
+  padding: 0 0 0.8rem 0;
+  font-size: 1.2rem;
+  font-variant: small-caps;
+}
+
+.keymode-button {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+
 
 /* tuning menu */
 a.tuning-category {
@@ -116,6 +127,7 @@ table tbody tr:nth-child(2n) {
 a.arrow-inset-fix::after {
   margin-right: 1rem;
 }
+
 
 /* about panel */
 p.about-label {
