@@ -240,7 +240,7 @@ $('.key').mouseup(function() {
 })
 
 
-// ---------- retune events ------------
+// ---------- retune panel events ------------
 $('.tuning-selection').on('click', function() {
     switch(this.id) {
         case "5-4-3-2-lydian":
@@ -297,7 +297,7 @@ function retune(centsArray) {
 }
 
 
-// retune notes on custom tuning entry 
+// ---------- custom panel events ------------
 $("#btnHidden").on('click', function() {
     notes[0] = $('#voice-zero-cents-input').val()
     notes[1] = $('#voice-one-cents-input').val()
@@ -310,4 +310,9 @@ $("#btnHidden").on('click', function() {
 
     // blur event that fires on any input:text enter
     $("input:text").blur()
+})
+
+
+$("#base-freq-input").on('input', function() {
+    audio.setBaseFreq($(this).val())
 })

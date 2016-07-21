@@ -95,6 +95,10 @@ function setRelease(release) {
     ampEnvRelease = release
 }
 
+function setBaseFreq(bf) {
+    baseFreq = bf
+}
+
 // ---------- Exports --------------
 exports.startVoice = startVoice
 exports.stopVoice = stopVoice
@@ -104,3 +108,4 @@ exports.setAttack = setAttack
 exports.setDecay = setDecay
 exports.setSustain = setSustain
 exports.setRelease = setRelease
+exports.setBaseFreq = setBaseFreq
