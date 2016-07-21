@@ -312,6 +312,10 @@ $('#controls-label').on('click', function() {
     setTimeout(function() {$('#gain').change() }, 10)
 })
 
+$("#btnHiddenControls").on('click', function() {
+    $("input:text").blur()
+})
+
 /*
 // Gain input event changes level from 0 to 1 
 $('#gain').on('input',function(){
@@ -388,7 +392,8 @@ function retune(centsArray) {
 
 
 // ---------- custom panel events ------------
-$("#btnHidden").on('click', function() {
+$("#btnHiddenRetune").on('click', function() {
+// $(".tuning-input").on('input', function() {
     notes[0] = $('#voice-zero-cents-input').val()
     notes[1] = $('#voice-one-cents-input').val()
     notes[2] = $('#voice-two-cents-input').val()
@@ -402,16 +407,11 @@ $("#btnHidden").on('click', function() {
     if (keymode == 2) {
         setKeyboard(keymode)
     }
+
+    $("input:text").blur()
 })
 
-
-$("#base-freq-input").on('input', function() {
+$("#base-freq-input").on('change', function() {
     audio.setBaseFreq($(this).val())
-})
-
-
-// ---------- utilities ------------
-// blur event that fires on any input:text enter
-$("#btnHidden").on('click', function() {
     $("input:text").blur()
 })
