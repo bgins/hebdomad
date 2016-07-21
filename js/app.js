@@ -6,7 +6,8 @@ $(document).foundation()
 // ---------- init instrument ----------------
 var notes,
     heldKeys = [],
-    keymode = 0
+    keymode = 0,
+    gain = 5
 
 $(document).ready(function() {
     notes = [0,203.91,386.31,590.22,701.96,905.87,1088.27,1200]
@@ -47,6 +48,20 @@ $(document).keydown(function(e) {
             $('#voice-three-button').css('background-color','#059a91')
             var cents = notes[3]
             audio.startVoice(3,cents)
+            break
+        case 71:
+            if (gain > 0) {
+                gain -= 1
+                audio.setMixGain(gain / 50)
+                $('#gain').val(gain).change()
+            }
+            break
+        case 72:
+            if (gain < 10) {
+                gain += 1
+                audio.setMixGain(gain / 50)
+                $('#gain').val(gain).change()
+            }
             break
         case 74:
             $('#voice-four-button').css('background-color','#059a91')
@@ -184,9 +199,11 @@ $('.key').mouseup(function() {
 })
 
 
+
 // ---------- controls panel events ----------------
 $('#controls').on('input moved.zf.slider', function() {
-    audio.setMixGain($("#gain").val() / 50)
+    gain = parseInt($('#gain').val())
+    audio.setMixGain(gain / 50)
     audio.setAttack($("#attack").val() / 1000)
     audio.setDecay($("#decay").val() / 1000)
     audio.setSustain($("#sustain").val() / 100)
@@ -269,6 +286,12 @@ function setKeyboard(keymode) {
             break;
     }
 }
+
+// refresh slider handle when controls panel selected
+// this is not ideal, but foundation is not updating when in another panel
+$('#controls-label').on('click', function() {
+    setTimeout(function() {$('#gain').change() }, 10)
+})
 
 /*
 // Gain input event changes level from 0 to 1 
