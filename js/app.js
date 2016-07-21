@@ -7,7 +7,8 @@ $(document).foundation()
 var notes,
     heldKeys = [],
     keymode = 0,
-    gain = 5
+    gain = 5,
+    timeout = false
 
 $(document).ready(function() {
     notes = [0,203.91,386.31,590.22,701.96,905.87,1088.27,1200]
@@ -20,11 +21,13 @@ $(document).ready(function() {
 // keydown starts a note, keyup stops a note
 // heldKeys keeps track of which keys are currently held
 // keycodes: a = 66, s = 83, d = 68, f = 70,
+//           g = 71, h = 72,
 //           j = 74, k = 75, l = 76, 
 //           ; = 59 (firefox) and 186 (chrome)
 $(document).keydown(function(e) {
-    // check if key is currently pressed
-    if (heldKeys[e.which]) {
+    // check if note is currently held
+    // allow gain switch events through
+    if (heldKeys[e.which] && e.which != 71 && e.which != 72) {
         return
     }
     
@@ -50,17 +53,23 @@ $(document).keydown(function(e) {
             audio.startVoice(3,cents)
             break
         case 71:
-            if (gain > 0) {
-                gain -= 1
-                audio.setMixGain(gain / 50)
-                $('#gain').val(gain).change()
+            if (gain > 0 && !timeout) {
+                timeout = setInterval(function() {
+                    gain -= 1
+                    audio.setMixGain(gain / 50)
+                    $('#gain').val(gain).change()
+                    $('#dec-gain-switch').css('background-color','#5a5f61')
+                }, 75)
             }
             break
         case 72:
-            if (gain < 10) {
-                gain += 1
-                audio.setMixGain(gain / 50)
-                $('#gain').val(gain).change()
+            if (gain < 10 && !timeout) {
+                timeout = setInterval(function() {
+                    gain += 1
+                    audio.setMixGain(gain / 50)
+                    $('#gain').val(gain).change()
+                    $('#inc-gain-switch').css('background-color','#5a5f61')
+                }, 75)
             }
             break
         case 74:
@@ -105,6 +114,16 @@ $(document).keyup(function(e) {
         case 70:
             $('#voice-three-button').css('background-color','#243640')
             audio.stopVoice(3)
+            break
+        case 71:
+            $('#dec-gain-switch').css('background-color','#2c353a')
+            clearInterval(timeout)
+            timeout = false
+            break
+        case 72:
+            $('#inc-gain-switch').css('background-color','#2c353a')
+            clearInterval(timeout)
+            timeout = false
             break
         case 74:
             $('#voice-four-button').css('background-color','#243640')

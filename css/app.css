@@ -35,7 +35,8 @@ body {
 
 
 /* keyboard */
-.key {
+a.key,
+a.switch {
   width: 4.1rem;
   height: 3.6rem;
   border-radius: 0.2rem;
@@ -43,10 +44,13 @@ body {
   padding-right: 0rem;
 }
 
-.tuning-input {
-  text-align: center;
-  padding: 0.4rem;
-  width: 4.1rem;
+a.switch {  
+  background-color: #2c353a;
+  /* flashes: #3D464B */
+}
+
+a.middle-row {
+  margin-left: -3rem;
 }
 
 
@@ -114,8 +118,6 @@ table tbody tr:nth-child(2n) {
     background-color: #f7f7f7;
 }
 
-
-
 .is-accordion-submenu-parent a,
 .is-accordion-submenu-item {
   /* color: #000; */
@@ -130,9 +132,36 @@ a.arrow-inset-fix::after {
   margin-right: 1rem;
 }
 
+/* custom panel */
+.tuning-input {
+  text-align: center;
+  padding: 0.4rem;
+  width: 4.1rem;
+}
+
 
 /* about panel */
 p.about-label {
   font-size: 1.6rem;
   font-variant: small-caps;
 }
+
+
+/* Color palette
+http://colrd.com/palette/44272/:
+#026d63
+#059a91
+#243640
+#081016
+#f7f7f7
+#93a8b3
+#333333
+#666666
+#999999
+
+custom switch color:
+#2C353A
+*/
+
+
+
