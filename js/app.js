@@ -12,7 +12,7 @@ var notes,
 
 $(document).ready(function() {
     notes = [0,203.91,386.31,590.22,701.96,905.87,1088.27,1200]
-    $('#base-freq-input').attr('value',261.62)
+    $('#base-freq-input').attr('value',261.6255)
     $('#keyboard-mode-button').css('background-color','#026d63')
 })
 

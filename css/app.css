@@ -133,10 +133,15 @@ a.arrow-inset-fix::after {
 }
 
 /* custom panel */
-.tuning-input {
+#base-freq-input {
+  width: 5.4rem;
   text-align: center;
+}
+
+.tuning-input {
   padding: 0.4rem;
-  width: 4.1rem;
+  text-align: center;
+  width: 5rem;
 }
 
 
