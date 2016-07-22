@@ -150,7 +150,7 @@ $(document).keyup(function(e) {
 
 // ---------- click events ------------
 // note starts on mousedown, then holds til mouseup
-$('.key').mousedown(function() {
+$('.key, .switch').mousedown(function() {
     $(this).css('background-color','#059a91')
     switch(this.id) {
         case "voice-zero-button":
@@ -168,6 +168,26 @@ $('.key').mousedown(function() {
         case "voice-three-button":
             var cents = notes[3]
             audio.startVoice(3,cents)
+            break
+        case 'dec-gain-switch':
+            if (gain > 0 && !timeout) {
+                timeout = setInterval(function() {
+                    gain -= 1
+                    audio.setMixGain(gain / 500)
+                    $('#gain').val(gain).change()
+                    $('#dec-gain-switch').css('background-color','#5a5f61')
+                }, 25)
+            }
+            break
+        case 'inc-gain-switch':
+            if (gain < 100 && !timeout) {
+                timeout = setInterval(function() {
+                    gain += 1
+                    audio.setMixGain(gain / 500)
+                    $('#gain').val(gain).change()
+                    $('#inc-gain-switch').css('background-color','#5a5f61')
+                }, 25)
+            }
             break
         case "voice-four-button":
             var cents = notes[4]
@@ -188,7 +208,7 @@ $('.key').mousedown(function() {
     }
 })
 
-$('.key').mouseup(function() {
+$('.key, .switch').mouseup(function() {
     $(this).css('background-color','#243640')
     switch(this.id) {
         case "voice-zero-button":
@@ -202,6 +222,16 @@ $('.key').mouseup(function() {
             break
         case "voice-three-button":
             audio.stopVoice(3)
+            break
+        case 'dec-gain-switch':
+            $('#dec-gain-switch').css('background-color','#2c353a')
+            clearInterval(timeout)
+            timeout = false
+            break
+        case 'inc-gain-switch':
+            $('#inc-gain-switch').css('background-color','#2c353a')
+            clearInterval(timeout)
+            timeout = false
             break
         case "voice-four-button":
             audio.stopVoice(4)
