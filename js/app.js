@@ -56,20 +56,20 @@ $(document).keydown(function(e) {
             if (gain > 0 && !timeout) {
                 timeout = setInterval(function() {
                     gain -= 1
-                    audio.setMixGain(gain / 50)
+                    audio.setMixGain(gain / 500)
                     $('#gain').val(gain).change()
                     $('#dec-gain-switch').css('background-color','#5a5f61')
-                }, 75)
+                }, 25)
             }
             break
         case 72:
-            if (gain < 10 && !timeout) {
+            if (gain < 100 && !timeout) {
                 timeout = setInterval(function() {
                     gain += 1
-                    audio.setMixGain(gain / 50)
+                    audio.setMixGain(gain / 500)
                     $('#gain').val(gain).change()
                     $('#inc-gain-switch').css('background-color','#5a5f61')
-                }, 75)
+                }, 25)
             }
             break
         case 74:
@@ -222,7 +222,7 @@ $('.key').mouseup(function() {
 // ---------- controls panel events ----------------
 $('#controls').on('input moved.zf.slider', function() {
     gain = parseInt($('#gain').val())
-    audio.setMixGain(gain / 50)
+    audio.setMixGain(gain / 500)
     audio.setAttack($("#attack").val() / 1000)
     audio.setDecay($("#decay").val() / 1000)
     audio.setSustain($("#sustain").val() / 100)
