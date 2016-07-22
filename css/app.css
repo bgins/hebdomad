@@ -15,11 +15,13 @@ body {
   background-color: #243640;
 }
 
-.simple:hover,
-.simple:focus {
-  background-color: #059a91;
+.simple:hover {
+  background-color: #059a91!important;
 }
 
+.switch:hover {
+  background-color: #5a5f61!important;
+}
 
 #controls-label, 
 #tunings-label,
@@ -47,7 +49,7 @@ a.switch {
 
 a.switch {  
   background-color: #2c353a;
-  /* flashes: #3D464B */
+  /* flashes: #5a5f61 */
 }
 
 a.middle-row {
