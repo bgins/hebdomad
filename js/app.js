@@ -12,8 +12,9 @@ var notes,
 
 $(document).ready(function() {
     notes = [0,203.91,386.31,590.22,701.96,905.87,1088.27,1200]
+    $('#sine').css('background-color','#03796f')
+    $('#keyboard-mode-button').css('background-color','#03796f')
     $('#base-freq-input').attr('value',261.6255)
-    $('#keyboard-mode-button').css('background-color','#026d63')
 })
 
 
@@ -229,46 +230,47 @@ $('#controls').on('input moved.zf.slider', function() {
     audio.setRelease($("#release").val() / 1000)
 })
 
-$('#sine').on('click', function() {
+$('.osc-button').on('click', function() {
     audio.setWaveform(this.id)
-})
-
-$('#triangle').on('click', function() {
-    audio.setWaveform(this.id)
-})
-
-$('#square').on('click', function() {
-    audio.setWaveform(this.id)
-})
-
-$('#sawtooth').on('click', function() {
-    audio.setWaveform(this.id)
+    $(this).css('background-color','#03796f')
+    switch(this.id) {
+        case 'sine':
+            $('#triangle, #square, #sawtooth').css('background-color','#243640')
+            break
+        case 'triangle':
+            $('#sine, #square, #sawtooth').css('background-color','#243640')
+            break
+        case 'square':
+            $('#sine, #triangle, #sawtooth').css('background-color','#243640')
+            break
+        case 'sawtooth':
+            $('#sine, #triangle, #square').css('background-color','#243640')
+            break
+    }
 })
 
 $('.keymode-button').on('click', function() {
+    $(this).css('background-color','#03796f')
     switch(this.id) {
         case 'keyboard-mode-button':
             keymode = 0
-            setKeyboard(keymode); 
-            $(this).css('background-color','#026d63')
+            setKeyboard(keymode) 
             $('#degree-mode-button').css('background-color','#243640')
             $('#cents-mode-button').css('background-color','#243640')
-            break;
+            break
         case 'degree-mode-button':
             keymode = 1
-            setKeyboard(keymode); 
-            $(this).css('background-color','#026d63')
+            setKeyboard(keymode) 
             $('#keyboard-mode-button').css('background-color','#243640')
             $('#cents-mode-button').css('background-color','#243640')
-            break;
+            break
         case 'cents-mode-button':
             keymode = 2
-            setKeyboard(keymode); 
-            $(this).css('background-color','#026d63')
+            setKeyboard(keymode) 
             $('#degree-mode-button').css('background-color','#243640')
             $('#keyboard-mode-button').css('background-color','#243640')
-            break;
-        }
+            break
+    }
 })
 
 function setKeyboard(keymode) {
