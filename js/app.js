@@ -285,20 +285,17 @@ $('.keymode-button').on('click', function() {
         case 'keyboard-mode-button':
             keymode = 0;
             setKeyboard(keymode);
-            $('#degree-mode-button').css('background-color','#243640');
-            $('#cents-mode-button').css('background-color','#243640');
+            $('#degree-mode-button, #cents-mode-button').css('background-color','#243640');
             break;
         case 'degree-mode-button':
             keymode = 1;
             setKeyboard(keymode);
-            $('#keyboard-mode-button').css('background-color','#243640');
-            $('#cents-mode-button').css('background-color','#243640');
+            $('#keyboard-mode-button, #cents-mode-button').css('background-color','#243640');
             break;
         case 'cents-mode-button':
             keymode = 2;
             setKeyboard(keymode);
-            $('#degree-mode-button').css('background-color','#243640');
-            $('#keyboard-mode-button').css('background-color','#243640');
+            $('#degree-mode-button, #keyboard-mode-button').css('background-color','#243640');
             break;
     }
 });
