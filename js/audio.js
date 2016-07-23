@@ -1,6 +1,6 @@
-var Envelope = require('envelope-generator')
+var Envelope = require('envelope-generator');
 
-context = new AudioContext()
+context = new AudioContext();
 
 // declare globals
 var voices = [],
@@ -11,32 +11,32 @@ var voices = [],
     ampEnvAttack = 0.1,
     ampEnvDecay = 0.025,
     ampEnvSustain = 0.9,
-    ampEnvRelease = 0.5 
+    ampEnvRelease = 0.5;
 
 
 // ---------- start and stop voices------------
 function startVoice(n,cents) {
     // check for retrigger
     if (voices[n]) {
-        voices[n].osc.stop()
+        voices[n].osc.stop();
     }
 
     // instantiate and start voice 
-    voices[n] = new Voice(mixAmp)
-    voices[n].play(cents)
+    voices[n] = new Voice(mixAmp);
+    voices[n].play(cents);
 }
 
 function stopVoice(n) {
-    voices[n].stop()
+    voices[n].stop();
 }
 
 
 // ---------- Voice class ----------------
 function Voice(mixAmp) {
-    this.osc = context.createOscillator()
-    this.oscAmp = context.createGain()
+    this.osc = context.createOscillator();
+    this.oscAmp = context.createGain();
     
-    this.oscAmp.gain.value = 0.0
+    this.oscAmp.gain.value = 0.0;
 
     // envelope settings
     let settings = {
@@ -44,68 +44,68 @@ function Voice(mixAmp) {
         decayTime: ampEnvDecay,
         sustainLevel: ampEnvSustain,
         releaseTime: ampEnvRelease
-    }
-    this.ampEnv = new Envelope(context, settings)
+    };
+    this.ampEnv = new Envelope(context, settings);
     
     // routing
-    this.osc.connect(this.oscAmp)
-    this.oscAmp.connect(mixAmp)
-    this.ampEnv.connect(this.oscAmp.gain)
-    mixAmp.connect(context.destination)
+    this.osc.connect(this.oscAmp);
+    this.oscAmp.connect(mixAmp);
+    this.ampEnv.connect(this.oscAmp.gain);
+    mixAmp.connect(context.destination);
 
     this.play = function(cents) {
-        this.osc.type = waveform 
-        this.osc.frequency.value = baseFreq * Math.pow(2,(cents/1200))
-        console.log(this.osc.frequency.value)
+        this.osc.type = waveform;
+        this.osc.frequency.value = baseFreq * Math.pow(2,(cents/1200));
+        console.log(this.osc.frequency.value);
 
-        this.ampEnv.start(context.currentTime)
-        this.osc.start(context.CurrentTime)          
-    }
+        this.ampEnv.start(context.currentTime);
+        this.osc.start(context.CurrentTime);
+    };
 
     this.stop = function() {
-        this.ampEnv.release(context.currentTime)
-        var stopAt = this.ampEnv.getReleaseCompleteTime()
-        this.osc.stop(stopAt)
-        this.ampEnv.stop(stopAt)
-    }
+        this.ampEnv.release(context.currentTime);
+        var stopAt = this.ampEnv.getReleaseCompleteTime();
+        this.osc.stop(stopAt);
+        this.ampEnv.stop(stopAt);
+    };
 }
 
 // ---------- Controls --------------
 function setWaveform(wv) {
-    waveform = wv
+    waveform = wv;
 }
 
 function setMixGain(gain) {
-    mixAmp.gain.value = gain
+    mixAmp.gain.value = gain;
 }
 
 function setAttack(attack) {
-    ampEnvAttack = attack
+    ampEnvAttack = attack;
 }
 
 function setDecay(decay) {
-    ampEnvDecay = decay
+    ampEnvDecay = decay;
 }
 
 function setSustain(sustain) {
-    ampEnvSustain = sustain
+    ampEnvSustain = sustain;
 }
 
 function setRelease(release) {
-    ampEnvRelease = release
+    ampEnvRelease = release;
 }
 
 function setBaseFreq(bf) {
-    baseFreq = bf
+    baseFreq = bf;
 }
 
 // ---------- Exports --------------
-exports.startVoice = startVoice
-exports.stopVoice = stopVoice
-exports.setWaveform = setWaveform
-exports.setMixGain = setMixGain
-exports.setAttack = setAttack
-exports.setDecay = setDecay
-exports.setSustain = setSustain
-exports.setRelease = setRelease
-exports.setBaseFreq = setBaseFreq
+exports.startVoice = startVoice;
+exports.stopVoice = stopVoice;
+exports.setWaveform = setWaveform;
+exports.setMixGain = setMixGain;
+exports.setAttack = setAttack;
+exports.setDecay = setDecay;
+exports.setSustain = setSustain;
+exports.setRelease = setRelease;
+exports.setBaseFreq = setBaseFreq;
