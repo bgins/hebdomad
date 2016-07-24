@@ -11,7 +11,9 @@ var voices = [],
     ampEnvAttack = 0.1,
     ampEnvDecay = 0.025,
     ampEnvSustain = 0.9,
-    ampEnvRelease = 0.5;
+    ampEnvRelease = 0.5,
+    filterType = 'lowpass',
+    filterFreq = 400;
 
 
 // ---------- start and stop voices------------
@@ -49,8 +51,20 @@ function Voice(mixAmp) {
     
     // routing
     this.osc.connect(this.oscAmp);
-    this.oscAmp.connect(mixAmp);
     this.ampEnv.connect(this.oscAmp.gain);
+    
+    // attach filter if active
+    if (filterType != 'off') {
+        this.filter = context.createBiquadFilter();
+        this.filter.type = filterType;
+        this.filter.frequency.value = filterFreq; 
+        
+        this.oscAmp.connect(this.filter);
+        this.filter.connect(mixAmp);
+    } else {
+        this.oscAmp.connect(mixAmp);
+    }
+    
     mixAmp.connect(context.destination);
 
     this.play = function(cents) {
@@ -99,6 +113,10 @@ function setBaseFreq(bf) {
     baseFreq = bf;
 }
 
+function setFilterFreq(filtFreq) {
+    filterFreq = filtFreq;
+}
+
 // ---------- Exports --------------
 exports.startVoice = startVoice;
 exports.stopVoice = stopVoice;
@@ -109,3 +127,4 @@ exports.setDecay = setDecay;
 exports.setSustain = setSustain;
 exports.setRelease = setRelease;
 exports.setBaseFreq = setBaseFreq;
+exports.setFilterFreq = setFilterFreq;

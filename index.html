@@ -85,6 +85,9 @@
                     <div class="large-4 medium-4 text-center columns">
                       <span class="section-label">Amplitude Envelope</span>
                     </div>
+                    <div class="large-1 medium-1 text-center columns">
+                      <span class="section-label">LPF</span>
+                    </div>
                     <div class="columns">
 
                     </div>
@@ -126,7 +129,13 @@
                         <span class="slider-fill" data-slider-fill></span>
                       </div>
                     </div>
-                    <div class="large-5 medium-5 text-center columns">
+                    <div class="large-1 medium-1 text-center columns">
+                      <div class="slider vertical" data-slider data-vertical="true" data-initial-start="0" data-end="10000">
+                        <span class="simple slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="cutoff"></span>
+                        <span class="slider-fill" data-slider-fill></span>
+                      </div>
+                    </div>
+                    <div class="columns">
 
                     </div>
                     <div class="large-1 medium-1 text-center columns">
@@ -153,7 +162,10 @@
                       <div class="large-1 medium-1 text-center columns">
                         <span class="control-label">Release</span>
                       </div>
-                      <div class="large-5 medium-5 text-center columns">
+                      <div class="large-1 medium-1 text-center columns">
+                        <span class="control-label">Cutoff</span>
+                      </div>
+                      <div class="columns">
 
                       </div>
                       <div class="large-1 medium-1 text-center columns">
@@ -179,7 +191,10 @@
                       <div class="large-1 medium-1 text-center columns">
                         <input type="text" pattern="[0-9]*" class="control-input" id="release">
                       </div>
-                      <div class="large-5 medium-5 text-center columns">
+                      <div class="large-1 medium-1 text-center columns">
+                        <input type="text" pattern="[0-9]*" class="control-input" id="cutoff">
+                      </div>
+                      <div class="columns">
 
                       </div>
                       <div class="large-1 medium-1 text-center columns">

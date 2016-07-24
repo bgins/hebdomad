@@ -258,6 +258,7 @@ $('#controls').on('input moved.zf.slider', function() {
     audio.setDecay($("#decay").val() / 1000);
     audio.setSustain($("#sustain").val() / 100);
     audio.setRelease($("#release").val() / 1000);
+    audio.setFilterFreq($("#cutoff").val());
 });
 
 $('.osc-button').on('click', function() {
