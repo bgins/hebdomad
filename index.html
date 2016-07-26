@@ -200,7 +200,7 @@
                         <a href="#" class="tuning-category">{{category.category}}</a>
                         <ul class="menu vertical nested" data-accordion-menu data-multi-open="false"> 
                           <li ng-repeat="tuning in tunings | filter: {category: category.category}: true track by $index">
-                            <a href="#" ng-click="retune(tuning.cents)" class="tuning-selection arrow-inset-fix" id="{{tuning.name}}">{{tuning.name}}</a>
+                            <a href="#" ng-click="retune(tuning.cents)" class="tuning-selection arrow-inset-fix" id="{{tuning.id}}">{{tuning.name}}</a>
                             <ul class="menu vertical nested">
                               <li>
                                 <table class="tuning-description">

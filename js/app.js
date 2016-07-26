@@ -384,61 +384,71 @@ app.controller("tuningController", ["$scope", "$timeout", function($scope, $time
 
 var tunings = [
     {       
-        name: "5-4-3-2-lydian",
+        id: "5-4-3-2-lydian",
+        name: "5/4, 3/2 Lydian",
         category: "Trivalent Just",
         cents: [0,203.91,386.3137,590.2237,701.955,905.865,1088.2687,1200],
         ratios: ["1/1","9/8","5/4","45/32","3/2","27/16","15/8","2/1"]
     },
     {       
-        name: "6-5-3-2-dorian",
+        id: "6-5-3-2-dorian",
+        name: "6/5, 3/2 Dorian",
         category: "Trivalent Just",
         cents: [0,203.91,315.6413,519.5513,701.955,905.865,1017.5963,1200],
         ratios: ["1/1","9/8","6/5","27/20","3/2","27/16","9/5","2/1"]
     },
     {       
-        name: "7-6-3-2-trivalent",
+        id: "7-6-3-2-trivalent",
+        name: "7/6, 3/2 Trivalent",
         category: "Trivalent Just",
         cents: [0,203.91,266.8709,470.7809,701.955,905.865,968.8259,1200],
         ratios: ["1/1","9/8","7/6","21/16","3/2","27/16","7/4","2/1"]
     },
     {       
-        name: "11-9-3-2-arabic",
+        id: "11-9-3-2-arabic",
+        name: "11/9, 3/2 Arabic",
         category: "Trivalent Just",
         cents: [0,203.91,347.4079,551.3179,701.955,905.865,1048.3629,1200],
         ratios: ["1/1","9/8","11/9","11/8","3/2","27/16","11/6","2/1"]
     },
     {       
-        name: "13-11-3-2-dorian",
+        id: "13-11-3-2-dorian",
+        name: "13/11, 3/2 Dorian",
         category: "Trivalent Just",
         cents: [0,203.91,289.2097,493.1197,701.955,905.865,991.1647,1200],
         ratios: ["1/1","9/8","13/11","117/88","3/2","27/16","39/22","2/1"]
     },
     {       
-        name: "15-13-3-2-trivalent",
+        id: "15-13-3-2-trivalent",
+        name: "15/13, 3/2 Trivalent",
         category: "Trivalent Just",
         cents: [0,203.91,247.7411,451.6511,701.955,905.865,949.6961,1200],
         ratios: ["1/1","9/8","15/13","135/104","3/2","27/16","45/26","2/1"]
     },
     {       
-        name: "12-edo-major",
+        id: "12-edo-major",
+        name: "12-tone Equal Temperament, Major Scale",
         category: "Temperaments",
         cents: [0,200,400,500,700,900,1100,1200],
         ratios: []
     },
     {       
-        name: "12-edo-minor",
+        id: "12-edo-minor",
+        name: "12-tone Equal Temperament, Minor Scale",
         category: "Temperaments",
         cents: [0,200,300,500,700,800,1000,1200],
         ratios: []
     },
     {       
-        name: "12-edo-harmonic-minor",
+        id: "12-edo-harmonic-minor",
+        name: "12-tone Equal Temperament, Harmonic Minor Scale",
         category: "Temperaments",
         cents: [0,200,300,500,700,800,1100,1200],
         ratios: []
     },
     {       
-        name: "7-edo",
+        id: "7-edo",
+        name: "7-tone Equal Temperament",
         category: "Temperaments",
         cents: [0,171.429,342.857,514.286,685.714,857.143,1028.571,1200],
         ratios: []
