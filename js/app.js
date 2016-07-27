@@ -369,6 +369,7 @@ $('#release').on('input',function(){
 */
 var app = angular.module("tuning-app", ["angular.filter"]);
 
+// ---------- retune panel events ------------
 app.controller("tuningController", ["$scope", "$timeout", function($scope, $timeout) {
     $scope.tunings = tunings;
     $scope.retune = retune;
@@ -455,43 +456,6 @@ var tunings = [
     }
 ]
 
-// ---------- retune panel events ------------
-$('.tuning-selection').on('click', function() {
-    switch(this.id) {
-        case "5-4-3-2-lydian":
-            retune([0,203.91,386.3137,590.2237,701.955,905.865,1088.2687,1200]);
-            break;
-        case "6-5-3-2-dorian":
-            retune([0,203.91,315.6413,519.5513,701.955,905.865,1017.5963,1200]);
-            break;
-        case "7-6-3-2-trivalent":
-            retune([0,203.91,266.8709,470.7809,701.955,905.865,968.8259,1200]);
-            break;
-        case "11-9-3-2-arabic":
-            retune([0,203.91,347.4079,551.3179,701.955,905.865,1048.3629,1200]);
-            break;
-        case "13-11-3-2-dorian":
-            retune([0,203.91,289.2097,493.1197,701.955,905.865,991.1647,1200]);
-            break;
-        case "15-13-3-2-trivalent":
-            retune([0,203.91,247.7411,451.6511,701.955,905.865,949.6961,1200]);
-            break;
-        case "12-edo-major":
-            retune([0,200,400,500,700,900,1100,1200]);
-            break;
-        case "12-edo-minor":
-            retune([0,200,300,500,700,800,1000,1200]);
-            break;
-        case "12-edo-harmonic-minor":
-            retune([0,200,300,500,700,800,1100,1200]);
-            break;
-        case "7-edo":
-            retune([0,171.429,342.857,514.286,685.714,857.143,1028.571,1200]);
-            break;
-        default:
-            break;
-    }
-});
 
 function retune(centsArray) {
     //  retune
