@@ -267,7 +267,7 @@ $('#controls').on('input moved.zf.slider', function() {
 app.controller("oscController", ["$scope", function($scope) {
     $scope.oscillators = oscillators;
     $scope.toggle = function($index) {
-        audio.setWaveform(oscillators[$index].id);
+        audio.setWaveform(oscillators[$index].type);
         angular.forEach(oscillators, function(osc, key) {
             if (osc === oscillators[$index]) {
                 osc.state = true;
@@ -280,22 +280,22 @@ app.controller("oscController", ["$scope", function($scope) {
 
 var oscillators = [
     {
-        id: "sine",
+        type: "sine",
         label: "Sine", 
         state: true
     }, 
     {
-        id: "triangle",
+        type: "triangle",
         label: "Triangle", 
         state: false
     }, 
     {
-        id: "square",
+        type: "square",
         label: "Square", 
         state: false
     }, 
     {
-        id: "sawtooth",
+        type: "sawtooth",
         label: "Sawtooth", 
         state: false
     }
