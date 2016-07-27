@@ -11,16 +11,32 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-.simple {
+.button,
+.slider-handle,
+.button:focus {
   background-color: #243640;
 }
 
+.button:hover,
+.slider-handle:hover {
+  background-color: #059a91!important;
+}
+/*
+.simple {
+  background-color: #243640;
+}
 .simple:hover {
   background-color: #059a91!important;
 }
+*/
 
 .switch:hover {
   background-color: #5a5f61!important;
+}
+
+.selected-button,
+.selected-button:focus {
+  background-color: #03796f;
 }
 
 #controls-label, 

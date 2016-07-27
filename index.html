@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="css/app.css">
      <link href="https://fonts.googleapis.com/css?family=Mate+SC|Open+Sans" rel="stylesheet">
   </head>
-  
-  <body>
+ 
+  <body ng-app="tuning-app">
     <div class="row">
       <div class="large-12 text-center columns">
         <h1>Octogamut</h1>
@@ -94,12 +94,18 @@
                   </div>
                   <div class="row align-spaced">
                     <div class="large-2 medium-2 text-center columns">
+                        <div ng-controller="oscController" class="stacked button-group">
+                          <a href="#" ng-repeat="osc in oscillators" class="simple button" ng-click="setOsc(osc.id); osc.state = !osc.state" ng-class="{'selected-button': osc.state}">{{osc.label}}</a>
+                        </div>
+
+                          <!-- 
                         <div class="stacked button-group">
                           <a class="simple button osc-button" id="sine">Sine</a>
                           <a class="simple button osc-button" id="triangle">Triangle</a>
                           <a class="simple button osc-button" id="square">Square</a>
                           <a class="simple button osc-button" id="sawtooth">Sawtooth</a>
                         </div>
+                          -->
                     </div>
 
                     <div class="large-1 medium-1 text-center columns">
@@ -193,7 +199,8 @@
 
               <!-- Tuning panel -->
               <div class="tabs-panel" id="tunings">
-                <div ng-app="tuning-app" class="row">
+                <div class="row">
+                <!-- <div ng-app="tuning-app" class="row"> -->
                   <div ng-controller="tuningController" class="large-12 medium-12 columns"> 
                    <ul class="vertical menu" data-accordion-menu data-multi-open="false" id="tuningPanel">
                       <li ng-repeat="category in tunings | unique: 'category' track by $index">

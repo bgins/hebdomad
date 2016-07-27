@@ -2,6 +2,7 @@ var audio = require('./audio.js');
 
 $(document).foundation();
 
+var app = angular.module("tuning-app", ["angular.filter"]);
 
 // ---------- init instrument ----------------
 var notes,
@@ -260,6 +261,39 @@ $('#controls').on('input moved.zf.slider', function() {
     audio.setRelease($("#release").val() / 1000);
 });
 
+
+
+
+app.controller("oscController", ["$scope", function($scope) {
+    $scope.oscillators = oscillators;
+    $scope.setOsc = function(osc) {
+        audio.setWaveform(osc);
+    };
+}]);
+
+var oscillators = [
+    {
+        id: "sine",
+        label: "Sine", 
+        state: true
+    }, 
+    {
+        id: "triangle",
+        label: "Triangle", 
+        state: false
+    }, 
+    {
+        id: "square",
+        label: "Square", 
+        state: false
+    }, 
+    {
+        id: "sawtooth",
+        label: "Sawtooth", 
+        state: false
+    }
+]
+/*
 $('.osc-button').on('click', function() {
     audio.setWaveform(this.id);
     $(this).css('background-color','#03796f');
@@ -278,6 +312,7 @@ $('.osc-button').on('click', function() {
             break;
     }
 });
+*/
 
 $('.keymode-button').on('click', function() {
     $(this).css('background-color','#03796f');
@@ -367,7 +402,8 @@ $('#release').on('input',function(){
     audio.setRelease($("#release").val() / 1000)
 })
 */
-var app = angular.module("tuning-app", ["angular.filter"]);
+
+// var app = angular.module("tuning-app", ["angular.filter"]);
 
 // ---------- retune panel events ------------
 app.controller("tuningController", ["$scope", "$timeout", function($scope, $timeout) {
