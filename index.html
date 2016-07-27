@@ -95,7 +95,7 @@
                   <div class="row align-spaced">
                     <div class="large-2 medium-2 text-center columns">
                         <div ng-controller="oscController" class="stacked button-group">
-                          <a href="#" ng-repeat="osc in oscillators" class="simple button" ng-click="setOsc(osc.id); osc.state = !osc.state" ng-class="{'selected-button': osc.state}">{{osc.label}}</a>
+                          <a href="#" ng-repeat="osc in oscillators" class="simple button" ng-click="toggle($index);" ng-class="{'selected-button': osc.state}">{{osc.label}}</a>
                         </div>
 
                           <!-- 

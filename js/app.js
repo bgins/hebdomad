@@ -266,8 +266,15 @@ $('#controls').on('input moved.zf.slider', function() {
 
 app.controller("oscController", ["$scope", function($scope) {
     $scope.oscillators = oscillators;
-    $scope.setOsc = function(osc) {
-        audio.setWaveform(osc);
+    $scope.toggle = function($index) {
+        audio.setWaveform(oscillators[$index].id);
+        angular.forEach(oscillators, function(osc, key) {
+            if (osc === oscillators[$index]) {
+                osc.state = true;
+            } else {
+                osc.state = false;
+            }
+        });
     };
 }]);
 
