@@ -11,7 +11,7 @@ var notes,
     timeout = false;
 
 $(document).ready(function() {
-    notes = [0,203.91,386.31,590.22,701.96,905.87,1088.27,1200];
+    notes = [0,203.91,289.2097,493.1197,701.955,905.865,991.1647,1200];
     $('#sine').css('background-color','#03796f');
     $('#keyboard-mode-button').css('background-color','#03796f');
     $('#base-freq-input').attr('value',261.6255);
@@ -23,7 +23,7 @@ $(document).ready(function() {
 // heldKeys keeps track of which keys are currently held
 // keycodes: a = 66, s = 83, d = 68, f = 70,
 //           g = 71, h = 72,
-//           j = 74, k = 75, l = 76, 
+//           j = 74, k = 75, l = 76,
 //           ; = 59 (firefox) and 186 (chrome)
 $(document).keydown(function(e) {
     // check if note is currently held
@@ -31,7 +31,7 @@ $(document).keydown(function(e) {
     if (heldKeys[e.which] && e.which != 71 && e.which != 72) {
         return;
     }
-    
+
     switch (e.which) {
         case 65:
             $('#voice-zero-button').css('background-color','#059a91');
@@ -176,7 +176,7 @@ $('.key, .switch').mousedown(function() {
                     audio.setMixGain(gain / 500);
                     $('#gain').val(gain).change();
                     $('#dec-gain-switch').css('background-color','#5a5f61');
-                }, 25)
+                }, 25);
             };
             break;
         case 'inc-gain-switch':
@@ -186,7 +186,7 @@ $('.key, .switch').mousedown(function() {
                     audio.setMixGain(gain / 500);
                     $('#gain').val(gain).change();
                     $('#inc-gain-switch').css('background-color','#5a5f61');
-                }, 25)
+                }, 25);
             };
             break;
         case "voice-four-button":
@@ -347,7 +347,7 @@ $("#btnHiddenControls").on('click', function() {
 });
 
 /*
-// Gain input event changes level from 0 to 1 
+// Gain input event changes level from 0 to 1
 $('#gain').on('input',function(){
     audio.setMixGain($("#gain").val() / 50)
 })
