@@ -41,7 +41,7 @@ body {
 a.key,
 a.switch {
   width: 4.1rem;
-  height: 3.6rem;
+  height: 3.6rem!important;
   border-radius: 0.2rem;
   padding-left: 0rem;
   padding-right: 0rem;
