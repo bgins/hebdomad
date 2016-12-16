@@ -412,6 +412,7 @@ $('.tuning-selection').on('click', function() {
         default:
             break;
     }
+    setKeyboard(2);
 });
 
 function retune(centsArray) {
@@ -421,15 +422,14 @@ function retune(centsArray) {
     }
 
     // update keys if currently showing cents
-    if (keymode == 2) {
-        setKeyboard(keymode);
-    }
+    // if (keymode == 2) {
+    //     setKeyboard(keymode);
+    // }
 }
 
 
 // ---------- custom panel events ------------
 $("#btnHiddenRetune").on('click', function() {
-// $(".tuning-input").on('input', function() {
     notes[0] = $('#voice-zero-cents-input').val();
     notes[1] = $('#voice-one-cents-input').val();
     notes[2] = $('#voice-two-cents-input').val();
@@ -439,11 +439,10 @@ $("#btnHiddenRetune").on('click', function() {
     notes[6] = $('#voice-six-cents-input').val();
     notes[7] = $('#voice-seven-cents-input').val();
 
-    // update keys if currently showing cents
-    if (keymode == 2) {
-        setKeyboard(keymode);
+    // update keys to show cents
+    if (keymode != 2) {
+        setKeyboard(2);
     }
-
     $("input:text").blur();
 });
 
