@@ -66,7 +66,7 @@ $(document).keydown(function(e) {
                     audio.setMixGain(gain / 500);
                     $('#gain').val(gain).change();
                     $('#dec-gain-switch').css('background-color','#5a5f61');
-                }, 25)
+                }, 25);
             };
             break;
         case 72:
@@ -76,7 +76,7 @@ $(document).keydown(function(e) {
                     audio.setMixGain(gain / 500);
                     $('#gain').val(gain).change();
                     $('#inc-gain-switch').css('background-color','#5a5f61');
-                }, 25)
+                }, 25);
             };
             break;
         case 74:
