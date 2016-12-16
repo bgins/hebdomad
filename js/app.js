@@ -255,7 +255,6 @@ $('.key, .switch').mouseup(function() {
 });
 
 
-
 // ---------- controls panel events ----------------
 $('#controls').on('input moved.zf.slider', function() {
     gain = parseInt($('#gain').val());
@@ -307,74 +306,6 @@ $('.keymode-button').on('click', function() {
     }
 });
 
-function setKeyboard(keymode) {
-    switch(keymode) {
-        case 0:
-            $('#voice-zero-button').text('a');
-            $('#voice-one-button').text('s');
-            $('#voice-two-button').text('d');
-            $('#voice-three-button').text('f');
-            $('#voice-four-button').text('j');
-            $('#voice-five-button').text('k');
-            $('#voice-six-button').text('l');
-            $('#voice-seven-button').text(';');
-            break;
-        case 1:
-            $('#voice-zero-button').text('0');
-            $('#voice-one-button').text('1');
-            $('#voice-two-button').text('2');
-            $('#voice-three-button').text('3');
-            $('#voice-four-button').text('4');
-            $('#voice-five-button').text('5');
-            $('#voice-six-button').text('6');
-            $('#voice-seven-button').text('7');
-            break;
-        case 2:
-            $('#voice-zero-button').text(Math.round(notes[0]));
-            $('#voice-one-button').text(Math.round(notes[1]));
-            $('#voice-two-button').text(Math.round(notes[2]));
-            $('#voice-three-button').text(Math.round(notes[3]));
-            $('#voice-four-button').text(Math.round(notes[4]));
-            $('#voice-five-button').text(Math.round(notes[5]));
-            $('#voice-six-button').text(Math.round(notes[6]));
-            $('#voice-seven-button').text(Math.round(notes[7]));
-            break;
-    }
-}
-
-// refresh slider handle when controls panel selected
-// this is not ideal, but foundation is not updating when in another panel
-$('#controls-label').on('click', function() {
-    setTimeout(function() {$('#gain').change() }, 10);
-});
-
-$("#btnHiddenControls").on('click', function() {
-    $("input:text").blur();
-});
-
-/*
-// Gain input event changes level from 0 to 1
-$('#gain').on('input',function(){
-    audio.setMixGain($("#gain").val() / 50)
-})
-
-$('#attack').on('input',function(){
-    audio.setAttack($("#attack").val() / 1000)
-})
-
-$('#decay').on('input',function(){
-    audio.setDecay($("#decay").val() / 1000)
-})
-
-$('#sustain').on('input',function(){
-    audio.setSustain($("#sustain").val() / 100)
-})
-
-$('#release').on('input',function(){
-    audio.setRelease($("#release").val() / 1000)
-})
-*/
-
 
 // ---------- retune panel events ------------
 $('.tuning-selection').on('click', function() {
@@ -415,18 +346,6 @@ $('.tuning-selection').on('click', function() {
     setCentsMode();
 });
 
-function retune(centsArray) {
-    for (i = 0; i < 8; i++) {
-        notes[i] = centsArray[i];
-    }
-}
-
-function setCentsMode() {
-    setKeyboard(2);
-    $('#cents-mode-button').css('background-color','#03796f');
-    $('#keyboard-mode-button, #degree-mode-button').css('background-color','#243640');
-}
-
 
 // ---------- custom panel events ------------
 $("#btnHiddenRetune").on('click', function() {
@@ -445,5 +364,64 @@ $("#btnHiddenRetune").on('click', function() {
 
 $("#base-freq-input").on('change', function() {
     audio.setBaseFreq($(this).val());
+    $("input:text").blur();
+});
+
+
+// --------- utilities ---------------
+function setKeyboard(keymode) {
+    switch(keymode) {
+        case 0:
+            $('#voice-zero-button').text('a');
+            $('#voice-one-button').text('s');
+            $('#voice-two-button').text('d');
+            $('#voice-three-button').text('f');
+            $('#voice-four-button').text('j');
+            $('#voice-five-button').text('k');
+            $('#voice-six-button').text('l');
+            $('#voice-seven-button').text(';');
+            break;
+        case 1:
+            $('#voice-zero-button').text('0');
+            $('#voice-one-button').text('1');
+            $('#voice-two-button').text('2');
+            $('#voice-three-button').text('3');
+            $('#voice-four-button').text('4');
+            $('#voice-five-button').text('5');
+            $('#voice-six-button').text('6');
+            $('#voice-seven-button').text('7');
+            break;
+        case 2:
+            $('#voice-zero-button').text(Math.round(notes[0]));
+            $('#voice-one-button').text(Math.round(notes[1]));
+            $('#voice-two-button').text(Math.round(notes[2]));
+            $('#voice-three-button').text(Math.round(notes[3]));
+            $('#voice-four-button').text(Math.round(notes[4]));
+            $('#voice-five-button').text(Math.round(notes[5]));
+            $('#voice-six-button').text(Math.round(notes[6]));
+            $('#voice-seven-button').text(Math.round(notes[7]));
+            break;
+    }
+}
+
+function retune(centsArray) {
+    for (i = 0; i < 8; i++) {
+        notes[i] = centsArray[i];
+    }
+}
+
+function setCentsMode() {
+    setKeyboard(2);
+    $('#cents-mode-button').css('background-color','#03796f');
+    $('#keyboard-mode-button, #degree-mode-button').css('background-color','#243640');
+}
+
+// refresh slider handle when controls panel selected
+// this is not ideal, but foundation is not updating when in another panel
+$('#controls-label').on('click', function() {
+    setTimeout(function() {$('#gain').change() }, 10);
+});
+
+$("#btnHiddenControls").on('click', function() {
     $("input:text").blur();
 });
