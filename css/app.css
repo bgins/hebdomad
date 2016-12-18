@@ -47,7 +47,7 @@ a.switch {
   padding-right: 0rem;
 }
 
-a.switch {  
+a.switch {
   background-color: #2c353a;
   /* flashes: #5a5f61 */
 }
@@ -137,6 +137,7 @@ a.arrow-inset-fix::after {
 
 /* custom panel */
 #base-freq-input {
+  margin-left: 3rem;
   width: 5.4rem;
   text-align: center;
 }
@@ -147,6 +148,10 @@ a.arrow-inset-fix::after {
   width: 5rem;
 }
 
+label.custom-label {
+    margin-bottom: 12px;
+}
+
 
 /* about panel */
 p.about-label {
@@ -155,6 +160,9 @@ p.about-label {
   margin-bottom: 0.2em;
 }
 
+a.link {
+    color: #059a91;
+}
 
 /* Color palette
 http://colrd.com/palette/44272/:

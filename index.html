@@ -372,15 +372,12 @@
               <!-- Custom panel -->
               <div class="tabs-panel" id="custom">
 
+
                 <div class="row">
                   <div class="large-2 medium-2 columns">
-                    <label for="middle-label" class="text-right middle">Base Frequency</label>
-                  </div>
-                  <div class="large-2 medium-2 columns">
-                    <input type="text" class="middle-label" id="base-freq-input" placeholder="Hz" />
+                    <label for="middle-label" class="text-right middle custom-label">Custom Tuning</label>
                   </div>
                 </div>
-
                 <form action="javascript:void(0);">
                   <div class="row align-spaced">
                     <div class="large-1 medium-1 columns">
@@ -408,9 +405,20 @@
                       <input type="text" class="tuning-input" id="voice-seven-cents-input" placeholder="Cents" />
                     </div>
                   </div>
-
                   <input type="submit" style="display:none;" id="btnHiddenRetune">
                 </form>
+
+                <div class="row">
+                  <div class="large-2 medium-2 columns">
+                    <label for="middle-label" class="text-right middle custom-label">Base Frequency</label>
+                  </div>
+                </div>
+                <div class="row align-spaced">
+                  <div class="large-2 medium-2 columns">
+                    <input type="text" class="middle-label" id="base-freq-input" placeholder="Hz" />
+                  </div>
+                  <div class="large-10 medium-10 columns"></div>
+                </div>
               </div>
 
 
@@ -423,9 +431,7 @@
                        Play Hebdomad on the home row of your keyboard using <kbd>asdf</kbd> and <kbd>jkl;</kbd> for notes, and <kbd>g</kbd> and <kbd>h</kbd> to control the volume.
                     </p>
                     <p class="about-label">Xenharmonic What?</p>
-                    <p>In Western music, we use a tuning that divides an octave into twelve equal parts. This tuning is called 12-tone Equal Temperament.
-                    </p>
-                    <p>Hebdomad is an instrument for exploring the music of the spaces between these twelve tones. There are sonic mysteries old and new hidden here. The world of <a href="https://en.wikipedia.org/wiki/Xenharmonic_music">xenharmonic music</a>!
+                    <p>In Western music, we use a tuning that divides an octave into twelve equal parts. This tuning is called 12-tone Equal Temperament. Hebdomad is an instrument for exploring the music of the spaces between these twelve tones. There are sonic mysteries old and new hidden here. The world of <a class="link" href="https://en.wikipedia.org/wiki/Xenharmonic_music">xenharmonic music</a>!
                     </p>
                     <p>Hebdomad is built for heptatonic scales, which are basically just scales with seven notes. You can view the scale degrees by clicking the <code>Deg</code> button in the Controls tab. They are numbered from <code>0</code> to <code>7</code>.
                     </p>
