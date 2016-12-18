@@ -137,6 +137,7 @@ a.arrow-inset-fix::after {
 
 /* custom panel */
 #base-freq-input {
+  margin-left: 3rem;
   width: 5.4rem;
   text-align: center;
 }
@@ -145,6 +146,10 @@ a.arrow-inset-fix::after {
   padding: 0.4rem;
   text-align: center;
   width: 5rem;
+}
+
+label.custom-label {
+    margin-bottom: 12px;
 }
 
 
