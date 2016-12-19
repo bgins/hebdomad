@@ -467,17 +467,17 @@
                     </p>
                     <!-- <p>Each scale gives a breakdown of its steps represented in cents and ratios for the just tunings. Cents are based on the 12-tone Equal Temperament system, where the step between two consectutive tones is 100 cents. Think of each step between the twelve tones (called a "half-step") as a dollar. Each half-step is worth 100 cents, but we can take more or less cents to create all sorts of new tunings! -->
                     <!-- </p> -->
-                    <p>Each scale gives a breakdown of its steps represented in cents and ratios for the just tunings. <a href="https://en.wikipedia.org/wiki/Cent_(music)" class="link">Cents</a> are a measure based on the 12-tone Equal Temperament system, where a step between two consectutive tones is 100 cents. The <a href="https://en.wikipedia.org/wiki/Just_intonation" class="link">just tunings</a> use whole number frequency ratios to divide an octave into intervals. Notice how their cent values differ slightly or significantly from the 12-tone Equal Temperament values.
+                    <p>Each scale gives a breakdown of its steps represented in cents and ratios for the just tunings. <a href="https://en.wikipedia.org/wiki/Cent_(music)" class="link">Cents</a> are a measure based on the 12-tone Equal Temperament system, where each step between two consectutive tones is 100 cents. The <a href="https://en.wikipedia.org/wiki/Just_intonation" class="link">just tunings</a> use whole number frequency ratios to divide an octave into intervals. Notice how their cent values differ slightly or significantly from the 12-tone Equal Temperament values.
                     </p>
                     <p class="about-label">Custom</p>
                     <!-- <p>In the Custom tab you can set a Base Frequency, which is basically sets where your scale starts. Choose a lower or higher frequency to change the range of your scale. -->
                     <!-- </p> -->
-                    <p>In the Custom tab you can define a custom tuning and set the base frequency.</p>
-                    <p>Use the <b>Custom Tuning</b> inputs to define any custom tuning you would like. Each input corresponds to a key on Hebdomad's keyboard, and you can use decimal values for greater precision.
+                    <p>In the Custom tab, you can define a custom tuning and set the base frequency.</p>
+                    <!-- <p>Use the <b>Custom Tuning</b> section to set any custom tuning you would like. Each input corresponds to a key on Hebdomad's keyboard, and you can use decimal values for greater precision. -->
+                    <!-- </p> -->
+                    <p>Use the <b>Custom Tuning</b> section to set Hebdomad's tuning. The inputs accept decimal and negative values and default to <code>0</code> cents. The <b>Base Frequency</b> defines the frequency for <code>0</code> cents. Choose a lower or higher frequency to change the range of your scale.
                     </p>
-                    <p>One fun experiment is to set each key 50 cents apart: 0-50-100-150-200-250-300-350. This is a quarter-tone scale, which is fun to play quickly up and down the keyboard.
-                    </p>
-                    <p>The <b>Base Frequency</b> defines where your scale starts. Choose a lower or higher frequency to change the range of your scale.
+                    <p>Explore and experiment! You can try out any tuning you like or make up your own! One fun tuning is the quarter-tone scale: <code>0</code>--<code>50</code>--<code>100</code>--<code>150</code>--<code>200</code>--<code>250</code>--<code>300</code>--<code>350</code>. Try playing this scale quickly up and down the keyboard using the sine wave.
                     </p>
                     <p>There are so many tunings out there to explore! Check out ... to start exploring the world of xenharmonic tunings.
                     </p>
@@ -504,9 +504,10 @@
 
     <div class="reveal" id="browser-type-modal" data-reveal>
       <h2>Please use Firefox or Chrome</h2>
-      <p>Hebodmad uses the WebAudio API which is only supported in Firefox and Chrome</p>
+      <p>Hebodmad uses the WebAudio API which is only supported in Firefox and Chrome.</p>
     </div>
 
+    <!-- scripts -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/what-input/what-input.js"></script>
     <script src="bower_components/foundation-sites/dist/foundation.min.js"></script>
