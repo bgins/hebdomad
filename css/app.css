@@ -26,7 +26,7 @@ body {
 #controls-label, 
 #tunings-label,
 #custom-label,
-#about-label {
+#guide-label {
   color: #000;
 }
 
@@ -57,7 +57,7 @@ a.middle-row {
 }
 
 
-/* control panel */
+/* controls tab */
 .slider.vertical {
   height: 10.4rem;
 }
@@ -89,7 +89,7 @@ a.middle-row {
 
 
 
-/* tuning menu */
+/* retune tab */
 a.tuning-category {
   color: #000;
   font-variant: small-caps;
@@ -103,7 +103,6 @@ a.tuning-selection {
 
 table.tuning-description {
   width: 50rem;
-  /* table-layout: fixed; */
   color: #444;
 }
 
@@ -135,7 +134,7 @@ a.arrow-inset-fix::after {
   margin-right: 1rem;
 }
 
-/* custom panel */
+/* custom tab */
 #base-freq-input {
   margin-left: 3rem;
   width: 5.4rem;
@@ -153,8 +152,8 @@ label.custom-label {
 }
 
 
-/* about panel */
-p.about-label {
+/* guide tab */
+p.guide-label {
   font-size: 1.6rem;
   font-variant: small-caps;
   margin-bottom: 0.2em;
@@ -179,6 +178,3 @@ http://colrd.com/palette/44272/:
 custom switch color:
 #2C353A
 */
-
-
-
