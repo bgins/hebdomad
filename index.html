@@ -11,508 +11,510 @@
     <link rel="stylesheet" href="css/app.css">
      <link href="https://fonts.googleapis.com/css?family=Mate+SC|Open+Sans" rel="stylesheet">
   </head>
-  
+
   <body>
-    <div class="row">
-      <div class="large-12 text-center columns">
-        <h1>Hebdomad</h1>
+    <div class="width-wrapper">
+      <div class="row">
+        <div class="large-12 text-center columns">
+          <h1>Hebdomad</h1>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="large-12 columns">
+      <div class="row">
+        <div class="large-12 columns">
 
-        <div class="row align-center">
-          <div class="large-10 medium-10 columns">
-            <div class="callout">
-              <div class="row align-spaced">
-                <div class="large-1 medium-1 large-offset-1 medium-offset-1 columns"> 
-                  <a href="#" class="simple large button middle-row key" id="voice-zero-button">a</a>
-                </div>
-                <div class="large-1 medium-1 columns"> 
-                  <a href="#" class="simple large button middle-row  key" id="voice-one-button">s</a>
-                </div>
-                <div class="large-1 medium-1 columns"> 
-                  <a href="#" class="simple large button middle-row key" id="voice-two-button">d</a>
-                </div>
-                <div class="large-1 medium-1 columns"> 
-                  <a href="#" class="simple large button middle-row key" id="voice-three-button">f</a>
-                </div>
+          <div class="row align-center">
+            <div class="large-10 medium-10 columns">
+              <div class="callout">
+                <div class="row align-spaced">
+                  <div class="large-1 medium-1 large-offset-1 medium-offset-1 columns">
+                    <a href="#" class="simple large button middle-row key" id="voice-zero-button">a</a>
+                  </div>
+                  <div class="large-1 medium-1 columns">
+                    <a href="#" class="simple large button middle-row  key" id="voice-one-button">s</a>
+                  </div>
+                  <div class="large-1 medium-1 columns">
+                    <a href="#" class="simple large button middle-row key" id="voice-two-button">d</a>
+                  </div>
+                  <div class="large-1 medium-1 columns">
+                    <a href="#" class="simple large button middle-row key" id="voice-three-button">f</a>
+                  </div>
 
-                <div class="large-1 medium-1 columns"> 
-                  <a href="#" class="simple large button middle-row switch" id="dec-gain-switch">-</a>
-                </div>
-                <div class="large-1 medium-1 columns"> 
-                  <a href="#" class="simple large button middle-row switch" id="inc-gain-switch">+</a>
-                </div>
+                  <div class="large-1 medium-1 columns">
+                    <a href="#" class="simple large button middle-row switch" id="dec-gain-switch">-</a>
+                  </div>
+                  <div class="large-1 medium-1 columns">
+                    <a href="#" class="simple large button middle-row switch" id="inc-gain-switch">+</a>
+                  </div>
 
-                <div class="large-1 medium-1 columns"> 
-                  <a href="#" class="simple large button middle-row key" id="voice-four-button">j</a>
-                </div>
-                <div class="large-1 medium-1 columns"> 
-                  <a href="#" class="simple large button middle-row key" id="voice-five-button">k</a>
-                </div>
-                <div class="large-1 medium-1 columns"> 
-                  <a href="#" class="simple large button middle-row key" id="voice-six-button">l</a>
-                </div>
-                <div class="large-1 medium-1 columns"> 
-                  <a href="#" class="simple large button middle-row key" id="voice-seven-button">;</a>
+                  <div class="large-1 medium-1 columns">
+                    <a href="#" class="simple large button middle-row key" id="voice-four-button">j</a>
+                  </div>
+                  <div class="large-1 medium-1 columns">
+                    <a href="#" class="simple large button middle-row key" id="voice-five-button">k</a>
+                  </div>
+                  <div class="large-1 medium-1 columns">
+                    <a href="#" class="simple large button middle-row key" id="voice-six-button">l</a>
+                  </div>
+                  <div class="large-1 medium-1 columns">
+                    <a href="#" class="simple large button middle-row key" id="voice-seven-button">;</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="row align-center">
-          <div class="large-10 medium-10 columns">
+          <div class="row align-center">
+            <div class="large-10 medium-10 columns">
 
-            <ul class="tabs" data-tabs id="hebtabs">
-                <li class="tabs-title is-active"><a href="#controls" aria-selected="true">Controls</a></li>
-                <li class="tabs-title"><a href="#tunings">Retune</a></li>
-                <li class="tabs-title"><a href="#custom">Custom</a></li>
-                <li class="tabs-title"><a href="#guide">Guide</a></li>
-            </ul>
+              <ul class="tabs" data-tabs id="hebtabs">
+                  <li class="tabs-title is-active"><a href="#controls" aria-selected="true">Controls</a></li>
+                  <li class="tabs-title"><a href="#tunings">Retune</a></li>
+                  <li class="tabs-title"><a href="#custom">Custom</a></li>
+                  <li class="tabs-title"><a href="#guide">Guide</a></li>
+              </ul>
 
-            <div class="tabs-content" data-tabs-content="hebtabs">
+              <div class="tabs-content" data-tabs-content="hebtabs">
 
-              <!-- Controls panel -->
-              <div class="tabs-panel is-active" id="controls">
-                <form action="javascript:void(0);">
-                  <div class="row align-spaced">
-                    <div class="large-2 medium-2 text-center columns">
-                      <span class="section-label">Oscillator</span>
-                    </div>
-                    <div class="large-4 medium-4 text-center columns">
-                      <span class="section-label">Amplitude Envelope</span>
-                    </div>
-                    <div class="large-1 medium-1 text-center columns">
-                      <span class="section-label">LPF</span>
-                    </div>
-                    <div class="columns">
+                <!-- Controls panel -->
+                <div class="tabs-panel is-active" id="controls">
+                  <form action="javascript:void(0);">
+                    <div class="row align-spaced">
+                      <div class="large-2 medium-2 text-center columns">
+                        <span class="section-label">Oscillator</span>
+                      </div>
+                      <div class="large-4 medium-4 text-center columns">
+                        <span class="section-label">Amplitude Envelope</span>
+                      </div>
+                      <div class="large-1 medium-1 text-center columns">
+                        <span class="section-label">LPF</span>
+                      </div>
+                      <div class="columns">
 
+                      </div>
+                      <div class="large-1 medium-1 text-center columns">
+                        <span class="section-label">Amp</span>
+                      </div>
                     </div>
-                    <div class="large-1 medium-1 text-center columns">
-                      <span class="section-label">Amp</span>
+                    <div class="row align-spaced">
+                      <div class="large-2 medium-2 text-center columns">
+                          <div class="stacked button-group">
+                            <a class="simple button osc-button" id="sine">Sine</a>
+                            <a class="simple button osc-button" id="triangle">Triangle</a>
+                            <a class="simple button osc-button" id="square">Square</a>
+                            <a class="simple button osc-button" id="sawtooth">Sawtooth</a>
+                          </div>
+                      </div>
+
+                      <div class="large-1 medium-1 text-center columns">
+                        <div class="slider vertical" data-slider data-vertical="true" data-initial-start="100" data-end="1000">
+                          <span class="simple slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="attack"></span>
+                          <span class="slider-fill" data-slider-fill></span>
+                        </div>
+                      </div>
+                      <div class="large-1 medium-1 text-center columns">
+                        <div class="slider vertical" data-slider data-vertical="true" data-initial-start="25" data-end="1000">
+                          <span class="simple slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="decay"></span>
+                          <span class="slider-fill" data-slider-fill></span>
+                        </div>
+                      </div>
+                      <div class="large-1 medium-1 text-center columns">
+                        <div class="slider vertical" data-slider data-vertical="true" data-initial-start="90">
+                          <span class="simple slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sustain"></span>
+                          <span class="slider-fill" data-slider-fill></span>
+                        </div>
+                      </div>
+                      <div class="large-1 medium-1 text-center columns">
+                        <div class="slider vertical" data-slider data-vertical="true" data-initial-start="500" data-end="1000">
+                          <span class="simple slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="release"></span>
+                          <span class="slider-fill" data-slider-fill></span>
+                        </div>
+                      </div>
+                      <div class="large-1 medium-1 text-center columns">
+                        <div class="slider vertical" data-slider data-vertical="true" data-initial-start="5000" data-end="9999">
+                          <span class="simple slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="cutoff"></span>
+                          <span class="slider-fill" data-slider-fill></span>
+                        </div>
+                      </div>
+                      <div class="columns">
+
+                      </div>
+                      <div class="large-1 medium-1 text-center columns">
+                        <div class="slider vertical" data-slider data-vertical="true" data-initial-start="50" data-end="100">
+                          <span class="simple slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="gain"></span>
+                          <span class="slider-fill" data-slider-fill></span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="row align-spaced">
-                    <div class="large-2 medium-2 text-center columns">
-                        <div class="stacked button-group">
-                          <a class="simple button osc-button" id="sine">Sine</a>
-                          <a class="simple button osc-button" id="triangle">Triangle</a>
-                          <a class="simple button osc-button" id="square">Square</a>
-                          <a class="simple button osc-button" id="sawtooth">Sawtooth</a>
+
+                    <div class="row align-spaced">
+                        <div class="large-2 medium-2 text-center columns">
+                          <span class="control-label">Keyboard Setting</span>
+                        </div>
+                        <div class="large-1 medium-1 text-center columns">
+                          <span class="control-label">Attack</span>
+                        </div>
+                        <div class="large-1 medium-1 text-center columns">
+                          <span class="control-label">Decay</span>
+                        </div>
+                        <div class="large-1 medium-1 text-center columns">
+                          <span class="control-label">Sustain</span>
+                        </div>
+                        <div class="large-1 medium-1 text-center columns">
+                          <span class="control-label">Release</span>
+                        </div>
+                        <div class="large-1 medium-1 text-center columns">
+                          <span class="control-label">Cutoff</span>
+                        </div>
+                        <div class="columns">
+
+                        </div>
+                        <div class="large-1 medium-1 text-center columns">
+                          <span class="control-label">Gain</span>
                         </div>
                     </div>
 
-                    <div class="large-1 medium-1 text-center columns">
-                      <div class="slider vertical" data-slider data-vertical="true" data-initial-start="100" data-end="1000">
-                        <span class="simple slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="attack"></span>
-                        <span class="slider-fill" data-slider-fill></span>
-                      </div>
+                    <div class="row align-spaced">
+                        <div class="large-2 medium-2 columns">
+                            <a href="#" class="simple small button keymode-button" id="keyboard-mode-button">Key</a>
+                            <a href="#" class="simple small button keymode-button" id="degree-mode-button">Deg</a>
+                            <a href="#" class="simple small button keymode-button" id="cents-mode-button">Cent</a>
+                        </div>
+                        <div class="large-1 medium-1 text-center columns">
+                          <input type="text" pattern="[0-9]*" class="control-input" id="attack">
+                        </div>
+                        <div class="large-1 medium-1 text-center columns">
+                          <input type="text" pattern="[0-9]*" class="control-input" id="decay">
+                        </div>
+                        <div class="large-1 medium-1 text-center columns">
+                          <input type="text" pattern="[0-9]*" class="control-input" id="sustain">
+                        </div>
+                        <div class="large-1 medium-1 text-center columns">
+                          <input type="text" pattern="[0-9]*" class="control-input" id="release">
+                        </div>
+                        <div class="large-1 medium-1 text-center columns">
+                          <input type="text" pattern="[0-9]*" class="control-input" id="cutoff">
+                        </div>
+                        <div class="columns">
+
+                        </div>
+                        <div class="large-1 medium-1 text-center columns">
+                          <input type="text" pattern="[0-9]*" class="control-input" id="gain">
+                        </div>
                     </div>
-                    <div class="large-1 medium-1 text-center columns">
-                      <div class="slider vertical" data-slider data-vertical="true" data-initial-start="25" data-end="1000">
-                        <span class="simple slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="decay"></span>
-                        <span class="slider-fill" data-slider-fill></span>
-                      </div>
-                    </div>
-                    <div class="large-1 medium-1 text-center columns">
-                      <div class="slider vertical" data-slider data-vertical="true" data-initial-start="90">
-                        <span class="simple slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sustain"></span>
-                        <span class="slider-fill" data-slider-fill></span>
-                      </div>
-                    </div>
-                    <div class="large-1 medium-1 text-center columns">
-                      <div class="slider vertical" data-slider data-vertical="true" data-initial-start="500" data-end="1000">
-                        <span class="simple slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="release"></span>
-                        <span class="slider-fill" data-slider-fill></span>
-                      </div>
-                    </div>
-                    <div class="large-1 medium-1 text-center columns">
-                      <div class="slider vertical" data-slider data-vertical="true" data-initial-start="5000" data-end="9999">
-                        <span class="simple slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="cutoff"></span>
-                        <span class="slider-fill" data-slider-fill></span>
-                      </div>
-                    </div>
-                    <div class="columns">
 
-                    </div>
-                    <div class="large-1 medium-1 text-center columns">
-                      <div class="slider vertical" data-slider data-vertical="true" data-initial-start="50" data-end="100">
-                        <span class="simple slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="gain"></span>
-                        <span class="slider-fill" data-slider-fill></span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="row align-spaced">
-                      <div class="large-2 medium-2 text-center columns">
-                        <span class="control-label">Keyboard Setting</span>
-                      </div>
-                      <div class="large-1 medium-1 text-center columns">
-                        <span class="control-label">Attack</span>
-                      </div>
-                      <div class="large-1 medium-1 text-center columns">
-                        <span class="control-label">Decay</span>
-                      </div>
-                      <div class="large-1 medium-1 text-center columns">
-                        <span class="control-label">Sustain</span>
-                      </div>
-                      <div class="large-1 medium-1 text-center columns">
-                        <span class="control-label">Release</span>
-                      </div>
-                      <div class="large-1 medium-1 text-center columns">
-                        <span class="control-label">Cutoff</span>
-                      </div>
-                      <div class="columns">
-
-                      </div>
-                      <div class="large-1 medium-1 text-center columns">
-                        <span class="control-label">Gain</span>
-                      </div>
-                  </div>
-
-                  <div class="row align-spaced">
-                      <div class="large-2 medium-2 columns">
-                          <a href="#" class="simple small button keymode-button" id="keyboard-mode-button">Key</a>
-                          <a href="#" class="simple small button keymode-button" id="degree-mode-button">Deg</a>
-                          <a href="#" class="simple small button keymode-button" id="cents-mode-button">Cent</a>
-                      </div>
-                      <div class="large-1 medium-1 text-center columns">
-                        <input type="text" pattern="[0-9]*" class="control-input" id="attack">
-                      </div>
-                      <div class="large-1 medium-1 text-center columns">
-                        <input type="text" pattern="[0-9]*" class="control-input" id="decay">
-                      </div>
-                      <div class="large-1 medium-1 text-center columns">
-                        <input type="text" pattern="[0-9]*" class="control-input" id="sustain">
-                      </div>
-                      <div class="large-1 medium-1 text-center columns">
-                        <input type="text" pattern="[0-9]*" class="control-input" id="release">
-                      </div>
-                      <div class="large-1 medium-1 text-center columns">
-                        <input type="text" pattern="[0-9]*" class="control-input" id="cutoff">
-                      </div>
-                      <div class="columns">
-
-                      </div>
-                      <div class="large-1 medium-1 text-center columns">
-                        <input type="text" pattern="[0-9]*" class="control-input" id="gain">
-                      </div>
-                  </div>
-
-                  <input type="submit" style="display:none;" id="btnHiddenControls">
-                </form>
-              </div>
+                    <input type="submit" style="display:none;" id="btnHiddenControls">
+                  </form>
+                </div>
 
 
-              <!-- Tuning panel -->
-              <div class="tabs-panel" id="tunings">
-                <div class="row">
-                  <div class="large-12 medium-12 columns">
-                    <ul class="vertical menu" data-accordion-menu data-multi-open="false">
+                <!-- Tuning panel -->
+                <div class="tabs-panel" id="tunings">
+                  <div class="row">
+                    <div class="large-12 medium-12 columns">
+                      <ul class="vertical menu" data-accordion-menu data-multi-open="false">
 
-                      <li>
-                        <a href="#" class="tuning-category">Trivalent Just</a>
-                        <ul class="menu vertical nested" data-accordion-menu data-multi-open="false"> 
-                          <li>
-                            <a href="#" class="tuning-selection arrow-inset-fix" id="5-4-3-2-lydian">5/4, 3/2 Lydian</a>
-                            <ul class="menu vertical nested">
+                        <li>
+                          <a href="#" class="tuning-category">Trivalent Just</a>
+                          <ul class="menu vertical nested" data-accordion-menu data-multi-open="false">
+                            <li>
+                              <a href="#" class="tuning-selection arrow-inset-fix" id="5-4-3-2-lydian">5/4, 3/2 Lydian</a>
+                              <ul class="menu vertical nested">
+                                <li>
+                                  <table class="tuning-description">
+                                    <tr><th>Ratio:</th><td>1/1</td><td>9/8</td><td>5/4</td><td>45/32</td><td>3/2</td><td>27/16</td><td>15/8</td><td>2/1</td></tr>
+                                    <tr><th>Cents:</th><td>0</td><td>203.91</td><td>386.31</td><td>590.22</td><td>701.96</td><td>905.87</td><td>1088.27</td><td>1200</td></tr>
+
+                                  </table>
+                                </li>
+                              </ul>
+                            </li>
+
+                            <ul class="menu vertical">
                               <li>
-                                <table class="tuning-description">
-                                  <tr><th>Ratio:</th><td>1/1</td><td>9/8</td><td>5/4</td><td>45/32</td><td>3/2</td><td>27/16</td><td>15/8</td><td>2/1</td></tr> 
-                                  <tr><th>Cents:</th><td>0</td><td>203.91</td><td>386.31</td><td>590.22</td><td>701.96</td><td>905.87</td><td>1088.27</td><td>1200</td></tr> 
+                                <a href="#" class="tuning-selection arrow-inset-fix" id="6-5-3-2-dorian">6/5, 3/2 Dorian</a>
+                                <ul class="menu vertical nested">
+                                  <li>
+                                    <table class="tuning-description">
+                                      <tr><th>Ratio:</th><td>1/1</td><td>9/8</td><td>6/5</td><td>27/20</td><td>3/2</td><td>27/16</td><td>9/5</td><td>2/1</td></tr>
+                                      <tr><th>Cents:</th><td>0</td><td>203.91</td><td>315.64</td><td>519.55</td><td>701.96</td><td>905.87</td><td>1017.6</td><td>1200</td></tr>
 
-                                </table>
+                                    </table>
+                                  </li>
+                                </ul>
                               </li>
                             </ul>
-                          </li>
 
-                          <ul class="menu vertical">
-                            <li>
-                              <a href="#" class="tuning-selection arrow-inset-fix" id="6-5-3-2-dorian">6/5, 3/2 Dorian</a>
-                              <ul class="menu vertical nested">
-                                <li>
-                                  <table class="tuning-description">
-                                    <tr><th>Ratio:</th><td>1/1</td><td>9/8</td><td>6/5</td><td>27/20</td><td>3/2</td><td>27/16</td><td>9/5</td><td>2/1</td></tr> 
-                                    <tr><th>Cents:</th><td>0</td><td>203.91</td><td>315.64</td><td>519.55</td><td>701.96</td><td>905.87</td><td>1017.6</td><td>1200</td></tr> 
-
-                                  </table>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul>
-
-                          <ul class="menu vertical">
-                            <li>
-                              <a href="#" class="tuning-selection arrow-inset-fix" id="7-6-3-2-trivalent">7/6, 3/2 Trivalent</a>
-                              <ul class="menu vertical nested">
-                                <li>
-                                  <table class="tuning-description">
-                                    <tr><th>Ratio:</th><td>1/1</td><td>9/8</td><td>7/6</td><td>21/16</td><td>3/2</td><td>27/16</td><td>7/4</td><td>2/1</td></tr> 
-                                    <tr><th>Cents:</th><td>0</td><td>203.91</td><td>266.87</td><td>470.78</td><td>701.96</td><td>905.87</td><td>968.83</td><td>1200</td></tr> 
-
-                                  </table>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul>
-
-                          <ul class="menu vertical">
-                            <li>
-                              <a href="#" class="tuning-selection arrow-inset-fix" id="11-9-3-2-arabic">11/9, 3/2 Arabic</a>
-                              <ul class="menu vertical nested">
-                                <li>
-                                  <table class="tuning-description">
-                                    <tr><th>Ratio:</th><td>1/1</td><td>9/8</td><td>11/9</td><td>11/8</td><td>3/2</td><td>27/16</td><td>11/6</td><td>2/1</td></tr>
-                                    <tr><th>Cents:</th><td>0</td><td>203.91</td><td>347.41</td><td>551.32</td><td>701.96</td><td>905.87</td><td>1048.36</td><td>1200</td></tr>
-
-                                  </table>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul>
-
-                          <ul class="menu vertical">
-                            <li>
-                              <a href="#" class="tuning-selection arrow-inset-fix" id="13-11-3-2-dorian">13/11, 3/2 Dorian</a>
-                              <ul class="menu vertical nested">
-                                <li>
-                                  <table class="tuning-description">
-                                    <tr><th>Ratio:</th><td>1/1</td><td>9/8</td><td>13/11</td><td>117/88</td><td>3/2</td><td>27/16</td><td>39/22</td><td>2/1</td></tr
-                                    <tr><th>Cents:</th><td>0</td><td>203.91</td><td>289.21</td><td>493.12</td><td>701.96</td><td>905.87</td><td>991.16</td><td>1200</td></tr>
-
-                                  </table>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul>
-
-                          <ul class="menu vertical">
-                            <li>
-                              <a href="#" class="tuning-selection arrow-inset-fix" id="15-13-3-2-trivalent">15/13, 3/2 Trivalent</a>
-                              <ul class="menu vertical nested">
-                                <li>
-                                  <table class="tuning-description">
-                                    <tr><th>Ratio:</th><td>1/1</td><td>9/8</td><td>15/13</td><td>135/104</td><td>3/2</td><td>27/16</td><td>45/26</td><td>2/1</td></tr>
-                                    <tr><th>Cents:</th><td>0</td><td>203.91</td><td>247.74</td><td>451.65</td><td>701.96</td><td>905.87</td><td>949.7</td><td>1200</td></tr>
-
-                                  </table>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </ul>
-
-                      </li>
-
-                      <li>
-                        <a href="#" class="tuning-category">Equal Temperaments</a>
-                        <ul class="menu vertical nested" data-accordion-menu data-multi-open="false">
-                          <li>
-                            <a href="#" class="tuning-selection arrow-inset-fix" id="12-edo-major">12-Tone Equal Temperament, Major scale</a>
-                            <ul class="menu vertical nested">
+                            <ul class="menu vertical">
                               <li>
-                                <table class="tuning-description">
-                                  <tr><th>Cents:</th><td>0 </td><td>200</td><td>400</td><td>500</td><td>700</td><td>900</td><td>1100</td><td>1200</td></tr>
-                                </table>
+                                <a href="#" class="tuning-selection arrow-inset-fix" id="7-6-3-2-trivalent">7/6, 3/2 Trivalent</a>
+                                <ul class="menu vertical nested">
+                                  <li>
+                                    <table class="tuning-description">
+                                      <tr><th>Ratio:</th><td>1/1</td><td>9/8</td><td>7/6</td><td>21/16</td><td>3/2</td><td>27/16</td><td>7/4</td><td>2/1</td></tr>
+                                      <tr><th>Cents:</th><td>0</td><td>203.91</td><td>266.87</td><td>470.78</td><td>701.96</td><td>905.87</td><td>968.83</td><td>1200</td></tr>
+
+                                    </table>
+                                  </li>
+                                </ul>
                               </li>
                             </ul>
-                          </li>
 
-                          <ul class="menu vertical">
+                            <ul class="menu vertical">
+                              <li>
+                                <a href="#" class="tuning-selection arrow-inset-fix" id="11-9-3-2-arabic">11/9, 3/2 Arabic</a>
+                                <ul class="menu vertical nested">
+                                  <li>
+                                    <table class="tuning-description">
+                                      <tr><th>Ratio:</th><td>1/1</td><td>9/8</td><td>11/9</td><td>11/8</td><td>3/2</td><td>27/16</td><td>11/6</td><td>2/1</td></tr>
+                                      <tr><th>Cents:</th><td>0</td><td>203.91</td><td>347.41</td><td>551.32</td><td>701.96</td><td>905.87</td><td>1048.36</td><td>1200</td></tr>
+
+                                    </table>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+
+                            <ul class="menu vertical">
+                              <li>
+                                <a href="#" class="tuning-selection arrow-inset-fix" id="13-11-3-2-dorian">13/11, 3/2 Dorian</a>
+                                <ul class="menu vertical nested">
+                                  <li>
+                                    <table class="tuning-description">
+                                      <tr><th>Ratio:</th><td>1/1</td><td>9/8</td><td>13/11</td><td>117/88</td><td>3/2</td><td>27/16</td><td>39/22</td><td>2/1</td></tr
+                                      <tr><th>Cents:</th><td>0</td><td>203.91</td><td>289.21</td><td>493.12</td><td>701.96</td><td>905.87</td><td>991.16</td><td>1200</td></tr>
+
+                                    </table>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+
+                            <ul class="menu vertical">
+                              <li>
+                                <a href="#" class="tuning-selection arrow-inset-fix" id="15-13-3-2-trivalent">15/13, 3/2 Trivalent</a>
+                                <ul class="menu vertical nested">
+                                  <li>
+                                    <table class="tuning-description">
+                                      <tr><th>Ratio:</th><td>1/1</td><td>9/8</td><td>15/13</td><td>135/104</td><td>3/2</td><td>27/16</td><td>45/26</td><td>2/1</td></tr>
+                                      <tr><th>Cents:</th><td>0</td><td>203.91</td><td>247.74</td><td>451.65</td><td>701.96</td><td>905.87</td><td>949.7</td><td>1200</td></tr>
+
+                                    </table>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </ul>
+
+                        </li>
+
+                        <li>
+                          <a href="#" class="tuning-category">Equal Temperaments</a>
+                          <ul class="menu vertical nested" data-accordion-menu data-multi-open="false">
                             <li>
-                              <a href="#" class="tuning-selection arrow-inset-fix" id="12-edo-minor">12-Tone Equal Temperament, Minor scale</a>
+                              <a href="#" class="tuning-selection arrow-inset-fix" id="12-edo-major">12-Tone Equal Temperament, Major scale</a>
                               <ul class="menu vertical nested">
                                 <li>
                                   <table class="tuning-description">
-                                    <tr><th>Cents:</th><td>0 </td><td>200</td><td>300</td><td>500</td><td>700</td><td>800</td><td>1000</td><td>1200</td></tr>
+                                    <tr><th>Cents:</th><td>0 </td><td>200</td><td>400</td><td>500</td><td>700</td><td>900</td><td>1100</td><td>1200</td></tr>
                                   </table>
                                 </li>
                               </ul>
                             </li>
-                          </ul>
 
-                          <ul class="menu vertical">
-                            <li>
-                              <a href="#" class="tuning-selection arrow-inset-fix" id="12-edo-harmonic-minor">12-Tone Equal Temperament, Harmonic Minor scale</a>
-                              <ul class="menu vertical nested">
-                                <li>
-                                  <table class="tuning-description">
-                                    <tr><th>Cents:</th><td>0 </td><td>200</td><td>300</td><td>500</td><td>700</td><td>800</td><td>1100</td><td>1200</td></tr>
-                                  </table>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul>
+                            <ul class="menu vertical">
+                              <li>
+                                <a href="#" class="tuning-selection arrow-inset-fix" id="12-edo-minor">12-Tone Equal Temperament, Minor scale</a>
+                                <ul class="menu vertical nested">
+                                  <li>
+                                    <table class="tuning-description">
+                                      <tr><th>Cents:</th><td>0 </td><td>200</td><td>300</td><td>500</td><td>700</td><td>800</td><td>1000</td><td>1200</td></tr>
+                                    </table>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
 
-                          <ul class="menu vertical">
-                            <li>
-                              <a href="#" class="tuning-selection arrow-inset-fix" id="7-edo">7-tone Equal Temperament</a>
-                              <ul class="menu vertical nested">
-                                <li>
-                                  <table class="tuning-description">
-                                    <tr><th>Cents:</th><td>0 </td><td>171.43</td><td>342.86</td><td>514.29</td><td>685.71</td><td>857.14</td><td>1028.57</td><td>1200</td></tr>
-                                  </table>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </ul>
-                      </li>
+                            <ul class="menu vertical">
+                              <li>
+                                <a href="#" class="tuning-selection arrow-inset-fix" id="12-edo-harmonic-minor">12-Tone Equal Temperament, Harmonic Minor scale</a>
+                                <ul class="menu vertical nested">
+                                  <li>
+                                    <table class="tuning-description">
+                                      <tr><th>Cents:</th><td>0 </td><td>200</td><td>300</td><td>500</td><td>700</td><td>800</td><td>1100</td><td>1200</td></tr>
+                                    </table>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
 
-                    </ul>
+                            <ul class="menu vertical">
+                              <li>
+                                <a href="#" class="tuning-selection arrow-inset-fix" id="7-edo">7-tone Equal Temperament</a>
+                                <ul class="menu vertical nested">
+                                  <li>
+                                    <table class="tuning-description">
+                                      <tr><th>Cents:</th><td>0 </td><td>171.43</td><td>342.86</td><td>514.29</td><td>685.71</td><td>857.14</td><td>1028.57</td><td>1200</td></tr>
+                                    </table>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </ul>
+                        </li>
+
+                      </ul>
+                    </div>
                   </div>
+
                 </div>
 
-              </div>
+
+                <!-- Custom panel -->
+                <div class="tabs-panel" id="custom">
 
 
-              <!-- Custom panel -->
-              <div class="tabs-panel" id="custom">
-
-
-                <div class="row">
-                  <div class="large-2 medium-2 columns">
-                    <label for="middle-label" class="text-right middle custom-label">Custom Tuning</label>
+                  <div class="row">
+                    <div class="large-2 medium-2 columns">
+                      <label for="middle-label" class="text-right middle custom-label">Custom Tuning</label>
+                    </div>
                   </div>
-                </div>
-                <form action="javascript:void(0);">
+                  <form action="javascript:void(0);">
+                    <div class="row align-spaced">
+                      <div class="large-1 medium-1 columns">
+                        <input type="text" class="tuning-input" id="voice-zero-cents-input" placeholder="Cents" />
+                      </div>
+                      <div class="large-1 medium-1 columns">
+                        <input type="text" class="tuning-input" id="voice-one-cents-input" placeholder="Cents" />
+                      </div>
+                      <div class="large-1 medium-1 columns">
+                        <input type="text" class="tuning-input" id="voice-two-cents-input" placeholder="Cents" />
+                      </div>
+                      <div class="large-1 medium-1 columns">
+                        <input type="text" class="tuning-input" id="voice-three-cents-input" placeholder="Cents" />
+                      </div>
+                      <div class="large-1 medium-1 columns">
+                        <input type="text" class="tuning-input" id="voice-four-cents-input" placeholder="Cents" />
+                      </div>
+                      <div class="large-1 medium-1 columns">
+                        <input type="text" class="tuning-input" id="voice-five-cents-input" placeholder="Cents" />
+                      </div>
+                      <div class="large-1 medium-1 columns">
+                        <input type="text" class="tuning-input" id="voice-six-cents-input" placeholder="Cents" />
+                      </div>
+                      <div class="large-1 medium-1 columns">
+                        <input type="text" class="tuning-input" id="voice-seven-cents-input" placeholder="Cents" />
+                      </div>
+                    </div>
+                    <input type="submit" style="display:none;" id="btnHiddenRetune">
+                  </form>
+
+                  <div class="row">
+                    <div class="large-2 medium-2 columns">
+                      <label for="middle-label" class="text-right middle custom-label">Base Frequency</label>
+                    </div>
+                  </div>
                   <div class="row align-spaced">
-                    <div class="large-1 medium-1 columns">
-                      <input type="text" class="tuning-input" id="voice-zero-cents-input" placeholder="Cents" />
+                    <div class="large-2 medium-2 columns">
+                      <input type="text" class="middle-label" id="base-freq-input" placeholder="Hz" />
                     </div>
-                    <div class="large-1 medium-1 columns">
-                      <input type="text" class="tuning-input" id="voice-one-cents-input" placeholder="Cents" />
-                    </div>
-                    <div class="large-1 medium-1 columns">
-                      <input type="text" class="tuning-input" id="voice-two-cents-input" placeholder="Cents" />
-                    </div>
-                    <div class="large-1 medium-1 columns">
-                      <input type="text" class="tuning-input" id="voice-three-cents-input" placeholder="Cents" />
-                    </div>
-                    <div class="large-1 medium-1 columns">
-                      <input type="text" class="tuning-input" id="voice-four-cents-input" placeholder="Cents" />
-                    </div>
-                    <div class="large-1 medium-1 columns">
-                      <input type="text" class="tuning-input" id="voice-five-cents-input" placeholder="Cents" />
-                    </div>
-                    <div class="large-1 medium-1 columns">
-                      <input type="text" class="tuning-input" id="voice-six-cents-input" placeholder="Cents" />
-                    </div>
-                    <div class="large-1 medium-1 columns">
-                      <input type="text" class="tuning-input" id="voice-seven-cents-input" placeholder="Cents" />
-                    </div>
-                  </div>
-                  <input type="submit" style="display:none;" id="btnHiddenRetune">
-                </form>
-
-                <div class="row">
-                  <div class="large-2 medium-2 columns">
-                    <label for="middle-label" class="text-right middle custom-label">Base Frequency</label>
+                    <div class="large-10 medium-10 columns"></div>
                   </div>
                 </div>
-                <div class="row align-spaced">
-                  <div class="large-2 medium-2 columns">
-                    <input type="text" class="middle-label" id="base-freq-input" placeholder="Hz" />
-                  </div>
-                  <div class="large-10 medium-10 columns"></div>
-                </div>
-              </div>
 
 
-              <!-- Guide panel -->
-              <div class="tabs-panel" id="guide">
-                <div class="row">
-                  <div class="large-12 medium-12 columns">
-                    <p class="guide-label">Hebdomad is a Xenharmonic Musical Instrument</p>
-                    <p>
-                       Play Hebdomad on the home row of your keyboard using <kbd>asdf</kbd> and <kbd>jkl;</kbd> for notes, and <kbd>g</kbd> and <kbd>h</kbd> to control the volume.
-                    </p>
-                    <p class="guide-label">Xenharmonic What?</p>
-                    <!-- <p>In Western music, we use a tuning that divides an octave into twelve equal parts. This tuning is called 12-tone Equal Temperament. Hebdomad is an instrument for exploring the music of the spaces between these twelve tones. There are sonic mysteries old and new hidden here. The world of <a class="link" href="https://en.wikipedia.org/wiki/Xenharmonic_music">xenharmonic music</a>! -->
-                    <p>In Western music, we use a tuning system that divides an octave into twelve equal parts to define twelve tones. Hebdomad is an instrument for exploring the music of the spaces between these twelve tones. These spaces hold the world of <a class="link" href="https://en.wikipedia.org/wiki/Xenharmonic_music">Xenharmonic music</a>, and you will find sonic mysteries old and new here!
-                    </p>
-                    <p>Hebdomad is built for <a href="https://en.wikipedia.org/wiki/Heptatonic_scale" class="link">heptatonic scales</a>, which are scales with seven notes to an octave. You can view the scale degrees by clicking the <code>Deg</code> button in the Controls tab. They are numbered from <code>0</code> to <code>7</code>.
-                    </p>
-                    <p class="guide-label">Controls</p>
-                    <!-- <p>The Controls tab gives you a number of ways to select and shape the voice of Hebdomad.</p> -->
-                    <!-- <p>The voice of Hebdomad is born and shaped in the Controls tab.</p> -->
-                    <!-- <p>You can select and shape the voice of Hebdomad in the Controls panel</p> -->
-                    <p>Hebdomad uses sound waves that are shaped and sculpted in the Controls tab to produce its voice.</p>
-                    <!-- <p>Hebdomad uses basic sound waves to produce its voice. These sound waves are shaped and sculpted in the Controls tab.</p> -->
-                    <p>Select a base waveform for Hebdomad from the <b>Oscillator</b> section. The sine wave is the most pure and is great for hearing a new tuning. The other waveforms are richer and sound best when shaped with the <b>Amplitude Envelope</b> and <b>Low-Pass Filter</b>.
-                    </p>
-                    <p>The <b>Amplitude Envelope</b> shapes the body and character of Hebdomad's voice. An amplitude envelope controls how loud a note is when you press a key, after you let go of the key, and the time inbetween. You can think of the Attack, Decay, Sustain and Release as phases in the journey of a note.
-                    </p>
-                    <p>Attack defines how quickly the sound grows, Sustain sets the volume of the held note, and Release defines how quickly the sound fades away when you release the key. Decay allows the note to fade a little before reaching its sustain level. Each phase is measured in milliseconds.
-                    </p>
-                    <!-- <p>The <b>Low-pass Filter (LPF)</b> removes some of the higher frequencies from a sound. This doesn't matter much with a sine wave, but for the other waveforms it can soften the sound and give it a different character. -->
-                    <!-- </p> -->
-                    <p>The <b>Low-pass Filter (LPF)</b> removes some of the higher frequencies from a sound. This doesn't matter much when using the sine wave, but it can soften the sound and give it a different character to the other waveforms.
-                    </p>
-                    <p>The <b>Amp</b> controls the volume of the instrument. You can also control the volume with <kbd>g</kbd> and <kbd>h</kbd> on your keyboard.
-                    </p>
-                    <p>The <b>Keyboard Settings</b> change the labels on the keyboard: <code>Key</code> for keyboard characters, <code>Deg</code> for scale degrees, and <code>Cent</code> to display the current tuning.
-                    </p>
-                    <p class="guide-label">Retune</p>
-                    <!-- <p>The Retune tab gives you a number of tunings to experiment with. There are two main categories of tunings available: <b>Trivalent Just</b> and <b>Equal Temperaments</b>. When you select an option, Hebdomad updates to the new tuning automatically. -->
-                        <!-- When you select an option, Hebdomad updates to the new tuning automatically. -->
-                    <!-- <p>Hebdomad provides two main categories of tunings to experiment with: <b>Trivalent Just</b> and <b>Equal Temperaments</b>. When you select an option, Hebdomad updates to the new tuning automatically. -->
-                    <p>In the Retune tab, you can select scales from two main categories of tunings: <b>Trivalent Just</b> and <b>Equal Temperaments</b>.
-                    </p>
-                    <!-- <p><b>Trivalent Just</b> tunings use whole number ratios to create range of beautiful and rich scales. The theory behind these tunings is fascinating but is far to much to get into here. A good starting point for exploring these tunings is the 5/4, 3/2 Lydian scale or the 13/11, 3/2 Dorian scale. -->
-                    <p><b>Trivalent Just</b> tunings use whole number ratios to create range of beautiful and rich scales. The theory behind these tunings is fascinating but is far to much to get into here. Try starting with the 5/4, 3/2 Lydian scale or the 13/11, 3/2 Dorian scale, and when you are feeling adventurous try the others.
-                    </p>
-                    <p><b>Equal Temperaments</b> are the scales you are probably most used to. Here you can find the 12-tone Equal Temperament Major, Minor and Harmonic Minor scales. You can also try the 7-tone Equal Temperament which sounds really different!
-                    </p>
-                    <!-- <p>Each scale gives a breakdown of its steps represented in cents and ratios for the just tunings. Cents are based on the 12-tone Equal Temperament system, where the step between two consectutive tones is 100 cents. Think of each step between the twelve tones (called a "half-step") as a dollar. Each half-step is worth 100 cents, but we can take more or less cents to create all sorts of new tunings! -->
-                    <!-- </p> -->
-                    <p>Each scale gives a breakdown of its steps represented in cents and ratios for the just tunings. <a href="https://en.wikipedia.org/wiki/Cent_(music)" class="link">Cents</a> are a measure based on the 12-tone Equal Temperament system, where each step between two consectutive tones is 100 cents. The <a href="https://en.wikipedia.org/wiki/Just_intonation" class="link">just tunings</a> use whole number frequency ratios to divide an octave into intervals. Notice how their cent values differ slightly or significantly from the 12-tone Equal Temperament values.
-                    </p>
-                    <p class="guide-label">Custom</p>
-                    <!-- <p>In the Custom tab you can set a Base Frequency, which is basically sets where your scale starts. Choose a lower or higher frequency to change the range of your scale. -->
-                    <!-- </p> -->
-                    <!-- <p>In the Custom tab, you can define a custom tuning and set the base frequency.</p> -->
-                    <p>Define custom tunings and set the base frequency in the Custom tab.</p>
-                    <!-- <p>Use the <b>Custom Tuning</b> inputs to set Hebdomad's tuning. The inputs accept decimal and negative values, and they default to <code>0</code> cents. The <b>Base Frequency</b> defines the frequency at <code>0</code> cents. Choose a lower or higher frequency to change the range of your scale. -->
-                    <!-- </p> -->
-                    <p>The <b>Base Frequency</b> defines the frequency at <code>0</code> cents. Hebdomad's tuning can be set using the <b>Custom Tuning</b> inputs, where each key is an offset in cents from the base frequency. The inputs accept decimal and negative values, and they default to <code>0</code> cents.
-                    </p>
-                    <p>Explore and experiment! The whole point of Hebdomad is to try out new tunings and or to make up your own. One fun tuning to try is the quarter-tone scale: <code>0</code>|<code>50</code>|<code>100</code>|<code>150</code>|<code>200</code>|<code>250</code>|<code>300</code>|<code>350</code>. Try playing this scale quickly up and down the keyboard while using the sine wave.
-                    </p>
-                    <p>There are so many tunings out there to explore. Check out ... to start exploring the world of xenharmonic tunings.
-                    </p>
-                    <p class="guide-label">Thank You for Trying Hebdomad!</p>
-                    <p>Hebdomad is currently <code>v0.5-beta</code> and more tunings and features will be added with time. If you have any questions, feedback, or recommendations, please <a href="http://brianginsburg.com/contact">contact me</a> on my main site.
-                    </p>
+                <!-- Guide panel -->
+                <div class="tabs-panel" id="guide">
+                  <div class="row">
+                    <div class="large-12 medium-12 columns">
+                      <p class="guide-label">Hebdomad is a Xenharmonic Musical Instrument</p>
+                      <p>
+                         Play Hebdomad on the home row of your keyboard using <kbd>asdf</kbd> and <kbd>jkl;</kbd> for notes, and <kbd>g</kbd> and <kbd>h</kbd> to control the volume.
+                      </p>
+                      <p class="guide-label">Xenharmonic What?</p>
+                      <!-- <p>In Western music, we use a tuning that divides an octave into twelve equal parts. This tuning is called 12-tone Equal Temperament. Hebdomad is an instrument for exploring the music of the spaces between these twelve tones. There are sonic mysteries old and new hidden here. The world of <a class="link" href="https://en.wikipedia.org/wiki/Xenharmonic_music">xenharmonic music</a>! -->
+                      <p>In Western music, we use a tuning system that divides an octave into twelve equal parts to define twelve tones. Hebdomad is an instrument for exploring the music of the spaces between these twelve tones. These spaces hold the world of <a class="link" href="https://en.wikipedia.org/wiki/Xenharmonic_music">Xenharmonic music</a>, and you will find sonic mysteries old and new here!
+                      </p>
+                      <p>Hebdomad is built for <a href="https://en.wikipedia.org/wiki/Heptatonic_scale" class="link">heptatonic scales</a>, which are scales with seven notes to an octave. You can view the scale degrees by clicking the <code>Deg</code> button in the Controls tab. They are numbered from <code>0</code> to <code>7</code>.
+                      </p>
+                      <p class="guide-label">Controls</p>
+                      <!-- <p>The Controls tab gives you a number of ways to select and shape the voice of Hebdomad.</p> -->
+                      <!-- <p>The voice of Hebdomad is born and shaped in the Controls tab.</p> -->
+                      <!-- <p>You can select and shape the voice of Hebdomad in the Controls panel</p> -->
+                      <p>Hebdomad uses sound waves that are shaped and sculpted in the Controls tab to produce its voice.</p>
+                      <!-- <p>Hebdomad uses basic sound waves to produce its voice. These sound waves are shaped and sculpted in the Controls tab.</p> -->
+                      <p>Select a base waveform for Hebdomad from the <b>Oscillator</b> section. The sine wave is the most pure and is great for hearing a new tuning. The other waveforms are richer and sound best when shaped with the <b>Amplitude Envelope</b> and <b>Low-Pass Filter</b>.
+                      </p>
+                      <p>The <b>Amplitude Envelope</b> shapes the body and character of Hebdomad's voice. An amplitude envelope controls how loud a note is when you press a key, after you let go of the key, and the time inbetween. You can think of the Attack, Decay, Sustain and Release as phases in the journey of a note.
+                      </p>
+                      <p>Attack defines how quickly the sound grows, Sustain sets the volume of the held note, and Release defines how quickly the sound fades away when you release the key. Decay allows the note to fade a little before reaching its sustain level. Each phase is measured in milliseconds.
+                      </p>
+                      <!-- <p>The <b>Low-pass Filter (LPF)</b> removes some of the higher frequencies from a sound. This doesn't matter much with a sine wave, but for the other waveforms it can soften the sound and give it a different character. -->
+                      <!-- </p> -->
+                      <p>The <b>Low-pass Filter (LPF)</b> removes some of the higher frequencies from a sound. This doesn't matter much when using the sine wave, but it can soften the sound and give it a different character to the other waveforms.
+                      </p>
+                      <p>The <b>Amp</b> controls the volume of the instrument. You can also control the volume with <kbd>g</kbd> and <kbd>h</kbd> on your keyboard.
+                      </p>
+                      <p>The <b>Keyboard Settings</b> change the labels on the keyboard: <code>Key</code> for keyboard characters, <code>Deg</code> for scale degrees, and <code>Cent</code> to display the current tuning.
+                      </p>
+                      <p class="guide-label">Retune</p>
+                      <!-- <p>The Retune tab gives you a number of tunings to experiment with. There are two main categories of tunings available: <b>Trivalent Just</b> and <b>Equal Temperaments</b>. When you select an option, Hebdomad updates to the new tuning automatically. -->
+                          <!-- When you select an option, Hebdomad updates to the new tuning automatically. -->
+                      <!-- <p>Hebdomad provides two main categories of tunings to experiment with: <b>Trivalent Just</b> and <b>Equal Temperaments</b>. When you select an option, Hebdomad updates to the new tuning automatically. -->
+                      <p>In the Retune tab, you can select scales from two main categories of tunings: <b>Trivalent Just</b> and <b>Equal Temperaments</b>.
+                      </p>
+                      <!-- <p><b>Trivalent Just</b> tunings use whole number ratios to create range of beautiful and rich scales. The theory behind these tunings is fascinating but is far to much to get into here. A good starting point for exploring these tunings is the 5/4, 3/2 Lydian scale or the 13/11, 3/2 Dorian scale. -->
+                      <p><b>Trivalent Just</b> tunings use whole number ratios to create range of beautiful and rich scales. The theory behind these tunings is fascinating but is far to much to get into here. Try starting with the 5/4, 3/2 Lydian scale or the 13/11, 3/2 Dorian scale, and when you are feeling adventurous try the others.
+                      </p>
+                      <p><b>Equal Temperaments</b> are the scales you are probably most used to. Here you can find the 12-tone Equal Temperament Major, Minor and Harmonic Minor scales. You can also try the 7-tone Equal Temperament which sounds really different!
+                      </p>
+                      <!-- <p>Each scale gives a breakdown of its steps represented in cents and ratios for the just tunings. Cents are based on the 12-tone Equal Temperament system, where the step between two consectutive tones is 100 cents. Think of each step between the twelve tones (called a "half-step") as a dollar. Each half-step is worth 100 cents, but we can take more or less cents to create all sorts of new tunings! -->
+                      <!-- </p> -->
+                      <p>Each scale gives a breakdown of its steps represented in cents and ratios for the just tunings. <a href="https://en.wikipedia.org/wiki/Cent_(music)" class="link">Cents</a> are a measure based on the 12-tone Equal Temperament system, where each step between two consectutive tones is 100 cents. The <a href="https://en.wikipedia.org/wiki/Just_intonation" class="link">just tunings</a> use whole number frequency ratios to divide an octave into intervals. Notice how their cent values differ slightly or significantly from the 12-tone Equal Temperament values.
+                      </p>
+                      <p class="guide-label">Custom</p>
+                      <!-- <p>In the Custom tab you can set a Base Frequency, which is basically sets where your scale starts. Choose a lower or higher frequency to change the range of your scale. -->
+                      <!-- </p> -->
+                      <!-- <p>In the Custom tab, you can define a custom tuning and set the base frequency.</p> -->
+                      <p>Define custom tunings and set the base frequency in the Custom tab.</p>
+                      <!-- <p>Use the <b>Custom Tuning</b> inputs to set Hebdomad's tuning. The inputs accept decimal and negative values, and they default to <code>0</code> cents. The <b>Base Frequency</b> defines the frequency at <code>0</code> cents. Choose a lower or higher frequency to change the range of your scale. -->
+                      <!-- </p> -->
+                      <p>The <b>Base Frequency</b> defines the frequency at <code>0</code> cents. Hebdomad's tuning can be set using the <b>Custom Tuning</b> inputs, where each key is an offset in cents from the base frequency. The inputs accept decimal and negative values, and they default to <code>0</code> cents.
+                      </p>
+                      <p>Explore and experiment! The whole point of Hebdomad is to try out new tunings and or to make up your own. One fun tuning to try is the quarter-tone scale: <code>0</code>|<code>50</code>|<code>100</code>|<code>150</code>|<code>200</code>|<code>250</code>|<code>300</code>|<code>350</code>. Try playing this scale quickly up and down the keyboard while using the sine wave.
+                      </p>
+                      <p>There are so many tunings out there to explore. Check out ... to start exploring the world of xenharmonic tunings.
+                      </p>
+                      <p class="guide-label">Thank You for Trying Hebdomad!</p>
+                      <p>Hebdomad is currently <code>v0.5-beta</code> and more tunings and features will be added with time. If you have any questions, feedback, or recommendations, please <a href="http://brianginsburg.com/contact">contact me</a> on my main site.
+                      </p>
+                    </div>
                   </div>
                 </div>
+
               </div>
 
             </div>
 
           </div>
-
         </div>
       </div>
-    </div>
 
-    <!-- modals -->
-    <div class="reveal" id="screen-width-modal" data-reveal>
-      <h3>I need a bigger screen</h3>
-      <p>Hebodmad works best on screens larger than 1280x600 and will not work at all on mobile devices.</p>
-    </div>
+      <!-- modals -->
+      <div class="reveal" id="screen-width-modal" data-reveal>
+        <h3>Please use a larger screen</h3>
+        <p>Hebodmad works best on screens larger than 1280x800 and will not work at all on mobile devices.</p>
+      </div>
 
-    <div class="reveal" id="browser-type-modal" data-reveal>
-      <h3>Please use Firefox or Chrome</h3>
-      <p>Hebodmad uses the WebAudio API which is only supported in Firefox and Chrome.</p>
-    </div>
+      <div class="reveal" id="browser-type-modal" data-reveal>
+        <h3>Please use Firefox or Chrome</h3>
+        <p>Hebodmad uses the WebAudio API which is only supported in Firefox and Chrome.</p>
+      </div>
 
-    <div class="reveal" id="welcome-modal" data-reveal>
-        <h3>Welcome to Hebdomad</h3>
-      <p>Play Hebdomad on the home row of your keyboard using <kbd>asdf</kbd> and <kbd>jkl;</kbd> for notes, and <kbd>g</kbd> and <kbd>h</kbd> to control the volume. See the Guide for more information.</p>
+      <div class="reveal" id="welcome-modal" data-reveal>
+          <h3>Welcome to Hebdomad</h3>
+        <p>Play Hebdomad on the home row of your keyboard using <kbd>asdf</kbd> and <kbd>jkl;</kbd> for notes, and <kbd>g</kbd> and <kbd>h</kbd> to control the volume. See the Guide for more information.</p>
+      </div>
     </div>
 
     <!-- scripts -->
