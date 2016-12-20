@@ -442,13 +442,15 @@
                     <!-- <p>You can select and shape the voice of Hebdomad in the Controls panel</p> -->
                     <p>Hebdomad uses sound waves that are shaped and sculpted in the Controls tab to produce its voice.</p>
                     <!-- <p>Hebdomad uses basic sound waves to produce its voice. These sound waves are shaped and sculpted in the Controls tab.</p> -->
-                    <p>Select a base waveform for Hebdomad from the <b>Oscillator</b> section. The sine wave is the most pure and is great for hearing a new tuning. The other waveforms are richer and are best when shaped with the <b>Amplitude Envelope</b> and <b>Low-Pass Filter</b>.
+                    <p>Select a base waveform for Hebdomad from the <b>Oscillator</b> section. The sine wave is the most pure and is great for hearing a new tuning. The other waveforms are richer and sound best when shaped with the <b>Amplitude Envelope</b> and <b>Low-Pass Filter</b>.
                     </p>
-                    <p>The <b>Amplitude Envelope</b> shapes the body and character of Hebdomad's voice. An amplitude envelope controls how loud a note is when you press a key, after you let go of the key, and the time inbetween. You can think of Attack, Decay, Sustain and Release as phases in the journey of a note.
+                    <p>The <b>Amplitude Envelope</b> shapes the body and character of Hebdomad's voice. An amplitude envelope controls how loud a note is when you press a key, after you let go of the key, and the time inbetween. You can think of the Attack, Decay, Sustain and Release as phases in the journey of a note.
                     </p>
                     <p>Attack defines how quickly the sound grows, Sustain sets the volume of the held note, and Release defines how quickly the sound fades away when you release the key. Decay allows the note to fade a little before reaching its sustain level. Each phase is measured in milliseconds.
                     </p>
-                    <p>The <b>Low-pass Filter (LPF)</b> removes some of the higher frequencies from a sound. This doesn't matter much with a sine wave, but for the other waveforms it can soften the sound and give it a different character.
+                    <!-- <p>The <b>Low-pass Filter (LPF)</b> removes some of the higher frequencies from a sound. This doesn't matter much with a sine wave, but for the other waveforms it can soften the sound and give it a different character. -->
+                    <!-- </p> -->
+                    <p>The <b>Low-pass Filter (LPF)</b> removes some of the higher frequencies from a sound. This doesn't matter much when using the sine wave, but it can soften the sound and give it a different character to the other waveforms.
                     </p>
                     <p>The <b>Amp</b> controls the volume of the instrument. You can also control the volume with <kbd>g</kbd> and <kbd>h</kbd> on your keyboard.
                     </p>
@@ -461,7 +463,7 @@
                     <p>In the Retune tab, you can select scales from two main categories of tunings: <b>Trivalent Just</b> and <b>Equal Temperaments</b>.
                     </p>
                     <!-- <p><b>Trivalent Just</b> tunings use whole number ratios to create range of beautiful and rich scales. The theory behind these tunings is fascinating but is far to much to get into here. A good starting point for exploring these tunings is the 5/4, 3/2 Lydian scale or the 13/11, 3/2 Dorian scale. -->
-                    <p><b>Trivalent Just</b> tunings use whole number ratios to create range of beautiful and rich scales. The theory behind these tunings is fascinating but is far to much to get into here. Try starting with the 5/4, 3/2 Lydian scale or the 13/11, 3/2 Dorian scale, and when you are feeling adventurous try the other ones.
+                    <p><b>Trivalent Just</b> tunings use whole number ratios to create range of beautiful and rich scales. The theory behind these tunings is fascinating but is far to much to get into here. Try starting with the 5/4, 3/2 Lydian scale or the 13/11, 3/2 Dorian scale, and when you are feeling adventurous try the others.
                     </p>
                     <p><b>Equal Temperaments</b> are the scales you are probably most used to. Here you can find the 12-tone Equal Temperament Major, Minor and Harmonic Minor scales. You can also try the 7-tone Equal Temperament which sounds really different!
                     </p>
@@ -472,14 +474,15 @@
                     <p class="about-label">Custom</p>
                     <!-- <p>In the Custom tab you can set a Base Frequency, which is basically sets where your scale starts. Choose a lower or higher frequency to change the range of your scale. -->
                     <!-- </p> -->
-                    <p>In the Custom tab, you can define a custom tuning and set the base frequency.</p>
-                    <!-- <p>Use the <b>Custom Tuning</b> section to set any custom tuning you would like. Each input corresponds to a key on Hebdomad's keyboard, and you can use decimal values for greater precision. -->
+                    <!-- <p>In the Custom tab, you can define a custom tuning and set the base frequency.</p> -->
+                    <p>Define custom tunings and set the base frequency in the Custom tab.</p>
+                    <!-- <p>Use the <b>Custom Tuning</b> inputs to set Hebdomad's tuning. The inputs accept decimal and negative values, and they default to <code>0</code> cents. The <b>Base Frequency</b> defines the frequency at <code>0</code> cents. Choose a lower or higher frequency to change the range of your scale. -->
                     <!-- </p> -->
-                    <p>Use the <b>Custom Tuning</b> section to set Hebdomad's tuning. The inputs accept decimal and negative values and default to <code>0</code> cents. The <b>Base Frequency</b> defines the frequency for <code>0</code> cents. Choose a lower or higher frequency to change the range of your scale.
+                    <p>The <b>Base Frequency</b> defines the frequency at <code>0</code> cents. Hebdomad's tuning can be set using the <b>Custom Tuning</b> inputs, where each key is an offset in cents from the base frequency. The inputs accept decimal and negative values, and they default to <code>0</code> cents.
                     </p>
-                    <p>Explore and experiment! You can try out any tuning you like or make up your own! One fun tuning is the quarter-tone scale: <code>0</code>--<code>50</code>--<code>100</code>--<code>150</code>--<code>200</code>--<code>250</code>--<code>300</code>--<code>350</code>. Try playing this scale quickly up and down the keyboard using the sine wave.
+                    <p>Explore and experiment! The whole point of Hebdomad is to try out new tunings and or to make up your own. One fun tuning to try is the quarter-tone scale: <code>0</code>|<code>50</code>|<code>100</code>|<code>150</code>|<code>200</code>|<code>250</code>|<code>300</code>|<code>350</code>. Try playing this scale quickly up and down the keyboard while using the sine wave.
                     </p>
-                    <p>There are so many tunings out there to explore! Check out ... to start exploring the world of xenharmonic tunings.
+                    <p>There are so many tunings out there to explore. Check out ... to start exploring the world of xenharmonic tunings.
                     </p>
                     <p class="about-label">Thank You for Trying Hebdomad!</p>
                     <p>Hebdomad is currently <code>v0.5-beta</code> and more tunings and features will be added with time. If you have any questions, feedback, or recommendations, please <a href="http://brianginsburg.com/contact">contact me</a> on my main site.
