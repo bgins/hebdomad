@@ -6,6 +6,10 @@ h1 {
   color: #f7f7f7;
 }
 
+h3 {
+  font-family: 'Mate SC', serif;
+}
+
 body {
   background-color: #081016;
   font-family: 'Open Sans', sans-serif;
