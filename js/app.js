@@ -156,7 +156,7 @@ $(document).keyup(function(e) {
 
 
 // ---------- click events ------------
-// note starts on mousedown, then holds til mouseup
+// note starts on mousedown, then holds til mouseup or mouseleave
 $('.key, .switch').mousedown(function() {
     $(this).css('background-color','#059a91');
     switch(this.id) {
@@ -215,7 +215,7 @@ $('.key, .switch').mousedown(function() {
     }
 });
 
-$('.key, .switch').mouseup(function() {
+$('.key, .switch').on('mouseup mouseleave', function() {
     $(this).css('background-color','#243640');
     switch(this.id) {
         case "voice-zero-button":
