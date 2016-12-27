@@ -1,6 +1,10 @@
 var Envelope = require('envelope-generator');
 
-context = new AudioContext();
+// context = new AudioContext();
+var context = new AudioContext();
+if (!context) {
+    $('#browser-type-modal').foundation('open');
+}
 
 // declare globals
 var voices = [],

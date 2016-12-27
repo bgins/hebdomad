@@ -13,8 +13,8 @@ var notes,
 $(document).ready(function() {
     if ($(window).width() < 1210) {
         $('#screen-width-modal').foundation('open');
-    } else if (!((typeof InstallTrigger !== 'undefined') || (!!window.chrome && !!window.chrome.webstore))) {
-        $('#browser-type-modal').foundation('open');
+    // } else if (!((typeof InstallTrigger !== 'undefined') || (!!window.chrome && !!window.chrome.webstore))) {
+        // $('#browser-type-modal').foundation('open');
     } else {
         $('#welcome-modal').foundation('open');
     }
