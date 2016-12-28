@@ -2,7 +2,6 @@ var audio = require('./audio.js');
 
 $(document).foundation();
 
-
 // ---------- init instrument ----------------
 var notes,
     heldKeys = [],
@@ -13,8 +12,8 @@ var notes,
 $(document).ready(function() {
     if ($(window).width() < 1210) {
         $('#screen-width-modal').foundation('open');
-    // } else if (!((typeof InstallTrigger !== 'undefined') || (!!window.chrome && !!window.chrome.webstore))) {
-    } else if (!(window.AudioContext || window.webkitAudioContext)) {
+    } else if (!((typeof InstallTrigger !== 'undefined') || (!!window.chrome && !!window.chrome.webstore))) {
+    // } else if (!(window.AudioContext || window.webkitAudioContext)) {
         $('#browser-type-modal').foundation('open');
     } else {
         $('#welcome-modal').foundation('open');
@@ -34,8 +33,7 @@ $(document).ready(function() {
 //           j = 74, k = 75, l = 76,
 //           ; = 59 (firefox) and 186 (chrome)
 $(document).keydown(function(e) {
-    // check if note is currently held
-    // allow gain switch events through
+    // check if note is currently held, but allow gain switch events
     if (heldKeys[e.which] && e.which != 71 && e.which != 72) {
         return;
     }
@@ -265,7 +263,8 @@ $('#controls').on('input moved.zf.slider', function() {
     audio.setDecay($("#decay").val() / 1000);
     audio.setSustain($("#sustain").val() / 100);
     audio.setRelease($("#release").val() / 1000);
-    audio.setFilterFreq($("#cutoff").val());
+    freq = parseInt($("#cutoff").val());
+    audio.setFilterFreq(freq);
 });
 
 $('.osc-button').on('click', function() {
@@ -419,7 +418,7 @@ function setCentsMode() {
 }
 
 // refresh slider handle when controls panel selected
-// this is not ideal, but foundation is not updating when in another panel
+// this is not ideal, but foundation is not updating when in another tab
 $('#controls-label').on('click', function() {
     setTimeout(function() {$('#gain').change() }, 10);
 });

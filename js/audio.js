@@ -1,10 +1,6 @@
 var Envelope = require('envelope-generator');
 
-// context = new AudioContext();
 var context = new AudioContext();
-// if (!context) {
-//     $('#browser-type-modal').foundation('open');
-// }
 
 // declare globals
 var voices = [],
@@ -17,17 +13,24 @@ var voices = [],
     ampEnvSustain = 0.9,
     ampEnvRelease = 0.5,
     filterType = 'lowpass',
-    filterFreq = 400;
+    filterFreq = 3000;
 
+// -------- filter and global routing ----------
+filter = context.createBiquadFilter();
+filter.type = filterType;
+filter.frequency.value = filterFreq;
 
-// ---------- start and stop voices------------
+filter.connect(mixAmp);
+mixAmp.connect(context.destination);
+
+// ---------- start and stop voices ------------
 function startVoice(n,cents) {
     // check for retrigger
     if (voices[n]) {
         voices[n].osc.stop();
     }
 
-    // instantiate and start voice 
+    // instantiate and start voice
     voices[n] = new Voice(mixAmp);
     voices[n].play(cents);
 }
@@ -41,7 +44,6 @@ function stopVoice(n) {
 function Voice(mixAmp) {
     this.osc = context.createOscillator();
     this.oscAmp = context.createGain();
-    
     this.oscAmp.gain.value = 0.0;
 
     // envelope settings
@@ -52,24 +54,11 @@ function Voice(mixAmp) {
         releaseTime: ampEnvRelease
     };
     this.ampEnv = new Envelope(context, settings);
-    
+
     // routing
     this.osc.connect(this.oscAmp);
     this.ampEnv.connect(this.oscAmp.gain);
-    
-    // attach filter if active
-    if (filterType != 'off') {
-        this.filter = context.createBiquadFilter();
-        this.filter.type = filterType;
-        this.filter.frequency.value = filterFreq; 
-        
-        this.oscAmp.connect(this.filter);
-        this.filter.connect(mixAmp);
-    } else {
-        this.oscAmp.connect(mixAmp);
-    }
-    
-    mixAmp.connect(context.destination);
+    this.oscAmp.connect(filter);
 
     this.play = function(cents) {
         this.osc.type = waveform;
@@ -118,7 +107,7 @@ function setBaseFreq(bf) {
 }
 
 function setFilterFreq(filtFreq) {
-    filterFreq = filtFreq;
+    filter.frequency.value = filtFreq;
 }
 
 // ---------- Exports --------------
