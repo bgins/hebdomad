@@ -63,7 +63,7 @@ function Voice(mixAmp) {
     this.play = function(cents) {
         this.osc.type = waveform;
         this.osc.frequency.value = baseFreq * Math.pow(2,(cents/1200));
-        console.log(this.osc.frequency.value);
+        console.log("cents: " + cents + ", freq: " + this.osc.frequency.value);
 
         this.ampEnv.start(context.currentTime);
         this.osc.start(context.CurrentTime);
