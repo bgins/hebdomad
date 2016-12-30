@@ -311,6 +311,12 @@ $('.keymode-button').on('click', function() {
 // ---------- retune panel events ------------
 $('.tuning-selection').on('click', function() {
     switch(this.id) {
+        case "harm-div-octave":
+            retune([0,231.1741,435.0841,617.4878,782.492,933.1291,1071.7018,1200]);
+            break;
+        case "subharm-div-octave":
+            retune([0,128.2982,266.871,417.508,582.5122,764.916,968.826,1200]);
+            break;
         case "5-4-3-2-lydian":
             retune([0,203.91,386.3137,590.2237,701.955,905.865,1088.2687,1200]);
             break;
