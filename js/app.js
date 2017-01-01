@@ -12,11 +12,13 @@ var notes,
 $(document).ready(function() {
     if ($(window).width() < 1210) {
         $('#screen-width-modal').foundation('open');
-    } else if (!((typeof InstallTrigger !== 'undefined') || (!!window.chrome && !!window.chrome.webstore))) {
+    } else if (((typeof InstallTrigger !== 'undefined') || (!!window.chrome && !!window.chrome.webstore))) {
     // } else if (!(window.AudioContext || window.webkitAudioContext)) {
-        $('#browser-type-modal').foundation('open');
-    } else {
+        // $('#browser-type-modal').foundation('open');
         $('#welcome-modal').foundation('open');
+    } else {
+        // $('#welcome-modal').foundation('open');
+        $('#browser-type-modal').foundation('open');
     }
     notes = [0,203.91,289.2097,493.1197,701.955,905.865,991.1647,1200];
     $('#sine').css('background-color','#03796f');
