@@ -1,6 +1,6 @@
 var audio = require('./audio.js');
 
-$(document).foundation();
+// $(document).foundation();
 
 // ---------- init instrument ----------------
 var notes,
@@ -10,6 +10,7 @@ var notes,
     timeout = false;
 
 $(document).ready(function() {
+    $(document).foundation();
     if ($(window).width() < 1210) {
         $('#screen-width-modal').foundation('open');
     } else if (((typeof InstallTrigger !== 'undefined') || (!!window.chrome && !!window.chrome.webstore))) {
