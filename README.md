@@ -1,5 +1,5 @@
 # hebdomad
-Hebdomad is a xenharmonic webaudio instrument. It provides a quick web way to experiment with microtuning and explore xenharmonic music.
+Hebdomad is a retunable webaudio instrument. It provides a quick web way to experiment with microtuning and explore xenharmonic music.
 
 Hebdomad lives here: [http://brianginsburg.com/hebdomad/](http://brianginsburg.com/hebdomad/) 
 
