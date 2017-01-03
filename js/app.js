@@ -1,5 +1,7 @@
 var audio = require('./audio.js');
 
+if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {alert('Hebodmad uses the WebAudio API which is only supported in Firefox and Chrome.');}
+
 // $(document).foundation();
 
 // ---------- init instrument ----------------
