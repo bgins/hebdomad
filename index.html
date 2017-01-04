@@ -536,10 +536,16 @@
     </div>
 
     <!-- scripts -->
+    <script>
+     var is_explorer = (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0);
+     var is_safari = (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1);
+     if (is_safari || is_explorer) {
+        alert('Hebodmad uses the WebAudio API which is only supported in Firefox and Chrome.');
+     }
+    </script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/what-input/what-input.js"></script>
     <script src="bower_components/foundation-sites/dist/foundation.min.js"></script>
     <script src="js/bundle.js"></script>
-
-  <body>
+  </body>
 </html>
