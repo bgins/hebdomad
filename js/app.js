@@ -1,13 +1,5 @@
 var audio = require('./audio.js');
 
-// if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {alert('Hebodmad uses the WebAudio API which is only supported in Firefox and Chrome.');}
-// var is_explorer = (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0);
-// var is_safari = (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1);
-// if (is_safari || is_explorer) {
-//     alert('Hebodmad uses the WebAudio API which is only supported in Firefox and Chrome.');
-// }
-// $(document).foundation();
-
 // ---------- init instrument ----------------
 var notes,
     heldKeys = [],
@@ -20,11 +12,8 @@ $(document).ready(function() {
     if ($(window).width() < 1210) {
         $('#screen-width-modal').foundation('open');
     } else if (((typeof InstallTrigger !== 'undefined') || (!!window.chrome && !!window.chrome.webstore))) {
-    // } else if (!(window.AudioContext || window.webkitAudioContext)) {
-        // $('#browser-type-modal').foundation('open');
         $('#welcome-modal').foundation('open');
     } else {
-        // $('#welcome-modal').foundation('open');
         $('#browser-type-modal').foundation('open');
     }
     notes = [0,203.91,289.2097,493.1197,701.955,905.865,991.1647,1200];
