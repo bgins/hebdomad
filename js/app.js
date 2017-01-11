@@ -309,6 +309,9 @@ $('.keymode-button').on('click', function() {
 // ---------- retune panel events ------------
 $('.tuning-selection').on('click', function() {
     switch(this.id) {
+        case "ptolemy-diatonic":
+            retune([0,203.91,386.3137,498.045,701.955,884.3587,1088.2687,1200]);
+            break;
         case "harm-div-octave":
             retune([0,231.1741,435.0841,617.4878,782.492,933.1291,1071.7018,1200]);
             break;
