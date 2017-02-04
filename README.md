@@ -19,3 +19,6 @@ $ browserify js/app.js -o js/bundle.js -d
 
 ### Run
 It's static. Open `index.html` with Firefox or Chrome.
+
+### License
+Except where specified otherwise, all Hebdomad code is licensed under the [GNU Affero General Public License](https://github.com/thuselem/hebdomad/blob/master/LICENSE) as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
