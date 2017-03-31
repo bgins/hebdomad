@@ -288,18 +288,19 @@ $('.keymode-button').on('click', function() {
     $(this).css('background-color','#03796f');
     switch(this.id) {
         case 'keyboard-mode-button':
-            keymode = 0;
-            setKeyboard(keymode);
+            setKeyboard(0);
             $('#degree-mode-button, #cents-mode-button').css('background-color','#243640');
             break;
         case 'degree-mode-button':
-            keymode = 1;
-            setKeyboard(keymode);
+            if ($('#voice-zero-button').text() == "1") {
+                setKeyboard(2);
+            } else {
+                setKeyboard(1);
+            }
             $('#keyboard-mode-button, #cents-mode-button').css('background-color','#243640');
             break;
         case 'cents-mode-button':
-            keymode = 2;
-            setKeyboard(keymode);
+            setKeyboard(3);
             $('#degree-mode-button, #keyboard-mode-button').css('background-color','#243640');
             break;
     }
@@ -390,6 +391,16 @@ function setKeyboard(keymode) {
             $('#voice-seven-button').text(';');
             break;
         case 1:
+            $('#voice-zero-button').text('1');
+            $('#voice-one-button').text('2');
+            $('#voice-two-button').text('3');
+            $('#voice-three-button').text('4');
+            $('#voice-four-button').text('5');
+            $('#voice-five-button').text('6');
+            $('#voice-six-button').text('7');
+            $('#voice-seven-button').text('8');
+            break;
+        case 2:
             $('#voice-zero-button').text('0');
             $('#voice-one-button').text('1');
             $('#voice-two-button').text('2');
@@ -399,7 +410,7 @@ function setKeyboard(keymode) {
             $('#voice-six-button').text('6');
             $('#voice-seven-button').text('7');
             break;
-        case 2:
+        case 3:
             $('#voice-zero-button').text(Math.round(notes[0]));
             $('#voice-one-button').text(Math.round(notes[1]));
             $('#voice-two-button').text(Math.round(notes[2]));
