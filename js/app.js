@@ -430,7 +430,7 @@ function retune(centsArray) {
 }
 
 function setCentsMode() {
-    setKeyboard(2);
+    setKeyboard(3);
     $('#cents-mode-button').css('background-color','#03796f');
     $('#keyboard-mode-button, #degree-mode-button').css('background-color','#243640');
 }
