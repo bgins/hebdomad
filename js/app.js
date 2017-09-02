@@ -1,9 +1,9 @@
-var audio = require('./audio.js');
+import * as audio from './audio.js';
 
 // ---------- init instrument ----------------
 var notes,
     heldKeys = [],
-    keymode = 0,
+    cents = 0,
     gain = 5,
     timeout = false;
 
@@ -39,22 +39,23 @@ $(document).keydown(function(e) {
     switch (e.which) {
         case 65:
             $('#voice-zero-button').css('background-color','#059a91');
-            var cents = notes[0];
+            // var cents = notes[0];
+            cents = notes[0];
             audio.startVoice(0,cents);
             break;
         case 83:
             $('#voice-one-button').css('background-color','#059a91');
-            var cents = notes[1];
+            cents = notes[1];
             audio.startVoice(1,cents);
             break;
         case 68:
             $('#voice-two-button').css('background-color','#059a91');
-            var cents = notes[2];
+            cents = notes[2];
             audio.startVoice(2,cents);
             break;
         case 70:
             $('#voice-three-button').css('background-color','#059a91');
-            var cents = notes[3];
+            cents = notes[3];
             audio.startVoice(3,cents);
             break;
         case 71:
@@ -65,7 +66,7 @@ $(document).keydown(function(e) {
                     $('#gain').val(gain).change();
                     $('#dec-gain-switch').css('background-color','#5a5f61');
                 }, 25);
-            };
+            }
             break;
         case 72:
             if (gain < 100 && !timeout) {
@@ -75,27 +76,27 @@ $(document).keydown(function(e) {
                     $('#gain').val(gain).change();
                     $('#inc-gain-switch').css('background-color','#5a5f61');
                 }, 25);
-            };
+            }
             break;
         case 74:
             $('#voice-four-button').css('background-color','#059a91');
-            var cents = notes[4];
+            cents = notes[4];
             audio.startVoice(4,cents);
             break;
         case 75:
             $('#voice-five-button').css('background-color','#059a91');
-            var cents = notes[5];
+            cents = notes[5];
             audio.startVoice(5,cents);
             break;
         case 76:
             $('#voice-six-button').css('background-color','#059a91');
-            var cents = notes[6];
+            cents = notes[6];
             audio.startVoice(6,cents);
             break;
         case 59:
         case 186:
             $('#voice-seven-button').css('background-color','#059a91');
-            var cents = notes[7];
+            cents = notes[7];
             audio.startVoice(7,cents);
             break;
     }
@@ -157,20 +158,20 @@ $(document).keyup(function(e) {
 $('.key, .switch').mousedown(function() {
     $(this).css('background-color','#059a91');
     switch(this.id) {
-        case "voice-zero-button":
-            var cents = notes[0];
+        case 'voice-zero-button':
+            cents = notes[0];
             audio.startVoice(0,cents);
             break;
-        case "voice-one-button":
-            var cents = notes[1];
+        case 'voice-one-button':
+            cents = notes[1];
             audio.startVoice(1,cents);
             break;
-        case "voice-two-button":
-            var cents = notes[2];
+        case 'voice-two-button':
+            cents = notes[2];
             audio.startVoice(2,cents);
             break;
-        case "voice-three-button":
-            var cents = notes[3];
+        case 'voice-three-button':
+            cents = notes[3];
             audio.startVoice(3,cents);
             break;
         case 'dec-gain-switch':
@@ -181,7 +182,7 @@ $('.key, .switch').mousedown(function() {
                     $('#gain').val(gain).change();
                     $('#dec-gain-switch').css('background-color','#5a5f61');
                 }, 25);
-            };
+            }
             break;
         case 'inc-gain-switch':
             if (gain < 100 && !timeout) {
@@ -191,22 +192,22 @@ $('.key, .switch').mousedown(function() {
                     $('#gain').val(gain).change();
                     $('#inc-gain-switch').css('background-color','#5a5f61');
                 }, 25);
-            };
+            }
             break;
-        case "voice-four-button":
-            var cents = notes[4];
+        case 'voice-four-button':
+            cents = notes[4];
             audio.startVoice(4,cents);
             break;
-        case "voice-five-button":
-            var cents = notes[5];
+        case 'voice-five-button':
+            cents = notes[5];
             audio.startVoice(5,cents);
             break;
-        case "voice-six-button":
-            var cents = notes[6];
+        case 'voice-six-button':
+            cents = notes[6];
             audio.startVoice(6,cents);
             break;
-        case "voice-seven-button":
-            var cents = notes[7];
+        case 'voice-seven-button':
+            cents = notes[7];
             audio.startVoice(7,cents);
             break;
     }
@@ -215,16 +216,16 @@ $('.key, .switch').mousedown(function() {
 $('.key, .switch').on('mouseup mouseleave', function() {
     $(this).css('background-color','#243640');
     switch(this.id) {
-        case "voice-zero-button":
+        case 'voice-zero-button':
             audio.stopVoice(0);
             break;
-        case "voice-one-button":
+        case 'voice-one-button':
             audio.stopVoice(1);
             break;
-        case "voice-two-button":
+        case 'voice-two-button':
             audio.stopVoice(2);
             break;
-        case "voice-three-button":
+        case 'voice-three-button':
             audio.stopVoice(3);
             break;
         case 'dec-gain-switch':
@@ -237,16 +238,16 @@ $('.key, .switch').on('mouseup mouseleave', function() {
             clearInterval(timeout);
             timeout = false;
             break;
-        case "voice-four-button":
+        case 'voice-four-button':
             audio.stopVoice(4);
             break;
-        case "voice-five-button":
+        case 'voice-five-button':
             audio.stopVoice(5);
             break;
-        case "voice-six-button":
+        case 'voice-six-button':
             audio.stopVoice(6);
             break;
-        case "voice-seven-button":
+        case 'voice-seven-button':
             audio.stopVoice(7);
             break;
     }
@@ -257,11 +258,11 @@ $('.key, .switch').on('mouseup mouseleave', function() {
 $('#controls').on('input moved.zf.slider', function() {
     gain = parseInt($('#gain').val());
     audio.setMixGain(gain / 500);
-    audio.setAttack($("#attack").val() / 1000);
-    audio.setDecay($("#decay").val() / 1000);
-    audio.setSustain($("#sustain").val() / 100);
-    audio.setRelease($("#release").val() / 1000);
-    freq = parseInt($("#cutoff").val());
+    audio.setAttack($('#attack').val() / 1000);
+    audio.setDecay($('#decay').val() / 1000);
+    audio.setSustain($('#sustain').val() / 100);
+    audio.setRelease($('#release').val() / 1000);
+    var freq = parseInt($('#cutoff').val());
     audio.setFilterFreq(freq);
 });
 
@@ -292,7 +293,7 @@ $('.keymode-button').on('click', function() {
             $('#degree-mode-button, #cents-mode-button').css('background-color','#243640');
             break;
         case 'degree-mode-button':
-            if ($('#voice-zero-button').text() == "1") {
+            if ($('#voice-zero-button').text() == '1') {
                 setKeyboard(2);
             } else {
                 setKeyboard(1);
@@ -310,43 +311,43 @@ $('.keymode-button').on('click', function() {
 // ---------- retune panel events ------------
 $('.tuning-selection').on('click', function() {
     switch(this.id) {
-        case "ptolemy-diatonic":
+        case 'ptolemy-diatonic':
             retune([0,203.91,386.3137,498.045,701.955,884.3587,1088.2687,1200]);
             break;
-        case "harm-div-octave":
+        case 'harm-div-octave':
             retune([0,231.1741,435.0841,617.4878,782.492,933.1291,1071.7018,1200]);
             break;
-        case "subharm-div-octave":
+        case 'subharm-div-octave':
             retune([0,128.2982,266.871,417.508,582.5122,764.916,968.826,1200]);
             break;
-        case "5-4-3-2-lydian":
+        case '5-4-3-2-lydian':
             retune([0,203.91,386.3137,590.2237,701.955,905.865,1088.2687,1200]);
             break;
-        case "6-5-3-2-dorian":
+        case '6-5-3-2-dorian':
             retune([0,203.91,315.6413,519.5513,701.955,905.865,1017.5963,1200]);
             break;
-        case "7-6-3-2-trivalent":
+        case '7-6-3-2-trivalent':
             retune([0,203.91,266.8709,470.7809,701.955,905.865,968.8259,1200]);
             break;
-        case "11-9-3-2-arabic":
+        case '11-9-3-2-arabic':
             retune([0,203.91,347.4079,551.3179,701.955,905.865,1048.3629,1200]);
             break;
-        case "13-11-3-2-dorian":
+        case '13-11-3-2-dorian':
             retune([0,203.91,289.2097,493.1197,701.955,905.865,991.1647,1200]);
             break;
-        case "15-13-3-2-trivalent":
+        case '15-13-3-2-trivalent':
             retune([0,203.91,247.7411,451.6511,701.955,905.865,949.6961,1200]);
             break;
-        case "12-edo-major":
+        case '12-edo-major':
             retune([0,200,400,500,700,900,1100,1200]);
             break;
-        case "12-edo-minor":
+        case '12-edo-minor':
             retune([0,200,300,500,700,800,1000,1200]);
             break;
-        case "12-edo-harmonic-minor":
+        case '12-edo-harmonic-minor':
             retune([0,200,300,500,700,800,1100,1200]);
             break;
-        case "7-edo":
+        case '7-edo':
             retune([0,171.429,342.857,514.286,685.714,857.143,1028.571,1200]);
             break;
         default:
@@ -357,7 +358,7 @@ $('.tuning-selection').on('click', function() {
 
 
 // ---------- custom panel events ------------
-$("#btnHiddenRetune").on('click', function() {
+$('#btnHiddenRetune').on('click', function() {
     notes[0] = $('#voice-zero-cents-input').val();
     notes[1] = $('#voice-one-cents-input').val();
     notes[2] = $('#voice-two-cents-input').val();
@@ -368,12 +369,12 @@ $("#btnHiddenRetune").on('click', function() {
     notes[7] = $('#voice-seven-cents-input').val();
 
     setCentsMode();
-    $("input:text").blur();
+    $('input:text').blur();
 });
 
-$("#base-freq-input").on('change', function() {
+$('#base-freq-input').on('change', function() {
     audio.setBaseFreq($(this).val());
-    $("input:text").blur();
+    $('input:text').blur();
 });
 
 
@@ -424,7 +425,7 @@ function setKeyboard(keymode) {
 }
 
 function retune(centsArray) {
-    for (i = 0; i < 8; i++) {
+    for (var i = 0; i < 8; i++) {
         notes[i] = centsArray[i];
     }
 }
@@ -438,9 +439,9 @@ function setCentsMode() {
 // refresh slider handle when controls panel selected
 // this is not ideal, but foundation is not updating when in another tab
 $('#controls-label').on('click', function() {
-    setTimeout(function() {$('#gain').change() }, 10);
+    setTimeout(function() { $('#gain').change(); }, 10);
 });
 
-$("#btnHiddenControls").on('click', function() {
-    $("input:text").blur();
+$('#btnHiddenControls').on('click', function() {
+    $('input:text').blur();
 });

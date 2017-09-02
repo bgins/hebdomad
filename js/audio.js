@@ -1,11 +1,9 @@
-var Envelope = require('envelope-generator');
+import Envelope from 'envelope-generator';
 
 var context = new AudioContext();
 
-// declare globals
 var voices = [],
     mixAmp = context.createGain(),
-    gain = 0.1,
     waveform = 'sine',
     baseFreq = 261.6255,
     ampEnvAttack = 0.1,
@@ -16,7 +14,7 @@ var voices = [],
     filterFreq = 3000;
 
 // -------- filter and global routing ----------
-filter = context.createBiquadFilter();
+var filter = context.createBiquadFilter();
 filter.type = filterType;
 filter.frequency.value = filterFreq;
 
@@ -39,15 +37,14 @@ function stopVoice(n) {
     voices[n].stop();
 }
 
-
 // ---------- Voice class ----------------
-function Voice(mixAmp) {
+function Voice() {
     this.osc = context.createOscillator();
     this.oscAmp = context.createGain();
     this.oscAmp.gain.value = 0.0;
 
     // envelope settings
-    let settings = {
+    var settings = {
         attackTime: ampEnvAttack,
         decayTime: ampEnvDecay,
         sustainLevel: ampEnvSustain,
@@ -63,7 +60,7 @@ function Voice(mixAmp) {
     this.play = function(cents) {
         this.osc.type = waveform;
         this.osc.frequency.value = baseFreq * Math.pow(2,(cents/1200));
-        console.log("cents: " + cents + ", freq: " + this.osc.frequency.value);
+        // console.log('cents: ' + cents + ', freq: ' + this.osc.frequency.value);
 
         this.ampEnv.start(context.currentTime);
         this.osc.start(context.CurrentTime);
@@ -77,7 +74,6 @@ function Voice(mixAmp) {
     };
 }
 
-// ---------- Controls --------------
 function setWaveform(wv) {
     waveform = wv;
 }
@@ -110,14 +106,13 @@ function setFilterFreq(filtFreq) {
     filter.frequency.value = filtFreq;
 }
 
-// ---------- Exports --------------
-exports.startVoice = startVoice;
-exports.stopVoice = stopVoice;
-exports.setWaveform = setWaveform;
-exports.setMixGain = setMixGain;
-exports.setAttack = setAttack;
-exports.setDecay = setDecay;
-exports.setSustain = setSustain;
-exports.setRelease = setRelease;
-exports.setBaseFreq = setBaseFreq;
-exports.setFilterFreq = setFilterFreq;
+export { startVoice,
+         stopVoice,
+         setWaveform,
+         setMixGain,
+         setAttack,
+         setDecay,
+         setSustain,
+         setRelease,
+         setBaseFreq,
+         setFilterFreq };

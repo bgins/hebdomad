@@ -8,13 +8,13 @@ The current version of hebdomad uses JavaScript and jQuery.
 ### Deploy
 Clone the repository then install the dependencies:
 ```
-$ bower install
-$ npm install
+bower install
+npm install
 ```
 
-Browserify it:
+Build it:
 ```
-$ browserify js/app.js -o js/bundle.js -d
+npm run build
 ```
 
 ### Run
