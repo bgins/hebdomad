@@ -7,7 +7,8 @@ var notes,
     gain = 5,
     timeout = false;
 
-$(document).ready(function() {
+// $(document).ready(function() {
+$(document).on('ready', function() {
     $(document).foundation();
     if ($(window).width() < 1210) {
         $('#screen-width-modal').foundation('open');
