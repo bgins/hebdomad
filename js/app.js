@@ -7,15 +7,12 @@ var notes,
     gain = 5,
     timeout = false;
 
-// $(document).ready(function() {
 $(document).on('ready', function() {
     $(document).foundation();
-    if ($(window).width() < 1210) {
+    if ($(window).width() < 1160) {
         $('#screen-width-modal').foundation('open');
-    } else if (((typeof InstallTrigger !== 'undefined') || (!!window.chrome && !!window.chrome.webstore))) {
-        $('#welcome-modal').foundation('open');
     } else {
-        $('#browser-type-modal').foundation('open');
+        $('#welcome-modal').foundation('open');
     }
     notes = [0,203.91,289.2097,493.1197,701.955,905.865,991.1647,1200];
     $('#sine').css('background-color','#03796f');

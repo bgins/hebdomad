@@ -3,12 +3,11 @@ Hebdomad is a retunable web audio instrument. It provides a quick web way to exp
 
 Live demo: [http://brianginsburg.com/hebdomad/](http://brianginsburg.com/hebdomad/) 
 
-The current version of hebdomad uses JavaScript and jQuery. 
+Hebdomad is bundled with webpack and depends on jQuery and Foundation for sites.
 
-### Deploy
-Clone the repository then install the dependencies:
+### Setup
+Clone the repository and install the dependencies:
 ```
-bower install
 npm install
 ```
 

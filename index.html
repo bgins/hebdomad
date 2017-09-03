@@ -527,29 +527,23 @@
 
       <!-- modals -->
       <div class="reveal" id="screen-width-modal" data-reveal>
-        <h3>Please use a larger screen</h3>
-        <p>Hebodmad works best on screens larger than 1280x800 and will not work at all on mobile devices.</p>
-      </div>
-
-      <div class="reveal" id="browser-type-modal" data-reveal>
-        <h3>Please use Firefox or Chrome</h3>
-        <p>Hebodmad uses the Web Audio API which is only supported in Firefox and Chrome.</p>
+        <h3>Welcome to Hebodmad</h3>
+        <p>Hebodmad does not work well on smaller screens or mobile devices, but it may work better here someday.</p>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
 
       <div class="reveal" id="welcome-modal" data-reveal>
           <h3>Welcome to Hebdomad</h3>
         <p>Play Hebdomad on the home row of your keyboard using <kbd>asdf</kbd> and <kbd>jkl;</kbd> for notes, and <kbd>g</kbd> and <kbd>h</kbd> to control the volume. See the guide for more information.</p>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
     </div>
 
     <!-- scripts -->
-    <script>
-     var is_explorer = (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0);
-     var is_safari = (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1);
-     if (is_safari || is_explorer) {
-        alert('Hebodmad uses the Web Audio API which is only supported in Firefox and Chrome.');
-     }
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/what-input/4.3.1/what-input.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
