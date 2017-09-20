@@ -8,7 +8,7 @@ module.exports = {
     library: "audio"
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
